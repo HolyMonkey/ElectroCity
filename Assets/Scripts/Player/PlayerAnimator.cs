@@ -17,12 +17,10 @@ public class PlayerAnimator : MonoBehaviour
     public void SetIdle()
     {
         _animator.SetTrigger(Idle);
-        //_animator.SetBool(Idle, true);
     }
 
     public void SetRun()
     {
         _animator.SetTrigger(Running);
-        //_animator.SetBool(Running, true);
     }
 }
