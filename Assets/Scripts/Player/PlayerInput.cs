@@ -13,16 +13,16 @@ public class PlayerInput : MonoBehaviour
         _animator = GetComponent<PlayerAnimator>();
     }
 
-    private void Update()
-    {
-        if (Input.GetMouseButton(0))
-        {
-            _playerMover.Move();
-            _animator.SetRun();
-        }
-        else
-        {
-            _animator.SetIdle();
-        }
-    }
+    //private void FixedUpdate()
+    //{
+    //    if (Input.GetMouseButton(0))
+    //    {
+    //        _playerMover.Move();
+    //        _animator.SetRun();
+    //    }
+    //    else
+    //    {
+    //        _animator.SetIdle();
+    //    }
+    //}
 }

@@ -4,30 +4,56 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private float _moveSpeed;
-    [SerializeField] private float _rotationSpeed;
+    [SerializeField] private FloatingJoystick _joystick;
+    [SerializeField] private float _speed;
 
-    private float _yRotation;
-    private Rigidbody _rigidbody;
-    private Vector3 _targetDirection;
+    private Rigidbody _rigidBody;
+    private PlayerAnimator _animator;
+    private float _threshold = 0.01f;
+    private const int LeftMouseButton = 0;
 
-    private const string MouseX = "Mouse X";
+    private const string Idle = "Idle";
+    private const string Running = "Running";
 
     private void Awake()
     {
-        _rigidbody = GetComponent<Rigidbody>();   
+        _rigidBody = GetComponent<Rigidbody>();
+        _animator = GetComponent<PlayerAnimator>();
     }
 
-    public void Move()
+    private void FixedUpdate()
     {
-        _targetDirection = transform.position + (_moveSpeed * Time.deltaTime * transform.forward);
-        _rigidbody.MovePosition(_targetDirection);
-        Rotate();
+        Vector3 direcationForward = Camera.main.transform.forward * _joystick.Vertical;
+
+        Vector3 directioRight = Camera.main.transform.right * _joystick.Horizontal;
+
+        Vector3 direction = (direcationForward + directioRight).normalized;
+
+        direction.y = 0;
+
+        if (Input.GetMouseButton(LeftMouseButton) && direction.magnitude > _threshold)
+        {
+            Move(direction, _speed);
+            Rotate(direction);
+            _animator.ChangeState(Running);
+        }
+        else
+        {
+            _animator.ChangeState(Idle);
+        }
     }
 
-    private void Rotate()
+    public void Move(Vector3 direction, float speed)
     {
-        _yRotation += Input.GetAxis(MouseX) * _rotationSpeed;
-        transform.rotation = Quaternion.Euler(0, _yRotation, 0);
+        _rigidBody.MovePosition(transform.position + direction.normalized * speed * Time.deltaTime);
+    }
+
+    private void Rotate(Vector3 direction)
+    {
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        lookRotation.x = 0;
+        lookRotation.z = 0;
+
+        transform.rotation = lookRotation;
     }
 }

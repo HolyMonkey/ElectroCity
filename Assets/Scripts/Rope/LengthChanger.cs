@@ -18,5 +18,6 @@ public class LengthChanger : MonoBehaviour
         {
             _cursor.ChangeLength(_rope.restLength + _speed * Time.deltaTime);
         }
+        
     }
 }

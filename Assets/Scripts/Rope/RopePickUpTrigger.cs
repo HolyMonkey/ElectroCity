@@ -9,7 +9,7 @@ public class RopePickUpTrigger : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            _attachment.target = player.transform;
+            _attachment.target = player.RopePoint.transform;
         }
     }
 }

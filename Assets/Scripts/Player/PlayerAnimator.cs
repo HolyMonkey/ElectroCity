@@ -5,22 +5,19 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     private Animator _animator;
-
-    private const string Idle = "Idle";
-    private const string Running = "Running";
+    private string _currentState;
 
     private void Awake()
     {
         _animator = GetComponent<Animator>();
     }
 
-    public void SetIdle()
+    public void ChangeState(string newState)
     {
-        _animator.SetTrigger(Idle);
-    }
+        if (_currentState == newState)
+            return;
 
-    public void SetRun()
-    {
-        _animator.SetTrigger(Running);
+        _animator.Play(newState);
+        _currentState = newState;
     }
 }
