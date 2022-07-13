@@ -12,7 +12,7 @@ public class PlayerAnimator : MonoBehaviour
         _animator = GetComponent<Animator>();
     }
 
-    public void ChangeState(string newState)
+    public void TryChangeStateTo(string newState)
     {
         if (_currentState == newState)
             return;

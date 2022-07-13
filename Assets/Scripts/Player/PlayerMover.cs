@@ -1,10 +1,11 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
+[RequireComponent(typeof(Animator))]
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private DynamicJoystick _joystick;
+    [SerializeField] private FloatingJoystick _joystick;
     [SerializeField] private float _speed;
 
     private Rigidbody _rigidBody;
@@ -35,11 +36,11 @@ public class PlayerMover : MonoBehaviour
         {
             Move(direction, _speed);
             Rotate(direction);
-            _animator.ChangeState(Running);
+            _animator.TryChangeStateTo(Running);
         }
         else
         {
-            _animator.ChangeState(Idle);
+            _animator.TryChangeStateTo(Idle);
         }
     }
 
