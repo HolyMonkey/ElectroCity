@@ -37,11 +37,6 @@ public class Teams : MonoBehaviour
             totalPercent += team.Percent;
         }
 
-        if (totalPercent != 100)
-        {
-            _teams[_teams.Length-1].AddPoints(100 -totalPercent);
-        }
-
         _multiColorSlider.Colorize(_teams);
     }
 

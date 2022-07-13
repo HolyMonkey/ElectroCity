@@ -19,19 +19,24 @@ public class MultiColorSlider : MonoBehaviour
         _colors = _sprite.texture.GetPixels32();
         _tempSprite.texture.SetPixels32(_colors, 0);
         _image.sprite = _tempSprite;
-        _image.type = Image.Type.Filled;
-        _image.fillMethod = Image.FillMethod.Horizontal;
     }
 
     public void Colorize(Team[] teams)
     {
         int lastStop = 0;
+        int totalPercent = 0;
+
         foreach (var team in teams)
         {
-            ColorRect(team.Color, _colors, team.Percent, GetXPixelIndex(lastStop));
+            totalPercent += team.Percent;
+            int teamPercent = team.Percent;
+
+            if (totalPercent > 100)
+                teamPercent -= totalPercent - 100;
+
+            ColorRect(team.Color, _colors, teamPercent, GetXPixelIndex(lastStop));
             lastStop += team.Percent;
         }
-
     }
 
     private void ColorRect(Color color, Color32[] colors, int percent, int startPoint)
@@ -44,7 +49,6 @@ public class MultiColorSlider : MonoBehaviour
             for (int i = 0; i < colors.Length; i += (int)_image.sprite.rect.width)
             {
                 index = i + j;
-                index = Mathf.Clamp(index, 0, colors.Length-1);
 
                 colors[index] = color;
             }
