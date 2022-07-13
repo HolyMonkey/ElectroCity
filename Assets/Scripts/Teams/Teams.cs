@@ -18,23 +18,10 @@ public class Teams : MonoBehaviour
 
     public void ReCalculate()
     {
-        int totalAmount = 0;
-
         foreach (var team in _teams)
         {
             int amount = Random.Range(0, 26);
-            totalAmount += amount;
-
             team.SetPoint(amount);
-
-        }
-
-        int totalPercent = 0;
-
-        foreach (var team in _teams)
-        {
-            team.SetTotalAmount(totalAmount);
-            totalPercent += team.Percent;
         }
 
         _multiColorSlider.Colorize(_teams);

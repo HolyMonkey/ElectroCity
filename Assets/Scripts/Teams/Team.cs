@@ -11,8 +11,7 @@ public class Team : MonoBehaviour
     private int _totalAmount;
 
     public bool IsLost { get; private set; }
-    public float Points { get; private set; }
-    public int Percent => Mathf.CeilToInt(Points / _totalAmount * 100);
+    public int Points { get; private set; }
 
     public TeamId TeamId => _teamId;
     public Color32 Color => _color;
@@ -38,7 +37,7 @@ public class Team : MonoBehaviour
     public void ChangePoints(int amount)
     {
         Points += amount;
-        Points = Mathf.Clamp(Points, 0, 500f);
+        Points = (int)Mathf.Clamp(Points, 0, 500f);
     }
 
     public void SetTotalAmount(int totalAmount)
