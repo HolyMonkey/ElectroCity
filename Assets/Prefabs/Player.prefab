@@ -374,6 +374,8 @@ GameObject:
   - component: {fileID: 1880495861290320885}
   - component: {fileID: 9013115142660883916}
   - component: {fileID: 4263399149581529398}
+  - component: {fileID: 1377390413}
+  - component: {fileID: 1377390414}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -496,6 +498,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb9ce75b5ac2724c9353e9834f3152f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1377390413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301044974017076914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  kinematicForParticles: 1
+--- !u!114 &1377390414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301044974017076914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: -65535
+  m_SourceCollider: {fileID: 6574403992984387163}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &301044974017076916
 GameObject:
   m_ObjectHideFlags: 0
