@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class SetRopeTrigger : MonoBehaviour
 {
+    [SerializeField] private RopePickUpTrigger _pickUpTrigger;
     [SerializeField] private Transform _ropeEnd;
     [SerializeField] private float _delay;
 
@@ -20,5 +21,11 @@ public class SetRopeTrigger : MonoBehaviour
 
         _ropeEnd.SetParent(transform);
         _ropeEnd.localPosition = Vector3.zero;
+        _ropeEnd.SetParent(null);
+
+        yield return new WaitForSeconds(1f);
+
+        _pickUpTrigger.gameObject.SetActive(true);
+        gameObject.SetActive(false);
     }
 }
