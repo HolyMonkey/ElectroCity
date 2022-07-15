@@ -11,11 +11,11 @@ public class RopeAttach : MonoBehaviour
         if (other.TryGetComponent(out Player player))
         {
             _ropeEnd.transform.SetParent(player.RopePoint.transform);
-            StartCoroutine(Movint());
+            StartCoroutine(Attaching());
         }
     }
 
-    private IEnumerator Movint()
+    private IEnumerator Attaching()
     {
         while(_ropeEnd.transform.localPosition != Vector3.zero)
         {
