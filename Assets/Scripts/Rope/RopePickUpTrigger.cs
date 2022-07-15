@@ -3,16 +3,20 @@ using UnityEngine;
 
 public class RopePickUpTrigger : MonoBehaviour
 {
-    [SerializeField] private SetRopeTrigger _setTrigger;
-    [SerializeField] private Transform _ropeEnd;
+    [SerializeField] private RopeSpawner _ropeSpawner;
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
+
+    private bool _isPickUped;
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out Player player))
         {
-            StartCoroutine(Waiting(_delay, player));
+            if (!player.HasRope && !_isPickUped)
+            {
+                StartCoroutine(Waiting(_delay, player));
+            }
         }
     }
 
@@ -20,20 +24,12 @@ public class RopePickUpTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        _ropeEnd.SetParent(player.RopePoint.transform);
-        _ropeEnd.localPosition = Vector3.zero;
+        _ropeSpawner.Spawn(player);
+        _isPickUped = true;
 
-        if(_building != null)
-        {
-            _building.StopIncreasingPoints();
-        }
-
-        yield return new WaitForSeconds(1f);
-
-        if(_setTrigger != null)
-        {
-            _setTrigger.gameObject.SetActive(true);
-            gameObject.SetActive(false);
-        }
+        //if (_building != null)
+        //{
+        //    _building.StopIncreasingPoints();
+        //}
     }
 }
