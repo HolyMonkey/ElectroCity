@@ -177,7 +177,7 @@ MonoBehaviour:
   tearResistanceMultiplier: 1000
   tearRate: 1
   _distanceConstraintsEnabled: 1
-  _stretchingScale: 2
+  _stretchingScale: 0.5
   _stretchCompliance: 0
   _maxCompression: 0
   _bendConstraintsEnabled: 1
@@ -300,7 +300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   uvAnchor: 0
-  uvScale: {x: 1, y: 1}
+  uvScale: {x: 1, y: 10}
   normalizeV: 1
   thicknessScale: 0.8
 --- !u!114 &1693616581

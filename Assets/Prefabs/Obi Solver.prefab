@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   simulateWhenInvisible: 1
-  m_Backend: 1
+  m_Backend: 0
   parameters:
     mode: 0
     interpolation: 0
@@ -213,6 +213,10 @@ PrefabInstance:
     - target: {fileID: 1334104080521722192, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3795404155822418595, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
+      propertyPath: uvScale.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3795404155822418597, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
       propertyPath: m_Mesh
