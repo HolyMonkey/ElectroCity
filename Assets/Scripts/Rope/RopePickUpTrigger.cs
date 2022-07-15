@@ -5,6 +5,7 @@ public class RopePickUpTrigger : MonoBehaviour
 {
     [SerializeField] private SetRopeTrigger _setTrigger;
     [SerializeField] private Transform _ropeEnd;
+    [SerializeField] private Building _building;
     [SerializeField] private float _delay;
 
     private void OnTriggerEnter(Collider other)
@@ -21,6 +22,11 @@ public class RopePickUpTrigger : MonoBehaviour
 
         _ropeEnd.SetParent(player.RopePoint.transform);
         _ropeEnd.localPosition = Vector3.zero;
+
+        if(_building != null)
+        {
+            _building.StopIncreasingPoints();
+        }
 
         yield return new WaitForSeconds(1f);
 
