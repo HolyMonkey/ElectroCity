@@ -5,9 +5,6 @@ public class RopeSpawner : MonoBehaviour
 {
     [SerializeField] private Rope _ropePrefab;
     [SerializeField] private ObiSolver _solver;
-    [SerializeField] private ObiParticleAttachment _start;
-    [SerializeField] private ObiParticleAttachment _end;
-    [SerializeField] private Transform _endPoint;
     [SerializeField] private Transform _startPoint;
 
     private void OnTriggerEnter(Collider other)
@@ -15,14 +12,14 @@ public class RopeSpawner : MonoBehaviour
         if(other.TryGetComponent(out Player player))
         {
             var rope = Instantiate(_ropePrefab, _solver.transform);
+            //_solver.transform.position = _startPoint.transform.position;
+            _solver.transform.position = player.transform.position;
 
-            //_end.target = _endPoint;
-            //_endPoint.SetParent(player.RopePoint.transform);
-            //_endPoint.localPosition = Vector3.zero;
-            _start.target = _startPoint;
+            rope.StartPoint.SetParent(_startPoint);
+            rope.StartPoint.localPosition = Vector3.zero;
 
-            rope.endPoint.SetParent(player.RopePoint);
-            rope.endPoint.localPosition = Vector3.zero;
+            rope.EndPoint.SetParent(player.RopePoint);
+            rope.EndPoint.localPosition = Vector3.zero;
         }
     }
 }

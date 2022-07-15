@@ -28,7 +28,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6350540789875482656}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6350540789875482657
 GameObject:
@@ -46,8 +46,6 @@ GameObject:
   - component: {fileID: 6350540789875482663}
   - component: {fileID: 6350540789875482666}
   - component: {fileID: 6350540789875482665}
-  - component: {fileID: 6350540789875482671}
-  - component: {fileID: 6350540789875482664}
   - component: {fileID: 6350540789875482670}
   - component: {fileID: 6350540789875482669}
   - component: {fileID: 1897645534295809467}
@@ -69,6 +67,7 @@ Transform:
   m_LocalPosition: {x: 1.733, y: 1.7, z: 7.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1820003700439355323}
   - {fileID: 3540322125424346963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -447,7 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actor: {fileID: 6350540789875482667}
-  m_Target: {fileID: 0}
+  m_Target: {fileID: 1820003700439355323}
   m_ParticleGroup: {fileID: 3077219373937436500, guid: f97922a7d23531343aca0a30872faf09, type: 2}
   m_AttachmentType: 0
   m_ConstrainOrientation: 0
@@ -472,35 +471,6 @@ MonoBehaviour:
   m_ConstrainOrientation: 0
   m_Compliance: 0
   m_BreakThreshold: Infinity
---- !u!135 &6350540789875482671
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6350540789875482657}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.7
-  m_Center: {x: 1.94, y: -1.58, z: -0.000000011175871}
---- !u!114 &6350540789875482664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6350540789875482657}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57bd46ff778b58849a889e5e64626aaf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _setTrigger: {fileID: 0}
-  _ropeEnd: {fileID: 0}
-  _building: {fileID: 0}
-  _delay: 0.5
 --- !u!114 &6350540789875482670
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,4 +512,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _obiRope: {fileID: 6350540789875482667}
+  _startPoint: {fileID: 1820003700439355323}
   _endPoint: {fileID: 3540322125424346963}
+--- !u!1 &7080349237003532727
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1820003700439355323}
+  m_Layer: 0
+  m_Name: StartRope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1820003700439355323
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080349237003532727}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.073, y: -0.376, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6350540789875482656}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -12,6 +12,6 @@ public class LengthCounter : MonoBehaviour
 
     private void Update()
     {
-        print(_rope.CalculateLength());
+        //print(_rope.CalculateLength());
     }
 }
