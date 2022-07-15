@@ -1,16 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Obi;
 
 public class RopeAttach : MonoBehaviour
 {
     [SerializeField] private Transform _ropeEnd;
+    [SerializeField] private Rope _rope;
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
         {
             _ropeEnd.transform.SetParent(player.RopePoint.transform);
+            player.TakeRope(_rope);
             StartCoroutine(Attaching());
         }
     }
