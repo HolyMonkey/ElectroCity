@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4690611908873774420
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3540322125424346963}
+  m_Layer: 0
+  m_Name: EndRope
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3540322125424346963
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690611908873774420}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0658, y: -0.552, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6350540789875482656}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6350540789875482657
 GameObject:
   m_ObjectHideFlags: 0
@@ -20,6 +50,7 @@ GameObject:
   - component: {fileID: 6350540789875482664}
   - component: {fileID: 6350540789875482670}
   - component: {fileID: 6350540789875482669}
+  - component: {fileID: 1897645534295809467}
   m_Layer: 0
   m_Name: Obi Rope
   m_TagString: Untagged
@@ -34,10 +65,11 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6350540789875482657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 1.733, y: 1.7, z: 7.036}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 3540322125424346963}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56,7 +88,7 @@ MonoBehaviour:
   m_CollisionMaterial: {fileID: 0}
   m_SurfaceCollisions: 0
   m_SelfCollisions: 0
-  restLength_: 4.694431
+  restLength_: 4.6946516
   elements:
   - particle1: 0
     particle2: 1
@@ -195,112 +227,112 @@ MonoBehaviour:
     tearResistance: 1
   - particle1: 27
     particle2: 28
-    restLength: 0.098468885
+    restLength: 0.09847351
     constraintForce: 0
     tearResistance: 1
   - particle1: 28
     particle2: 29
-    restLength: 0.0991318
+    restLength: 0.09917121
     constraintForce: 0
     tearResistance: 1
   - particle1: 29
     particle2: 30
-    restLength: 0.099397205
+    restLength: 0.099303275
     constraintForce: 0
     tearResistance: 1
   - particle1: 30
     particle2: 31
-    restLength: 0.09850242
+    restLength: 0.09851219
     constraintForce: 0
     tearResistance: 1
   - particle1: 31
     particle2: 32
-    restLength: 0.098830245
+    restLength: 0.09887576
     constraintForce: 0
     tearResistance: 1
   - particle1: 32
     particle2: 33
-    restLength: 0.099179044
+    restLength: 0.09924383
     constraintForce: 0
     tearResistance: 1
   - particle1: 33
     particle2: 34
-    restLength: 0.09939128
+    restLength: 0.09944982
     constraintForce: 0
     tearResistance: 1
   - particle1: 34
     particle2: 35
-    restLength: 0.09909156
+    restLength: 0.09897949
     constraintForce: 0
     tearResistance: 1
   - particle1: 35
     particle2: 36
-    restLength: 0.09900335
+    restLength: 0.09906981
     constraintForce: 0
     tearResistance: 1
   - particle1: 36
     particle2: 37
-    restLength: 0.099206
+    restLength: 0.09922689
     constraintForce: 0
     tearResistance: 1
   - particle1: 37
     particle2: 38
-    restLength: 0.09905208
+    restLength: 0.09903451
     constraintForce: 0
     tearResistance: 1
   - particle1: 38
     particle2: 39
-    restLength: 0.09917202
+    restLength: 0.099258125
     constraintForce: 0
     tearResistance: 1
   - particle1: 39
     particle2: 40
-    restLength: 0.09928832
+    restLength: 0.0992486
     constraintForce: 0
     tearResistance: 1
   - particle1: 40
     particle2: 41
-    restLength: 0.09905015
+    restLength: 0.098897055
     constraintForce: 0
     tearResistance: 1
   - particle1: 41
     particle2: 42
-    restLength: 0.09857146
+    restLength: 0.0990146
     constraintForce: 0
     tearResistance: 1
   - particle1: 42
     particle2: 43
-    restLength: 0.09958064
+    restLength: 0.09955978
     constraintForce: 0
     tearResistance: 1
   - particle1: 43
     particle2: 44
-    restLength: 0.099465474
+    restLength: 0.09936105
     constraintForce: 0
     tearResistance: 1
   - particle1: 44
     particle2: 45
-    restLength: 0.09931109
+    restLength: 0.09918259
     constraintForce: 0
     tearResistance: 1
   - particle1: 45
     particle2: 46
-    restLength: 0.099242896
+    restLength: 0.099195816
     constraintForce: 0
     tearResistance: 1
   - particle1: 46
     particle2: 47
-    restLength: 0.099113815
+    restLength: 0.09938643
     constraintForce: 0
     tearResistance: 1
   - particle1: 47
     particle2: 48
-    restLength: 0.0976373
+    restLength: 0.09829497
     constraintForce: 0
     tearResistance: 1
   - particle1: 48
     particle2: 49
-    restLength: 0.09827635
+    restLength: 0.097443394
     constraintForce: 0
     tearResistance: 1
   - particle1: 49
@@ -434,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Actor: {fileID: 6350540789875482667}
-  m_Target: {fileID: 0}
+  m_Target: {fileID: 3540322125424346963}
   m_ParticleGroup: {fileID: -9028375901391347955, guid: f97922a7d23531343aca0a30872faf09, type: 2}
   m_AttachmentType: 0
   m_ConstrainOrientation: 0
@@ -497,3 +529,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47f7fcc1ae8e63f4e8200025624bdac0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1897645534295809467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6350540789875482657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deaef67b24957744097b165133aacd0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _obiRope: {fileID: 6350540789875482667}
+  _endPoint: {fileID: 3540322125424346963}

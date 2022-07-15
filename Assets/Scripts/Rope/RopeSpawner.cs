@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class RopeSpawner : MonoBehaviour
 {
-    [SerializeField] private ObiRope _ropePrefab;
+    [SerializeField] private Rope _ropePrefab;
     [SerializeField] private ObiSolver _solver;
     [SerializeField] private ObiParticleAttachment _start;
     [SerializeField] private ObiParticleAttachment _end;
@@ -14,12 +14,15 @@ public class RopeSpawner : MonoBehaviour
     {
         if(other.TryGetComponent(out Player player))
         {
-            Instantiate(_ropePrefab, _solver.transform);
+            var rope = Instantiate(_ropePrefab, _solver.transform);
 
-            _end.target = _endPoint;
-            _endPoint.SetParent(player.RopePoint.transform);
-            _endPoint.localPosition = Vector3.zero;
+            //_end.target = _endPoint;
+            //_endPoint.SetParent(player.RopePoint.transform);
+            //_endPoint.localPosition = Vector3.zero;
             _start.target = _startPoint;
+
+            rope.endPoint.SetParent(player.RopePoint);
+            rope.endPoint.localPosition = Vector3.zero;
         }
     }
 }
