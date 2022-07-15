@@ -16,12 +16,12 @@ public class SetRopeTrigger : MonoBehaviour
         {
             if (player.HasRope && !_isSet)
             {
-                StartCoroutine(Waiting(_delay, player));
+                StartCoroutine(Attaching(_delay, player));
             }
         }
     }
 
-    private IEnumerator Waiting(float delay, Player player)
+    private IEnumerator Attaching(float delay, Player player)
     {
         yield return new WaitForSeconds(delay);
 

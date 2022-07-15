@@ -15,21 +15,16 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             if (!player.HasRope && !_isPickUped)
             {
-                StartCoroutine(Waiting(_delay, player));
+                StartCoroutine(Taking(_delay, player));
             }
         }
     }
 
-    private IEnumerator Waiting(float delay, Player player)
+    private IEnumerator Taking(float delay, Player player)
     {
         yield return new WaitForSeconds(delay);
 
         _ropeSpawner.Spawn(player);
         _isPickUped = true;
-
-        //if (_building != null)
-        //{
-        //    _building.StopIncreasingPoints();
-        //}
     }
 }
