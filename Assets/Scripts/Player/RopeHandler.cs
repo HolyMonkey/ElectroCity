@@ -1,6 +1,7 @@
 using UnityEngine;
 using Obi;
 using static Obi.ObiRope;
+using System;
 
 public class RopeHandler : MonoBehaviour
 {
@@ -15,11 +16,15 @@ public class RopeHandler : MonoBehaviour
 
     public bool HasRope => _hasRope;
 
+    public event Action RopeTaken;
+
     public void TakeRope(Rope rope)
     {
         _currentRope = rope;
         _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
+        RopeTaken?.Invoke();
+        Debug.Log("h");
     }
 
     public void PlaceRope(Transform setPoint)

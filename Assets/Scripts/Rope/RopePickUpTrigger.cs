@@ -9,7 +9,9 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private bool _isPickingUp;
 
+    public bool IsTaken { get; private set; }
     public bool IsCapturedByPlayer => _building.IsCapturedByPlayer;
+    public bool IsConnected => _building.IsConnected;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +29,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
         _ropeSpawner.Spawn(handler);
         _isPickingUp = false;
+        IsTaken = true;
     }
 
     private bool CanTake(Collider other, out RopeHandler handler)

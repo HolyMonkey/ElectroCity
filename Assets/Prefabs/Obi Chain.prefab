@@ -329,7 +329,7 @@ MonoBehaviour:
     constraintForce: 0
     tearResistance: 1
   m_RopeBlueprint: {fileID: 11400000, guid: 9b7a30b754796421d9e0b869d8eb345b, type: 2}
-  tearingEnabled: 1
+  tearingEnabled: 0
   tearResistanceMultiplier: 6000
   tearRate: 1
   _distanceConstraintsEnabled: 1

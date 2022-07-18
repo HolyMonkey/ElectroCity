@@ -63,7 +63,6 @@ public class Building : MonoBehaviour
         while(_isConnected)
         {
             AddPoint();
-            print(_points);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
     }
@@ -73,7 +72,6 @@ public class Building : MonoBehaviour
         while (_points > 0 && _isConnected)
         {
             TakeAwayPoint();
-            print(_points);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
 
