@@ -12,8 +12,8 @@ public class RopeAttach : MonoBehaviour
     {
         if (other.TryGetComponent(out Player player))
         {
-            _ropeEnd.transform.SetParent(player.RopePoint.transform);
-            player.TakeRope(_rope);
+            _ropeEnd.transform.SetParent(player.RopeHandler.RopePoint.transform);
+            player.RopeHandler.TakeRope(_rope);
             StartCoroutine(Attaching());
         }
     }

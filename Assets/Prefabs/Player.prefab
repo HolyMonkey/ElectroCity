@@ -373,6 +373,7 @@ GameObject:
   - component: {fileID: 4568207577321091137}
   - component: {fileID: 1880495861290320885}
   - component: {fileID: 4263399149581529398}
+  - component: {fileID: 230069515590018988}
   - component: {fileID: 1377390413}
   - component: {fileID: 1377390414}
   m_Layer: 0
@@ -443,7 +444,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
+  m_Radius: 0.20847994
   m_Height: 2.0137463
   m_Direction: 1
   m_Center: {x: 0, y: 0.93376327, z: 0}
@@ -459,7 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63bffd9ff1039d04da05b8b0a1e94d74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ropePoint: {fileID: 0}
+  _ropeHandler: {fileID: 230069515590018988}
 --- !u!114 &1880495861290320885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -486,6 +487,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dfb9ce75b5ac2724c9353e9834f3152f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &230069515590018988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301044974017076914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 237566b1ec4039a449ae963eb8c7f62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ropePoint: {fileID: 301044974017037042}
+  _currentRope: {fileID: 0}
+  _obiRigidbody: {fileID: 1377390413}
 --- !u!114 &1377390413
 MonoBehaviour:
   m_ObjectHideFlags: 0

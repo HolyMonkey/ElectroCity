@@ -13,7 +13,6 @@ public class Teams : MonoBehaviour
     {
         _multiColorSlider.CreateBlank();
         ReCalculate();
-
     }
 
     public void ReCalculate()
@@ -26,7 +25,6 @@ public class Teams : MonoBehaviour
             totalAmount += amount;
 
             team.SetPoint(amount);
-
         }
 
         int totalPercent = 0;

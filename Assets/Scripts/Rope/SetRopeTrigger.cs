@@ -12,7 +12,7 @@ public class SetRopeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player) && player.HasRope && !_isSet)
+        if(other.TryGetComponent(out Player player) && player.RopeHandler.HasRope && !_isSet)
         {
             StartCoroutine(Attaching(_delay, player));
         }
@@ -22,7 +22,7 @@ public class SetRopeTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        player.PlaceRope(_connectPoint);
+        player.RopeHandler.PlaceRope(_connectPoint);
         _building.IncreasePoints();
         _isSet = true;
     }

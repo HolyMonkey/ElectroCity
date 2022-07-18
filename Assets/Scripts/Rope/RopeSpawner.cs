@@ -15,18 +15,19 @@ public class RopeSpawner : MonoBehaviour
         var rope = Instantiate(_ropePrefab, _solver.transform);
 
         rope.StartPoint.SetParent(_startPoint);
-        rope.EndPoint.SetParent(player.RopePoint);
+        rope.EndPoint.SetParent(player.RopeHandler.RopePoint);
         
         StartCoroutine(Attaching(rope.StartPoint));
         StartCoroutine(Attaching(rope.EndPoint));
+        StartCoroutine(Delay(rope));
 
-        player.TakeRope(rope);
+        player.RopeHandler.TakeRope(rope);
     }
 
     private IEnumerator Attaching(Transform transform)
     {
         float elapsedTime = 0;
-        float time = 0.1f;
+        float time = 0.5f;
 
         while (elapsedTime <= time)
         {
@@ -35,6 +36,12 @@ public class RopeSpawner : MonoBehaviour
 
             yield return null;
         }
+    }
 
+    private IEnumerator Delay(Rope rope)
+    {
+        yield return new WaitForSeconds(1f);
+
+        rope.ObiRope.tearingEnabled = true;
     }
 }

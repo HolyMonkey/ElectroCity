@@ -11,7 +11,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player) && !player.HasRope && !_isPickUped)
+        if(other.TryGetComponent(out Player player) && !player.RopeHandler.HasRope && !_isPickUped)
         {
             StartCoroutine(Taking(_delay, player));
         }
