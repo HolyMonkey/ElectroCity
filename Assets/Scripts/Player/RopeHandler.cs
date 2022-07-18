@@ -1,5 +1,6 @@
 using UnityEngine;
 using Obi;
+using static Obi.ObiRope;
 
 public class RopeHandler : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class RopeHandler : MonoBehaviour
     public void TakeRope(Rope rope)
     {
         _currentRope = rope;
+        _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
     }
 
@@ -26,6 +28,13 @@ public class RopeHandler : MonoBehaviour
         _currentRope.EndPoint.SetParent(setPoint);
         _currentRope.EndPoint.localPosition = Vector3.zero;
         _currentRope.ObiRope.tearingEnabled = false;
+        _currentRope = null;
+        _hasRope = false;
+    }
+
+    private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
+    {
+        _currentRope.ObiRope.OnRopeTorn -= BreakRope;
         _currentRope = null;
         _hasRope = false;
     }
