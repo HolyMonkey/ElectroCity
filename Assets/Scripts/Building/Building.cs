@@ -7,11 +7,14 @@ public class Building : MonoBehaviour
     [SerializeField, Range(0, 100)] private int _points;
     [SerializeField] private bool _isNeutral;
     [SerializeField] private bool _isCapturedByEnemy;
+    [SerializeField] private bool _isCaptured;
 
-    private bool _isConnected;
     private readonly int _maxPoints = 100;
+    private bool _isConnected;
     private Coroutine _increase;
     private Coroutine _decrease;
+
+    public bool IsCaptured => _isCaptured;
 
     public UnityAction<int> PointsChanged;
 
@@ -27,12 +30,10 @@ public class Building : MonoBehaviour
         if (_isNeutral || _isCapturedByEnemy)
         {
             _decrease = StartCoroutine(Decreasing());
-
-            if(_points == 0)
-            {
-                StopCoroutine(_decrease);
-                _increase = StartCoroutine(Increasing());
-            }
+        }
+        else
+        {
+            _increase = StartCoroutine(Increasing());
         }
     }
 
@@ -57,11 +58,14 @@ public class Building : MonoBehaviour
 
     private IEnumerator Increasing()
     {
-        while(_points <= _maxPoints && _isConnected)
+        while(_points < _maxPoints && _isConnected)
         {
             AddPoint();
+            print(_points);
             yield return new WaitForSeconds(0.2f);
         }
+
+        _isCaptured = true;
     }
 
     private IEnumerator Decreasing()
@@ -69,7 +73,10 @@ public class Building : MonoBehaviour
         while (_points > 0 && _isConnected)
         {
             TakeAwayPoint();
+            print(_points);
             yield return new WaitForSeconds(0.2f);
         }
+
+        _increase = StartCoroutine(Increasing());
     }
 }
