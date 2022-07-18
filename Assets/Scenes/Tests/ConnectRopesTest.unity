@@ -1685,7 +1685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8317446292828288987}
+  _player: {fileID: 0}
   _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _solver: {fileID: 182597378}
   _startPoint: {fileID: 1513011528}
@@ -1911,6 +1911,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
+  _isNeutral: 1
+  _isCapturedByEnemy: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2052,7 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8317446292828288987}
+  _player: {fileID: 0}
   _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _solver: {fileID: 182597378}
   _startPoint: {fileID: 1010047460}
@@ -2438,7 +2440,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2538,7 +2540,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2777,7 +2779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8317446292828288987}
+  _player: {fileID: 0}
   _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _solver: {fileID: 182597378}
   _startPoint: {fileID: 2038522196}
@@ -3011,7 +3013,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8317446292828288987}
+  _player: {fileID: 0}
   _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _solver: {fileID: 182597378}
   _startPoint: {fileID: 234669566}
@@ -4159,7 +4161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 8317446292828288987}
+  _player: {fileID: 0}
   _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _solver: {fileID: 182597378}
   _startPoint: {fileID: 271820434}
@@ -4418,6 +4420,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
+  _isNeutral: 0
+  _isCapturedByEnemy: 0
 --- !u!114 &1791893356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4723,6 +4727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
+  _isNeutral: 0
+  _isCapturedByEnemy: 0
 --- !u!114 &1907412406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5743,14 +5749,3 @@ PrefabInstance:
       objectReference: {fileID: 1906813278}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
---- !u!114 &8317446292828288987 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4568207577321091137, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
-  m_PrefabInstance: {fileID: 8317446292828288986}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63bffd9ff1039d04da05b8b0a1e94d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

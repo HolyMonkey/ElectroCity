@@ -6,7 +6,6 @@ public class RopeHandler : MonoBehaviour
 {
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private Rope _currentRope;
-    [SerializeField] private ObiRigidbody _obiRigidbody;
 
     private bool _hasRope;
 

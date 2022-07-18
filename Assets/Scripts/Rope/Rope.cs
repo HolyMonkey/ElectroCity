@@ -47,6 +47,7 @@ public class Rope : MonoBehaviour
         {
             elaspedTime += Time.deltaTime;
             transform.Translate(_movingDownSpeed * Time.deltaTime * Vector3.down);
+           
             yield return null;
         }
 

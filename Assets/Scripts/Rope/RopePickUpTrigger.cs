@@ -11,19 +11,19 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player) && !player.RopeHandler.HasRope && !_isPickingUp)
+        if(other.TryGetComponent(out RopeHandler handler) && !handler.HasRope && !_isPickingUp)
         {
-            StartCoroutine(Taking(_delay, player));
+            StartCoroutine(Taking(_delay, handler));
         }
     }
 
-    private IEnumerator Taking(float delay, Player player)
+    private IEnumerator Taking(float delay, RopeHandler handler)
     {
         _isPickingUp = true;
 
         yield return new WaitForSeconds(delay);
 
-        _ropeSpawner.Spawn(player);
+        _ropeSpawner.Spawn(handler);
         _isPickingUp = false;
     }
 }

@@ -9,19 +9,19 @@ public class RopeSpawner : MonoBehaviour
     [SerializeField] private ObiSolver _solver;
     [SerializeField] private Transform _startPoint;
 
-    public void Spawn(Player player)
+    public void Spawn(RopeHandler handler)
     {
         _solver.transform.position = _startPoint.transform.position;
         var rope = Instantiate(_ropePrefab, _solver.transform);
 
         rope.StartPoint.SetParent(_startPoint);
-        rope.EndPoint.SetParent(player.RopeHandler.RopePoint);
+        rope.EndPoint.SetParent(handler.RopePoint);
         
         StartCoroutine(Attaching(rope.StartPoint));
         StartCoroutine(Attaching(rope.EndPoint));
         StartCoroutine(Delay(rope));
 
-        player.RopeHandler.TakeRope(rope);
+        handler.TakeRope(rope);
     }
 
     private IEnumerator Attaching(Transform transform)
