@@ -8,6 +8,10 @@ public class Rope : MonoBehaviour
     [SerializeField] private ObiRope _obiRope;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
+    [SerializeField] private ObiParticleAttachment _endAttachment;
+
+    private readonly float _movingDownSpeed = 0.5f;
+    private readonly float _movingDownTime = 2f;
 
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
@@ -30,7 +34,21 @@ public class Rope : MonoBehaviour
 
     private IEnumerator Disappearing()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
+
+        _endAttachment.enabled = false;
+
+        yield return new WaitForSeconds(2f);
+
+        transform.SetParent(null);
+        float elaspedTime = 0;
+
+        while (elaspedTime <= _movingDownTime)
+        {
+            elaspedTime += Time.deltaTime;
+            transform.Translate(_movingDownSpeed * Time.deltaTime * Vector3.down);
+            yield return null;
+        }
 
         Destroy(gameObject);
     }

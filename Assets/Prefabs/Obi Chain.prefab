@@ -474,6 +474,7 @@ MonoBehaviour:
   _obiRope: {fileID: 1334104080521722184}
   _startPoint: {fileID: 7950348544694856538}
   _endPoint: {fileID: 3795404155836949637}
+  _endAttachment: {fileID: 1334104080521722194}
 --- !u!114 &7201495463882941226
 MonoBehaviour:
   m_ObjectHideFlags: 0
