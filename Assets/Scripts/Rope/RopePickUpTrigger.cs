@@ -7,11 +7,11 @@ public class RopePickUpTrigger : MonoBehaviour
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
 
-    private bool _isPickUped;
+    private bool _isPickingUp;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out Player player) && !player.RopeHandler.HasRope && !_isPickUped)
+        if(other.TryGetComponent(out Player player) && !player.RopeHandler.HasRope && !_isPickingUp)
         {
             StartCoroutine(Taking(_delay, player));
         }
@@ -19,9 +19,11 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private IEnumerator Taking(float delay, Player player)
     {
+        _isPickingUp = true;
+
         yield return new WaitForSeconds(delay);
 
         _ropeSpawner.Spawn(player);
-        _isPickUped = true;
+        _isPickingUp = false;
     }
 }
