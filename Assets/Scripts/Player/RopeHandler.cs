@@ -18,13 +18,14 @@ public class RopeHandler : MonoBehaviour
 
     public event Action RopeTaken;
 
+    public event Action RopeBreaked;
+
     public void TakeRope(Rope rope)
     {
         _currentRope = rope;
         _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
         RopeTaken?.Invoke();
-        Debug.Log("h");
     }
 
     public void PlaceRope(Transform setPoint)
@@ -41,5 +42,6 @@ public class RopeHandler : MonoBehaviour
         _currentRope.ObiRope.OnRopeTorn -= BreakRope;
         _currentRope = null;
         _hasRope = false;
+        RopeBreaked?.Invoke();
     }
 }
