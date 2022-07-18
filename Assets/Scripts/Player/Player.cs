@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
         _hasRope = true;
     }
 
-    public void SetRope(Transform setPoint)
+    public void PlaceRope(Transform setPoint)
     {
         _currentRope.EndPoint.SetParent(setPoint);
         _currentRope.EndPoint.localPosition = Vector3.zero;

@@ -30,12 +30,13 @@ public class Building : MonoBehaviour
     private void AddPoint()
     {
         _points++;
+        _points = Mathf.Clamp(_points, 0, _maxPoints);
         PointsChanged?.Invoke(_points);
     }
 
     private IEnumerator Increasing()
     {
-        while(_points != _maxPoints && _isConnected)
+        while(_points <= _maxPoints && _isConnected)
         {
             AddPoint();
             yield return new WaitForSeconds(0.2f);

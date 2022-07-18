@@ -17,21 +17,21 @@ public class RopeSpawner : MonoBehaviour
         rope.StartPoint.SetParent(_startPoint);
         rope.EndPoint.SetParent(player.RopePoint);
         
-        StartCoroutine(Attaching(rope));
+        StartCoroutine(Attaching(rope.StartPoint));
+        StartCoroutine(Attaching(rope.EndPoint));
 
         player.TakeRope(rope);
     }
 
-    private IEnumerator Attaching(Rope rope)
+    private IEnumerator Attaching(Transform transform)
     {
-        float runningTime = 0;
-        float moveTime = 0.1f;
+        float elapsedTime = 0;
+        float time = 0.1f;
 
-        while (rope.StartPoint.localPosition != Vector3.zero && rope.EndPoint.localPosition != Vector3.zero)
+        while (elapsedTime <= time)
         {
-            runningTime += Time.deltaTime;
-            rope.StartPoint.localPosition = Vector3.Lerp(rope.StartPoint.localPosition, Vector3.zero, runningTime/moveTime);
-            rope.EndPoint.localPosition = Vector3.Lerp(rope.EndPoint.localPosition, Vector3.zero, runningTime / moveTime);
+            elapsedTime += Time.deltaTime;
+            transform.localPosition = Vector3.Lerp(transform.localPosition, Vector3.zero, elapsedTime/time);
 
             yield return null;
         }
