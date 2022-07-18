@@ -7,16 +7,17 @@ public class Building : MonoBehaviour
     [SerializeField, Range(0, 100)] private int _points;
     [SerializeField] private bool _isNeutral;
     [SerializeField] private bool _isCapturedByEnemy;
-    [SerializeField] private bool _isCaptured;
+    [SerializeField] private bool _isCapturedByPlayer;
+    [SerializeField] private bool _isConnected;
 
+    private int _connectionCounter;
     private readonly int _maxPoints = 100;
-    private bool _isConnected;
-    private Coroutine _increase;
-    private Coroutine _decrease;
 
-    public bool IsCaptured => _isCaptured;
+    public bool IsCapturedByPlayer => _isCapturedByPlayer;
+    public bool IsConnected => _isConnected;
 
     public UnityAction<int> PointsChanged;
+    public UnityAction ColorChanged;
 
     private void Start()
     {
@@ -26,14 +27,15 @@ public class Building : MonoBehaviour
     public void TryCapture()
     {
         _isConnected = true;
+        _connectionCounter++;
 
         if (_isNeutral || _isCapturedByEnemy)
         {
-            _decrease = StartCoroutine(Decreasing());
+            StartCoroutine(Decreasing());
         }
         else
         {
-            _increase = StartCoroutine(Increasing());
+            StartCoroutine(Increasing());
         }
     }
 
@@ -58,14 +60,12 @@ public class Building : MonoBehaviour
 
     private IEnumerator Increasing()
     {
-        while(_points < _maxPoints && _isConnected)
+        while(_isConnected)
         {
             AddPoint();
             print(_points);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
-
-        _isCaptured = true;
     }
 
     private IEnumerator Decreasing()
@@ -74,9 +74,12 @@ public class Building : MonoBehaviour
         {
             TakeAwayPoint();
             print(_points);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
 
-        _increase = StartCoroutine(Increasing());
+        ColorChanged?.Invoke();
+        _isNeutral = false;
+        _isCapturedByPlayer = true;
+        StartCoroutine(Increasing());
     }
 }

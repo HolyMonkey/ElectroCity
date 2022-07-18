@@ -1,5 +1,4 @@
 using System.Collections;
-using Obi;
 using UnityEngine;
 
 public class SetRopeTrigger : MonoBehaviour
@@ -8,11 +7,13 @@ public class SetRopeTrigger : MonoBehaviour
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
 
-    private bool _isSet;
+    private bool _isRopePlaced;
+
+    public bool IsCapturedByPlayer => _building.IsCapturedByPlayer;
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out RopeHandler handler) && handler.HasRope && !_isSet)
+        if(CanAttach(other, out RopeHandler handler))
         {
             StartCoroutine(Attaching(_delay, handler));
         }
@@ -24,6 +25,11 @@ public class SetRopeTrigger : MonoBehaviour
 
         handler.PlaceRope(_connectPoint);
         _building.TryCapture();
-        _isSet = true;
+        _isRopePlaced = true;
+    }
+
+    private bool CanAttach(Collider other, out RopeHandler handler)
+    {
+        return other.TryGetComponent(out handler) && handler.HasRope && !_isRopePlaced && !_building.IsConnected;
     }
 }

@@ -9,9 +9,11 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private bool _isPickingUp;
 
+    public bool IsCapturedByPlayer => _building.IsCapturedByPlayer;
+
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out RopeHandler handler) && !handler.HasRope && !_isPickingUp && _building.IsCaptured)
+        if(CanTake(other, out RopeHandler handler))
         {
             StartCoroutine(Taking(_delay, handler));
         }
@@ -25,5 +27,10 @@ public class RopePickUpTrigger : MonoBehaviour
 
         _ropeSpawner.Spawn(handler);
         _isPickingUp = false;
+    }
+
+    private bool CanTake(Collider other, out RopeHandler handler)
+    {
+        return other.TryGetComponent(out handler) && !handler.HasRope && !_isPickingUp && _building.IsCapturedByPlayer;
     }
 }
