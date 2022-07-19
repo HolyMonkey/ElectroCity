@@ -31,6 +31,6 @@ public class SetRopeTrigger : MonoBehaviour
 
     private bool CanAttach(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && handler.HasRope && !_isRopePlaced && !_building.IsConnected;
+        return other.TryGetComponent(out handler) && handler.HasRope && !_isRopePlaced;
     }
 }

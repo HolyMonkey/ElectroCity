@@ -31,11 +31,7 @@ public class Building : MonoBehaviour
 
         if (_isNeutral || _isCapturedByEnemy)
         {
-            StartCoroutine(Decreasing());
-        }
-        else
-        {
-            StartCoroutine(Increasing());
+            StartCoroutine(Capturing());
         }
     }
 
@@ -44,16 +40,9 @@ public class Building : MonoBehaviour
         _isConnected = false;
     }
 
-    private void AddPoint()
+    private void ChangePoints(int value)
     {
-        _points++;
-        _points = Mathf.Clamp(_points, 0, _maxPoints);
-        PointsChanged?.Invoke(_points);
-    }
-
-    private void TakeAwayPoint()
-    {
-        _points--;
+        _points += value;
         _points = Mathf.Clamp(_points, 0, _maxPoints);
         PointsChanged?.Invoke(_points);
     }
@@ -62,16 +51,16 @@ public class Building : MonoBehaviour
     {
         while(_isConnected)
         {
-            AddPoint();
+            ChangePoints(1);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
     }
 
-    private IEnumerator Decreasing()
+    private IEnumerator Capturing()
     {
         while (_points > 0 && _isConnected)
         {
-            TakeAwayPoint();
+            ChangePoints(-1);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
 
