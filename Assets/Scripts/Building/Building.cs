@@ -6,19 +6,17 @@ public class Building : MonoBehaviour
 {
     [SerializeField, Range(0, 100)] private int _points;
     [SerializeField] private TeamId _teamId;
-    [SerializeField] private bool _isCapturedByEnemy;
-    [SerializeField] private bool _isCapturedByPlayer;
     [SerializeField] private bool _isConnected;
 
-    private Team _capturingTeam;
-    private int _connectionCounter;
     private readonly int _maxPoints = 100;
+    private int _connectionCounter;
+    private Team _capturingTeam;
 
-    public bool IsCapturedByPlayer => _isCapturedByPlayer;
+    public TeamId TeamId => _teamId;
     public bool IsConnected => _isConnected;
 
-    public UnityAction<int> PointsChanged;
-    public UnityAction<Color> ColorChanged;
+    public event UnityAction<int> PointsChanged;
+    public event UnityAction<Color> ColorChanged;
 
     private void Start()
     {
@@ -28,18 +26,13 @@ public class Building : MonoBehaviour
     public void TryCapture(Team team)
     {
         _capturingTeam = team;
-        _isConnected = true;
-        _connectionCounter++;
 
         if (_teamId != _capturingTeam.TeamId)
         {
+            _isConnected = true;
+            _connectionCounter++;
             StartCoroutine(Capturing());
         }
-    }
-
-    public void StopIncreasingPoints()
-    {
-        _isConnected = false;
     }
 
     private void ChangePoints(int value)
@@ -68,7 +61,7 @@ public class Building : MonoBehaviour
 
         _teamId = _capturingTeam.TeamId;
         ColorChanged?.Invoke(_capturingTeam.Color);
-        _isCapturedByPlayer = true;
+        
         StartCoroutine(Increasing());
     }
 }

@@ -12,7 +12,7 @@ public class ColorChanger : MonoBehaviour
 
     private void OnDisable()
     {
-        _building.ColorChanged = OnColorChanged;
+        _building.ColorChanged -= OnColorChanged;
     }
 
     private void OnColorChanged(Color color)

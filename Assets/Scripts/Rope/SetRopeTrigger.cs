@@ -10,7 +10,6 @@ public class SetRopeTrigger : MonoBehaviour
     private Team _team;
     private bool _isRopePlaced;
 
-    public bool IsCapturedByPlayer => _building.IsCapturedByPlayer;
     public bool IsConnected => _building.IsConnected;
 
     private void OnTriggerEnter(Collider other)

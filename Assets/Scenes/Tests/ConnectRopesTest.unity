@@ -1913,8 +1913,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _points: 23
   _teamId: 4
-  _isCapturedByEnemy: 0
-  _isCapturedByPlayer: 0
   _isConnected: 0
 --- !u!114 &652094409
 MonoBehaviour:
@@ -2438,8 +2436,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _points: 100
   _teamId: 0
-  _isCapturedByEnemy: 0
-  _isCapturedByPlayer: 0
   _isConnected: 0
 --- !u!1 &937808527
 GameObject:
@@ -2618,7 +2614,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2718,7 +2714,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4456,9 +4452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
-  _teamId: 0
-  _isCapturedByEnemy: 0
-  _isCapturedByPlayer: 0
+  _teamId: 4
   _isConnected: 0
 --- !u!114 &1791893356
 MonoBehaviour:
@@ -4780,9 +4774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
-  _teamId: 0
-  _isCapturedByEnemy: 0
-  _isCapturedByPlayer: 0
+  _teamId: 4
   _isConnected: 0
 --- !u!114 &1907412406
 MonoBehaviour:
