@@ -11,6 +11,7 @@ public class SetRopeTrigger : MonoBehaviour
     private int _numberOfPlacements;
     private readonly int _counter = 1;
 
+    public bool IsTryingToPlaceTwice => _numberOfPlacements < _counter;
     public bool IsConnected => _building.IsConnected;
     public TeamId TeamId => _building.TeamId;
 
@@ -33,17 +34,18 @@ public class SetRopeTrigger : MonoBehaviour
 
     private bool CanAttach(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler) && handler.PickUpTrigger.Building != _building;
+        return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler.Team.TeamId) && handler.PickUpTrigger.Building != _building;
     }
 
-    private bool IsTryingPlaceTwice(RopeHandler handler)
+    private bool IsTryingPlaceTwice(TeamId teamId)
     {
         if (_team == null)
         {
             _numberOfPlacements++;
             return false;
         }
-        else if (handler.Team.TeamId != _team.TeamId || _numberOfPlacements < _counter)
+
+        if (teamId != _team.TeamId || _numberOfPlacements < _counter)
         {
             _numberOfPlacements++;
             return false;
