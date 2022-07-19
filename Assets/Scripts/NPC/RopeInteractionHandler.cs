@@ -7,18 +7,18 @@ public class RopeInteractionHandler : MonoBehaviour
 {
     private RopeInteractionHolder _ropeInteractionHolder;
 
-    public RopePickUpTrigger GetClosestRopePickUp(Vector3 position)
+    public bool TryGetClosestRopePickUp(TeamId teamId, Vector3 position, out RopePickUpTrigger closestRopeAttach)
     {
-        RopePickUpTrigger closestRopeAttach = null;
+        closestRopeAttach = null;
 
         if (TryFindRopeHolder() == false)
-            return closestRopeAttach;
+            return false;
 
         float distance = float.MaxValue;
 
         foreach (var ropePickUp in _ropeInteractionHolder.PickUp)
         {
-            if (ropePickUp.IsConnected == false)
+            if (ropePickUp.TeamId != teamId)
                 continue;
 
             var tempDistance = Vector3.Distance(ropePickUp.transform.position, position);
@@ -31,21 +31,21 @@ public class RopeInteractionHandler : MonoBehaviour
             }
         }
 
-        return closestRopeAttach;
+        return closestRopeAttach != null;
     }
 
-    public SetRopeTrigger GetClosestSetRope(Vector3 position)
+    public bool TryGetClosestSetRope(TeamId teamId, Vector3 position, out SetRopeTrigger closestSetRope)
     {
-        SetRopeTrigger closestRopeAttach = null;
+        closestSetRope = null;
 
         if (TryFindRopeHolder() == false)
-            return closestRopeAttach;
+            return false;
 
         float distance = float.MaxValue;
 
         foreach (var RopeSet in _ropeInteractionHolder.SetRopes)
         {
-            if (RopeSet.IsConnected)
+            if (RopeSet.TeamId == teamId || RopeSet.IsConnected)
                 continue;
 
             var tempDistance = Vector3.Distance(RopeSet.transform.position, position);
@@ -54,11 +54,11 @@ public class RopeInteractionHandler : MonoBehaviour
             {
                 distance = tempDistance;
 
-                closestRopeAttach = RopeSet;
+                closestSetRope = RopeSet;
             }
         }
 
-        return closestRopeAttach;
+        return closestSetRope != null;
     }
 
     private bool TryFindRopeHolder()

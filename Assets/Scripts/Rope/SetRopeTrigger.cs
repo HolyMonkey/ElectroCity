@@ -12,6 +12,7 @@ public class SetRopeTrigger : MonoBehaviour
     private readonly int _counter = 1;
 
     public bool IsConnected => _building.IsConnected;
+    public TeamId TeamId => _building.TeamId;
 
     private void OnTriggerEnter(Collider other)
     {

@@ -12,6 +12,7 @@ public class RopePickUpTrigger : MonoBehaviour
     public Building Building => _building;
     public bool IsTaken { get; private set; }
     public bool IsConnected => _building.IsConnected;
+    public TeamId TeamId => _building.TeamId;
 
     private void OnTriggerEnter(Collider other)
     {
