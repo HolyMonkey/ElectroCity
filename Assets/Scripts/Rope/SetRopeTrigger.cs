@@ -23,21 +23,7 @@ public class SetRopeTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator Attaching(float delay, RopeHandler handler)
-    {
-        yield return new WaitForSeconds(delay);
-
-        _team = handler.Team;
-        handler.PlaceRope(_connectPoint);
-        _building.TryCapture(_team);
-    }
-
-    private bool CanAttach(Collider other, out RopeHandler handler)
-    {
-        return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler.Team.TeamId) && handler.PickUpTrigger.Building != _building;
-    }
-
-    private bool IsTryingPlaceTwice(TeamId teamId)
+    public bool IsTryingPlaceTwice(TeamId teamId)
     {
         if (_team == null)
         {
@@ -52,5 +38,19 @@ public class SetRopeTrigger : MonoBehaviour
         }
 
         return true;
+    }
+
+    private IEnumerator Attaching(float delay, RopeHandler handler)
+    {
+        yield return new WaitForSeconds(delay);
+
+        _team = handler.Team;
+        handler.PlaceRope(_connectPoint);
+        _building.TryCapture(_team);
+    }
+
+    private bool CanAttach(Collider other, out RopeHandler handler)
+    {
+        return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler.Team.TeamId) && handler.PickUpTrigger.Building != _building;
     }
 }

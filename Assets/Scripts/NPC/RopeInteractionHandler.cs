@@ -45,7 +45,7 @@ public class RopeInteractionHandler : MonoBehaviour
 
         foreach (var RopeSet in _ropeInteractionHolder.SetRopes)
         {
-            if (RopeSet.TeamId == teamId || RopeSet.IsConnected)
+            if (RopeSet.TeamId == teamId || RopeSet.IsTryingPlaceTwice(teamId))
                 continue;
 
             var tempDistance = Vector3.Distance(RopeSet.transform.position, position);
