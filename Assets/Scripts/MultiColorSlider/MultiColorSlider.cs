@@ -25,17 +25,26 @@ public class MultiColorSlider : MonoBehaviour
     {
         int lastStop = 0;
         int totalPercent = 0;
+        float totalPoints = 0;
+
+        foreach (var team in teams)
+            totalPoints += team.Points;
 
         foreach (var team in teams)
         {
-            totalPercent += team.Percent;
-            int teamPercent = team.Percent;
+            int teamPercent = Mathf.CeilToInt(team.Points / totalPoints * 100);
+            totalPercent += teamPercent;
 
             if (totalPercent > 100)
-                teamPercent -= totalPercent - 100;
+            {
+                int extraPercent = totalPercent - 100;
+                int absorbExtraPoints = (int)(totalPoints * extraPercent / 100);
+                team.TakePoints(absorbExtraPoints, out int points);
+                teamPercent -= extraPercent;
+            }
 
             ColorRect(team.Color, _colors, teamPercent, GetXPixelIndex(lastStop));
-            lastStop += team.Percent;
+            lastStop += teamPercent;
         }
     }
 

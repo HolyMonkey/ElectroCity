@@ -12,10 +12,11 @@ public class Team : MonoBehaviour
 
     public bool IsLost { get; private set; }
     public float Points { get; private set; }
-    public int Percent => Mathf.CeilToInt(Points / _totalAmount * 100);
 
     public TeamId TeamId => _teamId;
     public Color32 Color => _color;
+
+    public event Action PointsChanged;
 
     public void AddPoints(int amount)
     {

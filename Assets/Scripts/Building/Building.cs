@@ -49,6 +49,7 @@ public class Building : MonoBehaviour
         {
             ChangePoints(1);
             PointsAdded?.Invoke(_capturingTeam.Color, _points, _maxPoints);
+            _capturingTeam.AddPoints(1);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
     }
