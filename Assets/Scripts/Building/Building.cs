@@ -1,6 +1,6 @@
+using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class Building : MonoBehaviour
 {
@@ -15,8 +15,8 @@ public class Building : MonoBehaviour
     public TeamId TeamId => _teamId;
     public bool IsConnected => _isConnected;
 
-    public event UnityAction<int> PointsChanged;
-    public event UnityAction<Color> ColorChanged;
+    public event Action<int> PointsChanged;
+    public event Action<Color> ColorChanged;
 
     private void Start()
     {

@@ -9,6 +9,7 @@ public class RopePickUpTrigger : MonoBehaviour
     
     private bool _isPickingUp;
 
+    public Building Building => _building;
     public bool IsTaken { get; private set; }
     public bool IsConnected => _building.IsConnected;
 
@@ -26,6 +27,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
+        handler.SetTrigger(this);
         _ropeSpawner.Spawn(handler);
         _isPickingUp = false;
         IsTaken = true;

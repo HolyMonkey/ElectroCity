@@ -8,8 +8,11 @@ public class RopeHandler : MonoBehaviour
     [SerializeField] private Team _team;
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private Rope _currentRope;
-
+    
+    private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
+
+    public RopePickUpTrigger PickUpTrigger => _pickUpTrigger;
 
     public Team Team => _team;
 
@@ -22,6 +25,11 @@ public class RopeHandler : MonoBehaviour
     public event Action RopeTaken;
 
     public event Action RopeBreaked;
+
+    public void SetTrigger(RopePickUpTrigger pickUpTrigger)
+    {
+        _pickUpTrigger = pickUpTrigger;
+    }
 
     public void TakeRope(Rope rope)
     {
