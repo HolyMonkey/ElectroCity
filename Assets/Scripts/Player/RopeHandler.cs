@@ -5,10 +5,13 @@ using System;
 
 public class RopeHandler : MonoBehaviour
 {
+    [SerializeField] private Team _team;
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private Rope _currentRope;
 
     private bool _hasRope;
+
+    public Team Team => _team;
 
     public Transform RopePoint => _ropePoint;
 

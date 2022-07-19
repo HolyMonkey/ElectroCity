@@ -52,5 +52,6 @@ public enum TeamId
     First,
     Second,
     Third,
-    Fourth
+    Fourth,
+    Netural
 }

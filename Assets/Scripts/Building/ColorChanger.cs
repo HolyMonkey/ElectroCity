@@ -2,10 +2,9 @@ using UnityEngine;
 
 public class ColorChanger : MonoBehaviour
 {
-	[SerializeField] private Color _targetColor;
 	[SerializeField] private Building _building;
 	[SerializeField] private MeshRenderer _meshRenderer;
-
+    
     private void OnEnable()
     {
         _building.ColorChanged += OnColorChanged;
@@ -16,8 +15,8 @@ public class ColorChanger : MonoBehaviour
         _building.ColorChanged = OnColorChanged;
     }
 
-    private void OnColorChanged()
+    private void OnColorChanged(Color color)
     {
-		_meshRenderer.material.color = _targetColor;
+		_meshRenderer.material.color = color;
     }
 }

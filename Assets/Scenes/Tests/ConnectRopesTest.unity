@@ -1912,7 +1912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 23
-  _isNeutral: 1
+  _teamId: 4
   _isCapturedByEnemy: 0
   _isCapturedByPlayer: 0
   _isConnected: 0
@@ -1928,7 +1928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7897eb8785dbadc4ebf7684485f20726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 0.8, g: 0.68235296, b: 0.1764706, a: 1}
   _building: {fileID: 652094408}
   _meshRenderer: {fileID: 652094404}
 --- !u!1 &705507993
@@ -2438,9 +2437,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 100
-  _isNeutral: 0
+  _teamId: 0
   _isCapturedByEnemy: 0
-  _isCapturedByPlayer: 1
+  _isCapturedByPlayer: 0
   _isConnected: 0
 --- !u!1 &937808527
 GameObject:
@@ -2619,7 +2618,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2719,7 +2718,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4457,7 +4456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
-  _isNeutral: 1
+  _teamId: 0
   _isCapturedByEnemy: 0
   _isCapturedByPlayer: 0
   _isConnected: 0
@@ -4552,7 +4551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7897eb8785dbadc4ebf7684485f20726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 0.8, g: 0.68235296, b: 0.1764706, a: 1}
   _building: {fileID: 1791893355}
   _meshRenderer: {fileID: 1791893358}
 --- !u!1 &1832091480
@@ -4782,7 +4780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _points: 40
-  _isNeutral: 1
+  _teamId: 0
   _isCapturedByEnemy: 0
   _isCapturedByPlayer: 0
   _isConnected: 0
@@ -4877,7 +4875,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7897eb8785dbadc4ebf7684485f20726, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetColor: {r: 0.8, g: 0.68235296, b: 0.1764706, a: 1}
   _building: {fileID: 1907412405}
   _meshRenderer: {fileID: 1907412408}
 --- !u!1 &1993758022

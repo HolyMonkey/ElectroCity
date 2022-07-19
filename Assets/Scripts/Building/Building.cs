@@ -5,11 +5,12 @@ using UnityEngine.Events;
 public class Building : MonoBehaviour
 {
     [SerializeField, Range(0, 100)] private int _points;
-    [SerializeField] private bool _isNeutral;
+    [SerializeField] private TeamId _teamId;
     [SerializeField] private bool _isCapturedByEnemy;
     [SerializeField] private bool _isCapturedByPlayer;
     [SerializeField] private bool _isConnected;
 
+    private Team _capturingTeam;
     private int _connectionCounter;
     private readonly int _maxPoints = 100;
 
@@ -17,19 +18,20 @@ public class Building : MonoBehaviour
     public bool IsConnected => _isConnected;
 
     public UnityAction<int> PointsChanged;
-    public UnityAction ColorChanged;
+    public UnityAction<Color> ColorChanged;
 
     private void Start()
     {
         PointsChanged?.Invoke(_points);
     }
 
-    public void TryCapture()
+    public void TryCapture(Team team)
     {
+        _capturingTeam = team;
         _isConnected = true;
         _connectionCounter++;
 
-        if (_isNeutral || _isCapturedByEnemy)
+        if (_teamId != _capturingTeam.TeamId)
         {
             StartCoroutine(Capturing());
         }
@@ -64,8 +66,8 @@ public class Building : MonoBehaviour
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
 
-        ColorChanged?.Invoke();
-        _isNeutral = false;
+        _teamId = _capturingTeam.TeamId;
+        ColorChanged?.Invoke(_capturingTeam.Color);
         _isCapturedByPlayer = true;
         StartCoroutine(Increasing());
     }

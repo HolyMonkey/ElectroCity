@@ -374,6 +374,7 @@ GameObject:
   - component: {fileID: 1880495861290320885}
   - component: {fileID: 4263399149581529398}
   - component: {fileID: 230069515590018988}
+  - component: {fileID: 6957849444231164810}
   - component: {fileID: 1377390413}
   - component: {fileID: 1377390414}
   m_Layer: 0
@@ -499,9 +500,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237566b1ec4039a449ae963eb8c7f62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _team: {fileID: 6957849444231164810}
   _ropePoint: {fileID: 301044974017037042}
   _currentRope: {fileID: 0}
-  _obiRigidbody: {fileID: 1377390413}
+--- !u!114 &6957849444231164810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301044974017076914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42822403b8393484291b9fdc4487b66d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _color:
+    serializedVersion: 2
+    rgba: 4281183948
+  _teamId: 0
 --- !u!114 &1377390413
 MonoBehaviour:
   m_ObjectHideFlags: 0

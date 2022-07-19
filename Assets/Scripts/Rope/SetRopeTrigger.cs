@@ -7,6 +7,7 @@ public class SetRopeTrigger : MonoBehaviour
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
 
+    private Team _team;
     private bool _isRopePlaced;
 
     public bool IsCapturedByPlayer => _building.IsCapturedByPlayer;
@@ -24,8 +25,9 @@ public class SetRopeTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        _team = handler.Team;
         handler.PlaceRope(_connectPoint);
-        _building.TryCapture();
+        _building.TryCapture(_team);
         _isRopePlaced = true;
     }
 
