@@ -17,6 +17,7 @@ public class Building : MonoBehaviour
 
     public event Action<int> PointsChanged;
     public event Action<Color> ColorChanged;
+    public event Action<Color, float, float> PointsAdded;
 
     private void Start()
     {
@@ -47,6 +48,7 @@ public class Building : MonoBehaviour
         while(_isConnected)
         {
             ChangePoints(1);
+            PointsAdded?.Invoke(_capturingTeam.Color, _points, _maxPoints);
             yield return new WaitForSeconds(0.2f/ _connectionCounter);
         }
     }
@@ -60,7 +62,7 @@ public class Building : MonoBehaviour
         }
 
         _teamId = _capturingTeam.TeamId;
-        ColorChanged?.Invoke(_capturingTeam.Color);
+        //ColorChanged?.Invoke(_capturingTeam.Color);
         
         StartCoroutine(Increasing());
     }
