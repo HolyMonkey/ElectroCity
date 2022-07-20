@@ -13,11 +13,15 @@ public class Rope : MonoBehaviour
     private readonly float _movingDownSpeed = 0.5f;
     private readonly float _movingDownTime = 2f;
     private bool _isTorn;
+    private bool _isConncted;
+    private TeamId _teamId;
 
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
     public Transform EndPoint => _endPoint;
     public bool IsTorn => _isTorn;
+    public bool IsConnected => _isConncted;
+    public TeamId TeamId => _teamId;
 
     private void OnEnable()
     {
@@ -27,6 +31,20 @@ public class Rope : MonoBehaviour
     private void OnDisable()
     {
         _obiRope.OnRopeTorn -= Disappear;
+    }
+
+    public void SetTeamId(TeamId teamId)
+    {
+        _teamId = teamId;
+    }
+
+    public void Connect()
+    {
+        _isConncted = true;
+    }
+    public void Disconnect()
+    {
+        _isConncted = false;
     }
 
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)

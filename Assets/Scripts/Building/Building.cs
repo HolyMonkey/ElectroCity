@@ -8,23 +8,23 @@ public class Building : MonoBehaviour
     [SerializeField, Range(0, 100)] private int _teamPoints;
     [SerializeField, Range(0, 100)] private int _neutralPoints;
     [SerializeField] private TeamId _teamId;
-    [SerializeField] private bool _isConnected;
-    [SerializeField] private List<RopePickUpTrigger> _pickUpTriggers;
-    [SerializeField] private List<Rope> _ropes;
+    //[SerializeField] private bool _isConnected;
+    [SerializeField] private List<Rope> _pickedRopes;
+    [SerializeField] private List<Rope> _setedRopes;
 
     private readonly int _maxPoints = 100;
     private int _maxPickUpedRopes = 3;
     private int _pickUpedRopes;
     private Team _capturingTeam;
+    private Team _leadTeam;
     private bool _isNeutral = true;
 
     public TeamId TeamId => _teamId;
-    public bool IsConnected => _isConnected;
+    //public bool IsConnected => _isConnected;
     public int PickUpedRopes => _pickUpedRopes;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
 
     public event Action<int> PointsChanged;
-    public event Action<Color> ColorChanged;
     public event Action<Color, float, float> PointsAdded;
 
     private void Start()
@@ -37,44 +37,34 @@ public class Building : MonoBehaviour
         CheckRopes();
     }
 
-    private void OnEnable()
-    {
-        foreach(var trigger in _pickUpTriggers)
-        {
-            trigger.RopeTaken += OnRopeTaken;
-        }
-    }
-
-    private void OnDisable()
-    {
-        foreach (var trigger in _pickUpTriggers)
-        {
-            trigger.RopeTaken -= OnRopeTaken;
-        }
-    }
-
-    public void TryCapture(Team team)
+    public void TryCapture(Team team, Rope rope)
     {
         _capturingTeam = team;
 
         if (_teamId != _capturingTeam.TeamId)
         {
-            _isConnected = true;
+            //_isConnected = true;
+            rope.Connect();
 
             if (_isNeutral)
             {
-                StartCoroutine(TryCapturingNeutral());
+                StartCoroutine(TryCapturingNeutral(rope));
             }
             else
             {
-                StartCoroutine(TryCapturingTeam());
+                StartCoroutine(TryCapturingTeam(rope));
             }
         }
     }
 
-    private void OnRopeTaken(Rope rope)
+    public void AddSetedRope(Rope rope)
     {
-        _ropes.Add(rope);
+        _setedRopes.Add(rope);
+    }
+
+    public void AddPickedRope(Rope rope)
+    {
+        _pickedRopes.Add(rope);
         _pickUpedRopes++;
     }
 
@@ -89,51 +79,73 @@ public class Building : MonoBehaviour
 
     private void CheckRopes()
     {
-        foreach (var rope in _ropes)
+        foreach (var rope in _pickedRopes)
         {
             if (rope != null && rope.IsTorn)
             {
                 _pickUpedRopes--;
-                _ropes.Remove(rope);
+                _pickedRopes.Remove(rope);
                 break;
             }
         }
     }
 
-    private IEnumerator TryCapturingTeam()
+    private void TryDestroyOthersTeamsRopes()
+    {
+        foreach(var rope in _setedRopes)
+        {
+            if(rope.TeamId != _leadTeam.TeamId && rope != null)
+            {
+                rope.Disconnect();
+                Destroy(rope.gameObject);
+            }
+        }
+    }
+
+    private IEnumerator TryCapturingTeam(Rope rope)
     {
         if(_teamId != _capturingTeam.TeamId)
         {
-            while(_teamPoints > 0 && _isConnected)
+            while(_teamPoints > 0 && rope.IsConnected)
             {
                 _teamPoints = ChangePoints(-1, _teamPoints);
-                PointsAdded?.Invoke(_capturingTeam.Color, _teamPoints, _maxPoints);
+                PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
                 yield return new WaitForSeconds(0.2f);
             }
 
-            _teamId = _capturingTeam.TeamId;
+            if (rope.IsConnected)
+            {
+                _teamId = _capturingTeam.TeamId;
+                _leadTeam = _capturingTeam;
+            }
         }
 
-        while(_isConnected)
+        while(rope.IsConnected && rope != null)
         {
             _teamPoints = ChangePoints(1, _teamPoints);
-            PointsAdded?.Invoke(_capturingTeam.Color, _teamPoints, _maxPoints);
+            PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
             _capturingTeam.AddPoints(1);
+
+            if (_teamPoints >= _maxPoints)
+            {
+                TryDestroyOthersTeamsRopes();
+            }
+
             yield return new WaitForSeconds(0.2f);
         }
     }
 
-    private IEnumerator TryCapturingNeutral()
+    private IEnumerator TryCapturingNeutral(Rope rope)
     {
-        while (_neutralPoints > 0 && _isConnected)
+        while (_neutralPoints > 0 && rope.IsConnected)
         {
             _neutralPoints = ChangePoints(-1, _neutralPoints);
             yield return new WaitForSeconds(0.2f);
         }
 
         _teamId = _capturingTeam.TeamId;
+        _leadTeam = _capturingTeam;
         _isNeutral = false;
-        //ColorChanged?.Invoke(_capturingTeam.Color);
-        StartCoroutine(TryCapturingTeam());
+        StartCoroutine(TryCapturingTeam(rope));
     }
 }

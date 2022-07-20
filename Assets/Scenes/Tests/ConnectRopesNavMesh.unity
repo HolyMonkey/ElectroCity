@@ -1255,10 +1255,8 @@ MonoBehaviour:
   _teamPoints: 0
   _neutralPoints: 0
   _teamId: 0
-  _isConnected: 1
-  _pickUpTriggers:
-  - {fileID: 1120812419}
-  _ropes: []
+  _pickedRopes: []
+  _setedRopes: []
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,10 +3096,8 @@ MonoBehaviour:
   _teamPoints: 0
   _neutralPoints: 0
   _teamId: 1
-  _isConnected: 1
-  _pickUpTriggers:
-  - {fileID: 1713231286}
-  _ropes: []
+  _pickedRopes: []
+  _setedRopes: []
 --- !u!4 &1741137477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1741137477, guid: c1dadf30d725fca4d899df0067572e4b, type: 3}

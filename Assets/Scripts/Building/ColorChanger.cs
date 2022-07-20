@@ -9,13 +9,11 @@ public class ColorChanger : MonoBehaviour
     
     private void OnEnable()
     {
-        _building.ColorChanged += OnColorChanged;
         _building.PointsAdded += ChangeColor;
     }
 
     private void OnDisable()
     {
-        _building.ColorChanged -= OnColorChanged;
         _building.PointsAdded -= ChangeColor;
     }
 
@@ -26,9 +24,9 @@ public class ColorChanger : MonoBehaviour
         _meshRenderer.material.SetFloat("_GradientSize", addValue);
     }
 
-    private void OnColorChanged(Color color)
-    {
-		_meshRenderer.material.color = color;
-    }
+  //  private void OnColorChanged(Color color)
+  //  {
+		//_meshRenderer.material.color = color;
+  //  }
     
 }

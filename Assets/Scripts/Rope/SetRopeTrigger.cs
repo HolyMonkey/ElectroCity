@@ -12,7 +12,7 @@ public class SetRopeTrigger : MonoBehaviour
     private readonly int _counter = 1;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _counter;
-    public bool IsConnected => _building.IsConnected;
+    //public bool IsConnected => _building.IsConnected;
     public TeamId TeamId => _building.TeamId;
 
     private void OnTriggerEnter(Collider other)
@@ -45,8 +45,9 @@ public class SetRopeTrigger : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         _team = handler.Team;
+        _building.AddSetedRope(handler.CurrentRope);
+        _building.TryCapture(_team, handler.CurrentRope);
         handler.PlaceRope(_connectPoint);
-        _building.TryCapture(_team);
     }
 
     private bool CanAttach(Collider other, out RopeHandler handler)
