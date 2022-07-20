@@ -18,6 +18,7 @@ public class RopeSpawner : MonoBehaviour
     {
         var rope = Instantiate(_ropePrefab, _ropePoint);
 
+        ChangeColor(rope, handler);
         rope.transform.position = _startPoint.position;
         rope.StartPoint.SetParent(_startPoint);
         rope.EndPoint.SetParent(handler.RopePoint);
@@ -28,6 +29,12 @@ public class RopeSpawner : MonoBehaviour
         StartCoroutine(Delay(rope));
 
         handler.TakeRope(rope);
+    }
+
+    private void ChangeColor(Rope rope, RopeHandler handler)
+    {
+        MeshRenderer renderer = rope.GetComponent<MeshRenderer>();
+        renderer.material.color = handler.Team.Color;
     }
 
     private IEnumerator Delay(Rope rope)

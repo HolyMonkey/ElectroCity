@@ -134,6 +134,10 @@ MonoBehaviour:
   _points: 40
   _teamId: 4
   _isConnected: 0
+  _pickUpTriggers:
+  - {fileID: 3562516943547343126}
+  - {fileID: 3562516942937795801}
+  - {fileID: 3562516942801174475}
 --- !u!114 &3562516941857151243
 MonoBehaviour:
   m_ObjectHideFlags: 0

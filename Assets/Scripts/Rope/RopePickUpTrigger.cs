@@ -1,6 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using System.Collections.Generic;
+using System;
 
 public class RopePickUpTrigger : MonoBehaviour
 {
@@ -16,6 +16,8 @@ public class RopePickUpTrigger : MonoBehaviour
     public bool IsConnected => _building.IsConnected;
     public TeamId TeamId => _building.TeamId;
 
+    public event Action<Rope> RopeTaken;
+
     private void OnTriggerEnter(Collider other)
     {
         if(CanTake(other, out RopeHandler handler))
@@ -27,7 +29,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine !=null)
+        if(other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine != null)
         {
             StopCoroutine(_takingCoroutine);
             _currentRopeHandler = null;
@@ -43,11 +45,13 @@ public class RopePickUpTrigger : MonoBehaviour
 
         handler.SetTrigger(this);
         _ropeSpawner.Spawn(handler);
+        RopeTaken?.Invoke(handler.CurrentRope);
         _isPickingUp = false;
     }
 
     private bool CanTake(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && !handler.HasRope && !_isPickingUp && handler.Team.TeamId == _building.TeamId;
+        return other.TryGetComponent(out handler) && !handler.HasRope && !_isPickingUp &&
+            handler.Team.TeamId == _building.TeamId && _building.PickUpedRopes < _building.MaxPickUpedRopes;
     }
 }

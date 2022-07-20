@@ -12,10 +12,12 @@ public class Rope : MonoBehaviour
 
     private readonly float _movingDownSpeed = 0.5f;
     private readonly float _movingDownTime = 2f;
+    private bool _isTorn;
 
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
     public Transform EndPoint => _endPoint;
+    public bool IsTorn => _isTorn;
 
     private void OnEnable()
     {
@@ -29,6 +31,7 @@ public class Rope : MonoBehaviour
 
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
+        _isTorn = true;
         StartCoroutine(Disappearing());
     }
 
