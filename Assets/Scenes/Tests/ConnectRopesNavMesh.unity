@@ -2547,6 +2547,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 237566b1ec4039a449ae963eb8c7f62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!195 &1478492257 stripped
+NavMeshAgent:
+  m_CorrespondingSourceObject: {fileID: 5238788594804519600, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
+  m_PrefabInstance: {fileID: 4554956885625316603}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1509430504 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1509430504, guid: c1dadf30d725fca4d899df0067572e4b, type: 3}
@@ -3810,11 +3815,12 @@ PrefabInstance:
         mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},"myTeam":{"_value":3,"_name":"myTeam","_id":"6808b1b5-7bd9-41cc-ae40-2abcf289ed9b","$type":"NodeCanvas.Framework.Variable`1[[Team,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myAnimator":{"_value":4,"_name":"myAnimator","_id":"6af9020f-bcbb-4e91-a9bc-c3824f9f0239","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
         UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myRopeHandler":{"_value":5,"_name":"myRopeHandler","_id":"4901e7dd-dd45-4868-942a-ca0a4889670d","$type":"NodeCanvas.Framework.Variable`1[[RopeHandler,
-        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myNavMeshAgent":{"_value":6,"_name":"myNavMeshAgent","_id":"9120de42-0854-466e-bb8e-bd40bcea7b23","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
+        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.size
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.data[1]
@@ -3837,8 +3843,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1478492255}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
+      propertyPath: _objectReferences.Array.data[6]
+      value: 
+      objectReference: {fileID: 1478492257}
+    - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _serializedVariables.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _serializedVariables.Array.data[0]._json
@@ -3867,6 +3877,11 @@ PrefabInstance:
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
+      propertyPath: _serializedVariables.Array.data[5]._json
+      value: '{"_value":1,"_name":"myNavMeshAgent","_id":"9120de42-0854-466e-bb8e-bd40bcea7b23","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
+        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _serializedVariables.Array.data[0]._references.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -3884,6 +3899,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _serializedVariables.Array.data[4]._references.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
+      propertyPath: _serializedVariables.Array.data[5]._references.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
@@ -3914,6 +3933,10 @@ PrefabInstance:
       propertyPath: _serializedVariables.Array.data[4]._references.Array.data[1]
       value: 
       objectReference: {fileID: 1478492255}
+    - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
+      propertyPath: _serializedVariables.Array.data[5]._references.Array.data[1]
+      value: 
+      objectReference: {fileID: 1478492257}
     - target: {fileID: 8475090883925851792, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: m_Enabled
       value: 1

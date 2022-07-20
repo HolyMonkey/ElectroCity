@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.AI;
 
 public class RopeInteractionHandler : MonoBehaviour
 {
@@ -34,7 +35,7 @@ public class RopeInteractionHandler : MonoBehaviour
         return closestRopeAttach != null;
     }
 
-    public bool TryGetClosestSetRope(TeamId teamId, Vector3 position, out SetRopeTrigger closestSetRope)
+    public bool TryGetClosestSetRope(NavMeshAgent navMeshAgent, TeamId teamId, Vector3 position, out SetRopeTrigger closestSetRope)
     {
         closestSetRope = null;
 
@@ -43,18 +44,21 @@ public class RopeInteractionHandler : MonoBehaviour
 
         float distance = float.MaxValue;
 
-        foreach (var RopeSet in _ropeInteractionHolder.SetRopes)
+        foreach (var ropeSetTrigger in _ropeInteractionHolder.SetRopes)
         {
-            if (RopeSet.TeamId == teamId || RopeSet.IsTryingPlaceTwice(teamId))
+            if (CanReach(navMeshAgent, ropeSetTrigger.transform.position) == false)
                 continue;
 
-            var tempDistance = Vector3.Distance(RopeSet.transform.position, position);
+            if (ropeSetTrigger.TeamId == teamId || ropeSetTrigger.IsTryingPlaceTwice(teamId))
+                continue;
+
+            var tempDistance = Vector3.Distance(ropeSetTrigger.transform.position, position);
 
             if (tempDistance <= distance)
             {
                 distance = tempDistance;
 
-                closestSetRope = RopeSet;
+                closestSetRope = ropeSetTrigger;
             }
         }
 
@@ -69,5 +73,31 @@ public class RopeInteractionHandler : MonoBehaviour
         _ropeInteractionHolder = FindObjectOfType<RopeInteractionHolder>();
 
         return _ropeInteractionHolder != null;
+    }
+
+    private bool CanReach(NavMeshAgent navMeshAgent, Vector3 targetPosition)
+    {
+        NavMeshPath path = new NavMeshPath();
+
+        navMeshAgent.CalculatePath(targetPosition, path);
+        float distance = 0f;
+
+        for (int i = 1; i < path.corners.Length; i++)
+        {
+            distance += Vector3.Distance(path.corners[i - 1], path.corners[i]);
+        }
+
+        if (IsBotGonaFail())
+            distance = 0;
+
+        return distance < 15f;
+    }
+
+
+    private bool IsBotGonaFail()
+    {
+        float chanceToFail = Random.Range(0, 101);
+
+        return chanceToFail < 50;
     }
 }

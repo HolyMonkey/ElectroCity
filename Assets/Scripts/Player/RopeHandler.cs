@@ -13,13 +13,9 @@ public class RopeHandler : MonoBehaviour
     private bool _hasRope;
 
     public RopePickUpTrigger PickUpTrigger => _pickUpTrigger;
-
     public Team Team => _team;
-
     public Transform RopePoint => _ropePoint;
-
     public Rope CurrentRope => _currentRope;
-
     public bool HasRope => _hasRope;
 
     public event Action RopeTaken;

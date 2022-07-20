@@ -38,10 +38,10 @@ public class Building : MonoBehaviour
     {
         CheckRopes();
 
-        foreach(var rope in _settedRopes)
-        {
-            print($" rope {_settedRopes.IndexOf(rope)} {rope.IsConnected}");
-        }
+        //foreach(var rope in _settedRopes)
+        //{
+        //    print($" rope {_settedRopes.IndexOf(rope)} {rope.IsConnected}");
+        //}
     }
 
     public void SetNeutralTeam(Team team)
