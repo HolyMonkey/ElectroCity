@@ -131,13 +131,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _points: 40
+  _teamPoints: 0
+  _neutralPoints: 0
   _teamId: 4
-  _isConnected: 0
-  _pickUpTriggers:
-  - {fileID: 3562516943547343126}
-  - {fileID: 3562516942937795801}
-  - {fileID: 3562516942801174475}
+  _pickedRopes: []
+  _settedRopes: []
 --- !u!114 &3562516941857151243
 MonoBehaviour:
   m_ObjectHideFlags: 0
