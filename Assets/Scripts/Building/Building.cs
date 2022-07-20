@@ -12,7 +12,7 @@ public class Building : MonoBehaviour
     [SerializeField] private List<Rope> _ropes;
 
     private readonly int _maxPoints = 100;
-    private int _maxPickUpedRopes = 3;
+    private int _maxPickUpedRopes = 2;
     private int _connectionCounter;
     private int _pickUpedRopes;
     private Team _capturingTeam;

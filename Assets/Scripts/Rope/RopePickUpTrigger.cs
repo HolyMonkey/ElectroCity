@@ -14,6 +14,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
     public Building Building => _building;
     public bool IsConnected => _building.IsConnected;
+    public bool IsThereFreeRope => _building.PickUpedRopes < _building.MaxPickUpedRopes;
     public TeamId TeamId => _building.TeamId;
 
     public event Action<Rope> RopeTaken;
@@ -52,6 +53,6 @@ public class RopePickUpTrigger : MonoBehaviour
     private bool CanTake(Collider other, out RopeHandler handler)
     {
         return other.TryGetComponent(out handler) && !handler.HasRope && !_isPickingUp &&
-            handler.Team.TeamId == _building.TeamId && _building.PickUpedRopes < _building.MaxPickUpedRopes;
+            handler.Team.TeamId == _building.TeamId && IsThereFreeRope;
     }
 }

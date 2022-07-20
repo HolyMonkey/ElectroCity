@@ -18,7 +18,7 @@ public class RopeInteractionHandler : MonoBehaviour
 
         foreach (var ropePickUp in _ropeInteractionHolder.PickUp)
         {
-            if (ropePickUp.TeamId != teamId)
+            if (ropePickUp.TeamId != teamId || ropePickUp.IsThereFreeRope == false)
                 continue;
 
             var tempDistance = Vector3.Distance(ropePickUp.transform.position, position);
