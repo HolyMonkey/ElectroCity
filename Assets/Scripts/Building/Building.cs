@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    [SerializeField, Range(0, 100)] private int _points;
+    [SerializeField, Range(0, 100)] private int _teamPoints;
+    [SerializeField, Range(0, 100)] private int _neutralPoints;
     [SerializeField] private TeamId _teamId;
     [SerializeField] private bool _isConnected;
     [SerializeField] private List<RopePickUpTrigger> _pickUpTriggers;
     [SerializeField] private List<Rope> _ropes;
 
     private readonly int _maxPoints = 100;
-    private int _maxPickUpedRopes = 2;
-    private int _connectionCounter;
+    private int _maxPickUpedRopes = 3;
     private int _pickUpedRopes;
     private Team _capturingTeam;
+    private bool _isNeutral = true;
 
     public TeamId TeamId => _teamId;
     public bool IsConnected => _isConnected;
@@ -28,7 +29,7 @@ public class Building : MonoBehaviour
 
     private void Start()
     {
-        PointsChanged?.Invoke(_points);
+        PointsChanged?.Invoke(_neutralPoints);
     }
 
     private void Update()
@@ -59,8 +60,15 @@ public class Building : MonoBehaviour
         if (_teamId != _capturingTeam.TeamId)
         {
             _isConnected = true;
-            _connectionCounter++;
-            StartCoroutine(Capturing());
+
+            if (_isNeutral)
+            {
+                StartCoroutine(TryCapturingNeutral());
+            }
+            else
+            {
+                StartCoroutine(TryCapturingTeam());
+            }
         }
     }
 
@@ -70,11 +78,13 @@ public class Building : MonoBehaviour
         _pickUpedRopes++;
     }
 
-    private void ChangePoints(int value)
+    private int ChangePoints(int value, int points)
     {
-        _points += value;
-        _points = Mathf.Clamp(_points, 0, _maxPoints);
-        PointsChanged?.Invoke(_points);
+        points += value;
+        points = Mathf.Clamp(points, 0, _maxPoints);
+        PointsChanged?.Invoke(points);
+
+        return points;
     }
 
     private void CheckRopes()
@@ -90,28 +100,40 @@ public class Building : MonoBehaviour
         }
     }
 
-    private IEnumerator Increasing()
+    private IEnumerator TryCapturingTeam()
     {
+        if(_teamId != _capturingTeam.TeamId)
+        {
+            while(_teamPoints > 0 && _isConnected)
+            {
+                _teamPoints = ChangePoints(-1, _teamPoints);
+                PointsAdded?.Invoke(_capturingTeam.Color, _teamPoints, _maxPoints);
+                yield return new WaitForSeconds(0.2f);
+            }
+
+            _teamId = _capturingTeam.TeamId;
+        }
+
         while(_isConnected)
         {
-            ChangePoints(1);
-            PointsAdded?.Invoke(_capturingTeam.Color, _points, _maxPoints);
+            _teamPoints = ChangePoints(1, _teamPoints);
+            PointsAdded?.Invoke(_capturingTeam.Color, _teamPoints, _maxPoints);
             _capturingTeam.AddPoints(1);
-            yield return new WaitForSeconds(0.2f/ _connectionCounter);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
-    private IEnumerator Capturing()
+    private IEnumerator TryCapturingNeutral()
     {
-        while (_points > 0 && _isConnected)
+        while (_neutralPoints > 0 && _isConnected)
         {
-            ChangePoints(-1);
-            yield return new WaitForSeconds(0.2f/ _connectionCounter);
+            _neutralPoints = ChangePoints(-1, _neutralPoints);
+            yield return new WaitForSeconds(0.2f);
         }
 
         _teamId = _capturingTeam.TeamId;
+        _isNeutral = false;
         //ColorChanged?.Invoke(_capturingTeam.Color);
-        
-        StartCoroutine(Increasing());
+        StartCoroutine(TryCapturingTeam());
     }
 }
