@@ -9,6 +9,7 @@ public class Rope : MonoBehaviour
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
     [SerializeField] private ObiParticleAttachment _endAttachment;
+    [SerializeField] private ObiParticleAttachment _startAttachment;
 
     private readonly float _movingDownSpeed = 0.5f;
     private readonly float _movingDownTime = 2f;
@@ -47,6 +48,11 @@ public class Rope : MonoBehaviour
         _isConncted = false;
     }
 
+    public void Fall()
+    {
+        StartCoroutine(Disappearing());
+    }
+
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
         _isTorn = true;
@@ -58,6 +64,7 @@ public class Rope : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         _endAttachment.enabled = false;
+        _startAttachment.enabled = false;
 
         yield return new WaitForSeconds(2f);
 

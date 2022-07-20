@@ -10,7 +10,7 @@ public class Building : MonoBehaviour
     [SerializeField] private TeamId _teamId;
     //[SerializeField] private bool _isConnected;
     [SerializeField] private List<Rope> _pickedRopes;
-    [SerializeField] private List<Rope> _setedRopes;
+    [SerializeField] private List<Rope> _settedRopes;
 
     private readonly int _maxPoints = 100;
     private int _maxPickUpedRopes = 3;
@@ -35,6 +35,11 @@ public class Building : MonoBehaviour
     private void Update()
     {
         CheckRopes();
+
+        foreach(var rope in _settedRopes)
+        {
+            print($" rope {_settedRopes.IndexOf(rope)} {rope.IsConnected}");
+        }
     }
 
     public void TryCapture(Team team, Rope rope)
@@ -59,7 +64,7 @@ public class Building : MonoBehaviour
 
     public void AddSetedRope(Rope rope)
     {
-        _setedRopes.Add(rope);
+        _settedRopes.Add(rope);
     }
 
     public void AddPickedRope(Rope rope)
@@ -92,12 +97,13 @@ public class Building : MonoBehaviour
 
     private void TryDestroyOthersTeamsRopes()
     {
-        foreach(var rope in _setedRopes)
+        foreach(var rope in _settedRopes)
         {
             if(rope.TeamId != _leadTeam.TeamId && rope != null)
             {
                 rope.Disconnect();
-                Destroy(rope.gameObject);
+                rope.Fall();
+                //Destroy(rope.gameObject);
             }
         }
     }
