@@ -23,6 +23,8 @@ public class Building : MonoBehaviour
     //public bool IsConnected => _isConnected;
     public int PickUpedRopes => _pickUpedRopes;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
+    public int TeamPoints => _teamPoints;
+    public int NeutralPoints => _neutralPoints;
 
     public event Action<int> PointsChanged;
     public event Action<Color, float, float> PointsAdded;
@@ -40,6 +42,12 @@ public class Building : MonoBehaviour
         {
             print($" rope {_settedRopes.IndexOf(rope)} {rope.IsConnected}");
         }
+    }
+
+    public void SetNeutralTeam(Team team)
+    {
+        _capturingTeam = team;
+        _capturingTeam.AddPoints(_neutralPoints);
     }
 
     public void TryCapture(Team team, Rope rope)
@@ -130,7 +138,7 @@ public class Building : MonoBehaviour
         {
             _teamPoints = ChangePoints(1, _teamPoints);
             PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
-            _capturingTeam.AddPoints(1);
+            //_capturingTeam.AddPoints(1);
 
             if (_teamPoints >= _maxPoints)
             {

@@ -59,11 +59,14 @@ public class MultiColorSlider : MonoBehaviour
             {
                 index = i + j;
 
+                if (colors[index].a == 0)
+                    continue;
+
                 colors[index] = color;
             }
         }
 
-        _image.sprite.texture.SetPixels32(0, 0, (int)_image.sprite.rect.width, (int)_image.sprite.rect.height, colors);
+        _image.sprite.texture.SetPixels32(colors);
 
         _image.sprite.texture.Apply();
     }

@@ -19,8 +19,6 @@ public class SeekSetRope : ActionTask
         else
             ClosestSetTrigger.value = null;
 
-
-        Debug.Log(foundedRopePickUP);
         EndAction(foundedRopePickUP);
     }
 }
