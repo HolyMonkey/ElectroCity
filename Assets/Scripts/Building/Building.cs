@@ -112,14 +112,31 @@ public class Building : MonoBehaviour
         }
     }
 
+    private IEnumerator TryCapturingNeutral(Rope rope)
+    {
+        while (_neutralPoints > 0 && rope.IsConnected)
+        {
+            _neutralPoints = ChangePoints(-1, _neutralPoints);
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        _teamId = _capturingTeam.TeamId;
+        _leadTeam = _capturingTeam;
+        _isNeutral = false;
+
+        StartCoroutine(TryCapturingTeam(rope));
+    }
+
     private IEnumerator TryCapturingTeam(Rope rope)
     {
-        if(_teamId != _capturingTeam.TeamId)
+        print(_teamId != rope.TeamId);
+        if(_teamId != rope.TeamId)
         {
             while(_teamPoints > 0 && rope.IsConnected)
             {
                 _teamPoints = ChangePoints(-1, _teamPoints);
                 PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
+
                 yield return new WaitForSeconds(0.2f);
             }
 
@@ -130,7 +147,12 @@ public class Building : MonoBehaviour
             }
         }
 
-        while(rope.IsConnected && rope != null)
+        StartCoroutine(TryHoldCapturing(rope));
+    }
+
+    private IEnumerator TryHoldCapturing(Rope rope)
+    {
+        while (rope.IsConnected && rope != null)
         {
             _teamPoints = ChangePoints(1, _teamPoints);
             PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
@@ -143,19 +165,5 @@ public class Building : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
         }
-    }
-
-    private IEnumerator TryCapturingNeutral(Rope rope)
-    {
-        while (_neutralPoints > 0 && rope.IsConnected)
-        {
-            _neutralPoints = ChangePoints(-1, _neutralPoints);
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        _teamId = _capturingTeam.TeamId;
-        _leadTeam = _capturingTeam;
-        _isNeutral = false;
-        StartCoroutine(TryCapturingTeam(rope));
     }
 }
