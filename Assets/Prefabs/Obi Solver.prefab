@@ -219,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2014110880}
+  - component: {fileID: 5267359101854618455}
   m_Layer: 0
   m_Name: RopePoints
   m_TagString: Untagged
@@ -248,9 +249,36 @@ Transform:
   - {fileID: 7553705632288305182}
   - {fileID: 1346511920166579902}
   - {fileID: 2571069630476071585}
+  - {fileID: 7528288924295598233}
   m_Father: {fileID: 2749530513809730238}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5267359101854618455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014110879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bd24aa7121417499970b49be2f585b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _triggers: []
+  _points:
+  - {fileID: 1623577879}
+  - {fileID: 595561862}
+  - {fileID: 1741137476}
+  - {fileID: 566108560}
+  - {fileID: 294348019}
+  - {fileID: 1226248876}
+  - {fileID: 1509430503}
+  - {fileID: 3787669004591060072}
+  - {fileID: 6281407298504810289}
+  - {fileID: 7000644622100203379}
+  - {fileID: 6083800856623752900}
+  - {fileID: 5339616628250858522}
 --- !u!1 &2749530513809730233
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +468,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2014110880}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5339616628250858522
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7528288924295598233}
+  m_Layer: 0
+  m_Name: RopePoint (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7528288924295598233
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339616628250858522}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2014110880}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6083800856623752900
 GameObject:

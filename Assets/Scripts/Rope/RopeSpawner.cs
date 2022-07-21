@@ -11,7 +11,13 @@ public class RopeSpawner : MonoBehaviour
 
     private void Awake()
     {
+        _solver = FindObjectOfType<ObiSolver>();
         _ropePoint.transform.position = transform.position;
+    }
+
+    public void SetRopePoint(Transform point)
+    {
+        _ropePoint = point;
     }
 
     public void Spawn(RopeHandler handler)

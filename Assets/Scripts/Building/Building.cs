@@ -32,6 +32,11 @@ public class Building : MonoBehaviour
     private void Start()
     {
         PointsChanged?.Invoke(_neutralPoints);
+
+        if(_neutralPoints == 0)
+        {
+            PointsChanged?.Invoke(_teamPoints);
+        }
     }
 
     private void Update()
