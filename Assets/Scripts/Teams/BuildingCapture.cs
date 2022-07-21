@@ -8,13 +8,14 @@ public class BuildingCapture : MonoBehaviour
 
     private Building[] _buildings;
 
-    private void Awake()
-    {
-        _buildings = FindObjectsOfType<Building>();
+    //private void Awake()
+    //{
+    //    _buildings = FindObjectsOfType<Building>();
 
-        foreach (var building in _buildings)
-        {
-            building.SetNeutralTeam(_team);
-        }
-    }
+    //    foreach (var building in _buildings)
+    //    {
+    //        if(building.TeamId == null)
+    //            building.SetNeutralTeam(_team);
+    //    }
+    //}
 }

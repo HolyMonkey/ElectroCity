@@ -9,12 +9,12 @@ public class ColorChanger : MonoBehaviour
     
     private void OnEnable()
     {
-        _building.PointsAdded += ChangeColor;
+        _building.CapturingSystem.PointsAdded += ChangeColor;
     }
 
     private void OnDisable()
     {
-        _building.PointsAdded -= ChangeColor;
+        _building.CapturingSystem.PointsAdded -= ChangeColor;
     }
 
     public void ChangeColor(Color color, float value, float maxValue)

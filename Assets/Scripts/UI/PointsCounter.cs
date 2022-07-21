@@ -14,12 +14,12 @@ public class PointsCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _building.PointsChanged += OnPointsChanged;
+        _building.CapturingSystem.PointsChanged += OnPointsChanged;
     }
 
     private void OnDisable()
     {
-        _building.PointsChanged -= OnPointsChanged;
+        _building.CapturingSystem.PointsChanged -= OnPointsChanged;
     }
 
     private void OnPointsChanged(int point)

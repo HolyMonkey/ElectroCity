@@ -19,7 +19,7 @@ public class RopeSpawner : MonoBehaviour
         var rope = Instantiate(_ropePrefab, _ropePoint);
 
         ChangeColor(rope, handler);
-        rope.SetTeamId(handler.Team.TeamId);
+        rope.SetTeamId(handler.Team);
         rope.transform.position = _startPoint.position;
         rope.StartPoint.SetParent(_startPoint);
         rope.EndPoint.SetParent(handler.RopePoint);

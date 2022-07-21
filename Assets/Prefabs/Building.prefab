@@ -131,9 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamPoints: 0
-  _neutralPoints: 0
-  _teamId: 4
+  _initialPoints: 20
+  _initialTeam: {fileID: 0}
   _pickedRopes: []
   _settedRopes: []
 --- !u!114 &3562516941857151243

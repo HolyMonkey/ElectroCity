@@ -14,15 +14,16 @@ public class Rope : MonoBehaviour
     private readonly float _movingDownSpeed = 0.5f;
     private readonly float _movingDownTime = 2f;
     private bool _isTorn;
-    private bool _isConncted;
-    private TeamId _teamId;
+    private bool _isConnected;
+    private Team _team;
 
+    public int Multiplier { get; private set; } = 1;
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
     public Transform EndPoint => _endPoint;
     public bool IsTorn => _isTorn;
-    public bool IsConnected => _isConncted;
-    public TeamId TeamId => _teamId;
+    public bool IsConnected => _isConnected;
+    public TeamId TeamId => _team.TeamId;
 
     private void OnEnable()
     {
@@ -34,18 +35,20 @@ public class Rope : MonoBehaviour
         _obiRope.OnRopeTorn -= Disappear;
     }
 
-    public void SetTeamId(TeamId teamId)
+    public void SetTeamId(Team team)
     {
-        _teamId = teamId;
+        _team = team;
     }
 
-    public void Connect()
+    public void Connect(CapturingSystem capturingSystem, float teamRopeAmount)
     {
-        _isConncted = true;
+        _isConnected = true;
+        StartCoroutine(GivingEnergy(capturingSystem, teamRopeAmount));
     }
+
     public void Disconnect()
     {
-        _isConncted = false;
+        _isConnected = false;
     }
 
     public void Fall()
@@ -80,5 +83,18 @@ public class Rope : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private IEnumerator GivingEnergy(CapturingSystem capturingSystem, float ropeConncetedAmount)
+    {
+        while (IsConnected)
+        {
+            capturingSystem.TakeEnergy(Multiplier, _team);
+            float frequency = Random.Range(0.2f, 0.23f);
+
+            frequency -= ropeConncetedAmount / 100;
+
+            yield return new WaitForSeconds(frequency);
+        }
     }
 }

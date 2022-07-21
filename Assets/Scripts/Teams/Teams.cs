@@ -26,10 +26,7 @@ public class Teams : MonoBehaviour
             foreach (var building in _buildings)
             {
                 if (building.TeamId == team.TeamId)
-                    TotalPoints += building.TeamPoints;
-
-                if (team.TeamId == TeamId.Netural)
-                    TotalPoints += building.NeutralPoints;
+                    TotalPoints += building.CapturingSystem.TotalPoints;
             }
 
             team.SetPoint(TotalPoints);

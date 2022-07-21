@@ -5,33 +5,35 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    [SerializeField, Range(0, 100)] private int _teamPoints;
-    [SerializeField, Range(0, 100)] private int _neutralPoints;
-    [SerializeField] private TeamId _teamId;
+    [SerializeField] private int _initialPoints;
+    [SerializeField] private Team _initialTeam;
     [SerializeField] private List<Rope> _pickedRopes;
     [SerializeField] private List<Rope> _settedRopes;
 
-    private readonly int _maxPoints = 100;
     private int _maxPickUpedRopes = 3;
     private int _pickUpedRopes;
-    private Team _capturingTeam;
-    private Team _leadTeam;
-    private bool _isNeutral = true;
-    private bool _areRoesDestroyed;
+    private bool _areRopesDestroyed;
 
-    public TeamId TeamId => _teamId;
+    public bool IsBuildingNeutral => CapturingSystem.CurrentTeam.TeamId == TeamId.Netural;
+    public TeamId TeamId => CapturingSystem.CurrentTeam.TeamId;
     public int PickUpedRopes => _pickUpedRopes;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
-    public int TeamPoints => _teamPoints;
-    public int NeutralPoints => _neutralPoints;
-    public bool AreRoesDestroyed => _areRoesDestroyed; 
+    public bool AreRoesDestroyed => _areRopesDestroyed; 
+    public CapturingSystem CapturingSystem { get; private set; } = new CapturingSystem();
 
-    public event Action<int> PointsChanged;
-    public event Action<Color, float, float> PointsAdded;
-
-    private void Start()
+    private void Awake()
     {
-        PointsChanged?.Invoke(_neutralPoints);
+        CapturingSystem.Init(_initialTeam, _initialPoints);
+    }
+
+    private void OnEnable()
+    {
+        CapturingSystem.TeamChanged += TryDestroyOthersTeamsRopes;
+    }
+
+    private void OnDisable()
+    {
+        CapturingSystem.TeamChanged -= TryDestroyOthersTeamsRopes;
     }
 
     private void Update()
@@ -39,50 +41,25 @@ public class Building : MonoBehaviour
         CheckRopes();
     }
 
-    public void SetNeutralTeam(Team team)
-    {
-        _capturingTeam = team;
-        _capturingTeam.AddPoints(_neutralPoints);
-    }
-
-    public void TryCapture(Team team, Rope rope)
-    {
-        _capturingTeam = team;
-
-        if (_teamId != _capturingTeam.TeamId)
-        {
-            rope.Connect();
-            _areRoesDestroyed = false;
-
-            if (_isNeutral)
-            {
-                StartCoroutine(TryCapturingNeutral(rope));
-            }
-            else
-            {
-                StartCoroutine(TryCapturingTeam(rope));
-            }
-        }
-    }
-
     public void AddSetedRope(Rope rope)
     {
         _settedRopes.Add(rope);
+
+        float teamRopeAmount = 0;
+
+        foreach (var settedRope in _settedRopes)
+        {
+            if (rope.TeamId == settedRope.TeamId)
+                teamRopeAmount++;
+        }
+
+        rope.Connect(CapturingSystem, teamRopeAmount);
     }
 
     public void AddPickedRope(Rope rope)
     {
         _pickedRopes.Add(rope);
         _pickUpedRopes++;
-    }
-
-    private int ChangePoints(int value, int points)
-    {
-        points += value;
-        points = Mathf.Clamp(points, 0, _maxPoints);
-        PointsChanged?.Invoke(points);
-
-        return points;
     }
 
     private void CheckRopes()
@@ -98,13 +75,13 @@ public class Building : MonoBehaviour
         }
     }
 
-    private void TryDestroyOthersTeamsRopes()
+    private void TryDestroyOthersTeamsRopes(Team team)
     {
         foreach(var rope in _settedRopes)
         {
-            if(rope.TeamId != _leadTeam.TeamId && rope != null)
+            if(rope.TeamId != team.TeamId && rope != null)
             {
-                _areRoesDestroyed = true;
+                _areRopesDestroyed = true;
                 rope.Disconnect();
                 rope.Fall();
                 //Destroy(rope.gameObject);
@@ -112,58 +89,5 @@ public class Building : MonoBehaviour
         }
     }
 
-    private IEnumerator TryCapturingNeutral(Rope rope)
-    {
-        while (_neutralPoints > 0 && rope.IsConnected)
-        {
-            _neutralPoints = ChangePoints(-1, _neutralPoints);
-            yield return new WaitForSeconds(0.2f);
-        }
-
-        _teamId = _capturingTeam.TeamId;
-        _leadTeam = _capturingTeam;
-        _isNeutral = false;
-
-        StartCoroutine(TryCapturingTeam(rope));
-    }
-
-    private IEnumerator TryCapturingTeam(Rope rope)
-    {
-        print(_teamId != rope.TeamId);
-        if(_teamId != rope.TeamId)
-        {
-            while(_teamPoints > 0 && rope.IsConnected)
-            {
-                _teamPoints = ChangePoints(-1, _teamPoints);
-                PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
-
-                yield return new WaitForSeconds(0.2f);
-            }
-
-            if (rope.IsConnected)
-            {
-                _teamId = _capturingTeam.TeamId;
-                _leadTeam = _capturingTeam;
-            }
-        }
-
-        StartCoroutine(TryHoldCapturing(rope));
-    }
-
-    private IEnumerator TryHoldCapturing(Rope rope)
-    {
-        while (rope.IsConnected && rope != null)
-        {
-            _teamPoints = ChangePoints(1, _teamPoints);
-            PointsAdded?.Invoke(_leadTeam.Color, _teamPoints, _maxPoints);
-            //_capturingTeam.AddPoints(1);
-
-            if (_teamPoints >= _maxPoints)
-            {
-                TryDestroyOthersTeamsRopes();
-            }
-
-            yield return new WaitForSeconds(0.2f);
-        }
-    }
+    
 }

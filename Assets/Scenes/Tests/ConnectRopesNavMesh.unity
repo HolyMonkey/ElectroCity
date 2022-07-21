@@ -158,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 216086645}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 11.22, y: 0, z: -8.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 438595881}
@@ -632,7 +632,6 @@ GameObject:
   m_Component:
   - component: {fileID: 463875329}
   - component: {fileID: 463875330}
-  - component: {fileID: 463875331}
   m_Layer: 0
   m_Name: Buildings
   m_TagString: Untagged
@@ -675,19 +674,6 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4284045657
   _teamId: 4
---- !u!114 &463875331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463875328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94e467d58ec35f849a1e82f9f5e8ae8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _team: {fileID: 463875330}
 --- !u!1 &522946466
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,6 +1063,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3562516941857151232, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3562516941857151236, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1125,6 +1115,10 @@ PrefabInstance:
       propertyPath: _teamPoints
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
+      propertyPath: _initialTeam
+      value: 
+      objectReference: {fileID: 463875330}
     - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
       propertyPath: _neutralPoints
       value: 20
@@ -1291,9 +1285,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamPoints: 0
-  _neutralPoints: 0
-  _teamId: 0
+  _initialPoints: 0
+  _initialTeam: {fileID: 8317446292828288987}
   _pickedRopes: []
   _settedRopes: []
 --- !u!1 &963194225
@@ -2794,6 +2787,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
+      propertyPath: _initialTeam
+      value: 
+      objectReference: {fileID: 463875330}
+    - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
       propertyPath: _neutralPoints
       value: 20
       objectReference: {fileID: 0}
@@ -3107,9 +3104,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _teamPoints: 0
-  _neutralPoints: 0
-  _teamId: 1
+  _initialPoints: 0
+  _initialTeam: {fileID: 1478492254}
   _pickedRopes: []
   _settedRopes: []
 --- !u!4 &1741137477 stripped
@@ -3254,7 +3250,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1838608947}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.55, y: 0, z: 5.28}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 438595881}
@@ -3637,6 +3633,10 @@ PrefabInstance:
       propertyPath: _points
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
+      propertyPath: _initialTeam
+      value: 
+      objectReference: {fileID: 463875330}
     - target: {fileID: 3562516941857151242, guid: 3c1ed0856ffad9946ab36b9892cdad21, type: 3}
       propertyPath: _netrualPoints
       value: 30

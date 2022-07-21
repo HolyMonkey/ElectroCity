@@ -51,7 +51,6 @@ public class SetRopeTrigger : MonoBehaviour
 
         _team = handler.Team;
         _building.AddSetedRope(handler.CurrentRope);
-        _building.TryCapture(_team, handler.CurrentRope);
         handler.PlaceRope(CreateNextAttachPoint());
     }
 
