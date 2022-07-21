@@ -9,15 +9,12 @@ public class SetRopeTrigger : MonoBehaviour
 
     private Team _team;
     private int _numberOfPlacements;
-    private readonly int _counter = 1;
+    private readonly int _maxNumberOfPlacements = 1;
     private int _settedRopeCounter;
     private float _startAngle = 90f;
 
-    public bool IsTryingToPlaceTwice => _numberOfPlacements < _counter;
-    //public bool IsConnected => _building.IsConnected;
+    public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
     public TeamId TeamId => _building.TeamId;
-
-
 
     private void OnTriggerEnter(Collider other)
     {
@@ -29,13 +26,17 @@ public class SetRopeTrigger : MonoBehaviour
 
     public bool IsTryingPlaceTwice(TeamId teamId)
     {
-        if (_team == null)
+        if (_building.AreRoesDestroyed)
         {
-            _numberOfPlacements++;
+            _numberOfPlacements--;
+        }
+
+        if(_team == null)
+        {
             return false;
         }
 
-        if (teamId != _team.TeamId || _numberOfPlacements < _counter)
+        if (teamId != _team.TeamId && _numberOfPlacements < _maxNumberOfPlacements)
         {
             _numberOfPlacements++;
             return false;

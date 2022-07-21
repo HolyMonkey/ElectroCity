@@ -8,7 +8,6 @@ public class Building : MonoBehaviour
     [SerializeField, Range(0, 100)] private int _teamPoints;
     [SerializeField, Range(0, 100)] private int _neutralPoints;
     [SerializeField] private TeamId _teamId;
-    //[SerializeField] private bool _isConnected;
     [SerializeField] private List<Rope> _pickedRopes;
     [SerializeField] private List<Rope> _settedRopes;
 
@@ -18,13 +17,14 @@ public class Building : MonoBehaviour
     private Team _capturingTeam;
     private Team _leadTeam;
     private bool _isNeutral = true;
+    private bool _areRoesDestroyed;
 
     public TeamId TeamId => _teamId;
-    //public bool IsConnected => _isConnected;
     public int PickUpedRopes => _pickUpedRopes;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
     public int TeamPoints => _teamPoints;
     public int NeutralPoints => _neutralPoints;
+    public bool AreRoesDestroyed => _areRoesDestroyed; 
 
     public event Action<int> PointsChanged;
     public event Action<Color, float, float> PointsAdded;
@@ -37,11 +37,6 @@ public class Building : MonoBehaviour
     private void Update()
     {
         CheckRopes();
-
-        //foreach(var rope in _settedRopes)
-        //{
-        //    print($" rope {_settedRopes.IndexOf(rope)} {rope.IsConnected}");
-        //}
     }
 
     public void SetNeutralTeam(Team team)
@@ -56,8 +51,8 @@ public class Building : MonoBehaviour
 
         if (_teamId != _capturingTeam.TeamId)
         {
-            //_isConnected = true;
             rope.Connect();
+            _areRoesDestroyed = false;
 
             if (_isNeutral)
             {
@@ -109,6 +104,7 @@ public class Building : MonoBehaviour
         {
             if(rope.TeamId != _leadTeam.TeamId && rope != null)
             {
+                _areRoesDestroyed = true;
                 rope.Disconnect();
                 rope.Fall();
                 //Destroy(rope.gameObject);
