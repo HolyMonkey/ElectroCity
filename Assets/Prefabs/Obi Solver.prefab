@@ -219,6 +219,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2014110880}
+  - component: {fileID: 6530851123929830195}
   m_Layer: 0
   m_Name: RopePoints
   m_TagString: Untagged
@@ -248,8 +249,65 @@ Transform:
   - {fileID: 7553705632288305182}
   - {fileID: 1346511920166579902}
   - {fileID: 2571069630476071585}
+  - {fileID: 140641593919805886}
   m_Father: {fileID: 2749530513809730238}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6530851123929830195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2014110879}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19bd24aa7121417499970b49be2f585b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawners: []
+  _points:
+  - {fileID: 1623577880}
+  - {fileID: 595561863}
+  - {fileID: 1741137477}
+  - {fileID: 566108561}
+  - {fileID: 294348020}
+  - {fileID: 1226248877}
+  - {fileID: 1509430504}
+  - {fileID: 3724731514257875213}
+  - {fileID: 7553705632288305182}
+  - {fileID: 1346511920166579902}
+  - {fileID: 2571069630476071585}
+  - {fileID: 140641593919805886}
+--- !u!1 &2342619462784897826
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 140641593919805886}
+  m_Layer: 0
+  m_Name: RopePoint (11)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &140641593919805886
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2342619462784897826}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2014110880}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2749530513809730233
 GameObject:

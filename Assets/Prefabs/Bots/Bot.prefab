@@ -235,7 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color:
     serializedVersion: 2
-    rgba: 4278190318
+    rgba: 4280889599
   _teamId: 1
 --- !u!1001 &8475090883918547952
 PrefabInstance:
@@ -299,7 +299,7 @@ PrefabInstance:
     - target: {fileID: 13700000, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: fcc0751a662a3204b80daf8d0e4dd899, type: 2}
+      objectReference: {fileID: 2100000, guid: 7d1ef004ec6e7694695a476443b31235, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
 --- !u!4 &8475090883918418268 stripped

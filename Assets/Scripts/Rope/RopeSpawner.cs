@@ -9,9 +9,14 @@ public class RopeSpawner : MonoBehaviour
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _ropePoint;
 
-    private void Awake()
+    private void Start()
     {
         _ropePoint.transform.position = transform.position;
+    }
+
+    public void SetRopePoint(Transform point)
+    {
+        _ropePoint = point;
     }
 
     public void Spawn(RopeHandler handler)
