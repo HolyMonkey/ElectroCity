@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,13 +12,20 @@ public class Building : MonoBehaviour
     private int _maxPickUpedRopes = 3;
     private int _pickUpedRopes;
     private bool _areRopesDestroyed;
+    private readonly int _lowEnergyLevel = 30;
+    private readonly int _mediumEnergyLevel = 60;
 
+    public int InitialPoints => _initialPoints;
     public bool IsBuildingNeutral => CapturingSystem.CurrentTeam.TeamId == TeamId.Netural;
     public TeamId TeamId => CapturingSystem.CurrentTeam.TeamId;
     public int PickUpedRopes => _pickUpedRopes;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
     public bool AreRoesDestroyed => _areRopesDestroyed; 
     public CapturingSystem CapturingSystem { get; private set; } = new CapturingSystem();
+    public int TotalPoints => CapturingSystem.TotalPoints;
+
+    public event Action PickUpedRopesChanged;
+    public event Action<int> EnergyChecked;
 
     private void Awake()
     {
@@ -29,6 +35,7 @@ public class Building : MonoBehaviour
     private void OnEnable()
     {
         CapturingSystem.TeamChanged += TryDestroyOthersTeamsRopes;
+
     }
 
     private void OnDisable()
@@ -39,6 +46,7 @@ public class Building : MonoBehaviour
     private void Update()
     {
         CheckRopes();
+        CheckEnergy();
     }
 
     public void AddSetedRope(Rope rope)
@@ -60,6 +68,7 @@ public class Building : MonoBehaviour
     {
         _pickedRopes.Add(rope);
         _pickUpedRopes++;
+        PickUpedRopesChanged?.Invoke();
     }
 
     private void CheckRopes()
@@ -69,10 +78,31 @@ public class Building : MonoBehaviour
             if (rope != null && rope.IsTorn)
             {
                 _pickUpedRopes--;
+                PickUpedRopesChanged?.Invoke();
                 _pickedRopes.Remove(rope);
                 break;
             }
         }
+    }
+
+    private void CheckEnergy()
+    {
+        if (TotalPoints > _mediumEnergyLevel)
+        {
+            _maxPickUpedRopes = 3;
+        }
+
+        if (TotalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
+        {
+            _maxPickUpedRopes = 2;
+        }
+
+        if (TotalPoints <= _lowEnergyLevel)
+        {
+            _maxPickUpedRopes = 1;
+        }
+
+        EnergyChecked?.Invoke(_maxPickUpedRopes);
     }
 
     private void TryDestroyOthersTeamsRopes(Team team)

@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Linq;
 using System;
 
 public class CapturingSystem
@@ -22,6 +19,7 @@ public class CapturingSystem
         TotalPoints = initialPoints;
 
         PointsChanged?.Invoke(TotalPoints);
+        TeamChanged?.Invoke(CurrentTeam);
     }
 
     public void TakeEnergy(int value, Team team)
@@ -51,7 +49,7 @@ public class CapturingSystem
         if(_canChangeTeam)
             CurrentTeam = team;
 
-        //TeamChanged?.Invoke(team);
+        TeamChanged?.Invoke(team);
     }
 
 }

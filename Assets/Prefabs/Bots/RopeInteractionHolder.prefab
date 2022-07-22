@@ -43,12 +43,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a56c6700027b04468e6ed8fee6d6920, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pickUps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  _setRopes:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
