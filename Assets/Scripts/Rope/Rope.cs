@@ -2,12 +2,14 @@ using UnityEngine;
 using Obi;
 using static Obi.ObiRope;
 using System.Collections;
+using System;
 
 public class Rope : MonoBehaviour
 {
     [SerializeField] private ObiRope _obiRope;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _endPoint;
+    [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private ObiParticleAttachment _endAttachment;
     [SerializeField] private ObiParticleAttachment _startAttachment;
 
@@ -15,15 +17,17 @@ public class Rope : MonoBehaviour
     private readonly float _movingDownTime = 2f;
     private bool _isTorn;
     private bool _isConnected;
-    private Team _team;
+    private Action _onRopeConnected;
 
+    public Team Team { get; private set; }
     public int Multiplier { get; private set; } = 1;
+    public MeshRenderer Renderer => _meshRenderer;
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
     public Transform EndPoint => _endPoint;
     public bool IsTorn => _isTorn;
     public bool IsConnected => _isConnected;
-    public TeamId TeamId => _team.TeamId;
+    public TeamId TeamId => Team.TeamId;
 
     private void OnEnable()
     {
@@ -37,13 +41,19 @@ public class Rope : MonoBehaviour
 
     public void SetTeamId(Team team)
     {
-        _team = team;
+        Team = team;
     }
 
-    public void Connect(CapturingSystem capturingSystem, float teamRopeAmount)
+    public void LaunchOnRopeConnected(Action onRopeConnected)
+    {
+        _onRopeConnected = onRopeConnected;
+    }
+
+    public void Connect(CapturingSystem capturingSystem)
     {
         _isConnected = true;
-        StartCoroutine(GivingEnergy(capturingSystem, teamRopeAmount));
+        //StartCoroutine(GivingEnergy(capturingSystem));
+        _onRopeConnected?.Invoke();
     }
 
     public void Disconnect()
@@ -85,16 +95,14 @@ public class Rope : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private IEnumerator GivingEnergy(CapturingSystem capturingSystem, float ropeConncetedAmount)
-    {
-        while (IsConnected)
-        {
-            capturingSystem.TakeEnergy(Multiplier, _team);
-            float frequency = Random.Range(0.2f, 0.23f);
+    //private IEnumerator GivingEnergy(CapturingSystem capturingSystem)
+    //{
+    //    while (IsConnected)
+    //    {
+    //        capturingSystem.ApplyEnergy(Multiplier, Team);
+    //        float frequency = Random.Range(0.2f, 0.23f);
 
-            frequency -= ropeConncetedAmount / 100;
-
-            yield return new WaitForSeconds(frequency);
-        }
-    }
+    //        yield return new WaitForSeconds(frequency);
+    //    }
+    //}
 }

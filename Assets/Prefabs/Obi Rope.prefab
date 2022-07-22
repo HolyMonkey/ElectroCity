@@ -514,6 +514,8 @@ MonoBehaviour:
   _obiRope: {fileID: 6350540789875482667}
   _startPoint: {fileID: 1820003700439355323}
   _endPoint: {fileID: 3540322125424346963}
+  _endAttachment: {fileID: 0}
+  _startAttachment: {fileID: 0}
 --- !u!1 &7080349237003532727
 GameObject:
   m_ObjectHideFlags: 0

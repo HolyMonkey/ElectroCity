@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
   m_Name: End
   m_EditorClassIdentifier: 
-  particleIndices: 32000000
+  particleIndices: 35000000
   m_Blueprint: {fileID: 11400000}
 --- !u!114 &-5079441806275069812
 MonoBehaviour:
@@ -26,7 +26,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
   m_Name: End
   m_EditorClassIdentifier: 
-  particleIndices: 31000000
+  particleIndices: 34000000
   m_Blueprint: {fileID: 11400000}
 --- !u!114 &11400000
 MonoBehaviour:
@@ -2170,7 +2170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
   m_Name: Start
   m_EditorClassIdentifier: 
-  particleIndices: 01000000
+  particleIndices: 04000000
   m_Blueprint: {fileID: 11400000}
 --- !u!114 &3077219373937436500
 MonoBehaviour:
@@ -2198,7 +2198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 775ad4994fda946d1a5936c7e2dfc785, type: 3}
   m_Name: control point
   m_EditorClassIdentifier: 
-  particleIndices: 1b000000
+  particleIndices: 1e000000
   m_Blueprint: {fileID: 11400000}
 --- !u!114 &5351365923220539897
 MonoBehaviour:

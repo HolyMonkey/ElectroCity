@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialPoints: 0
   _initialTeam: {fileID: 0}
+  _ryu: {fileID: 0}
   _pickedRopes: []
   _settedRopes: []
 --- !u!114 &6149276329737458493
@@ -155,7 +156,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6149276329737458491}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5000001

@@ -1172,6 +1172,7 @@ GameObject:
   - component: {fileID: 916454786}
   - component: {fileID: 916454790}
   - component: {fileID: 916454791}
+  - component: {fileID: 916454792}
   m_Layer: 0
   m_Name: MainBuilding
   m_TagString: Untagged
@@ -1287,8 +1288,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialPoints: 0
   _initialTeam: {fileID: 8317446292828288987}
+  _ryu: {fileID: 916454792}
   _pickedRopes: []
   _settedRopes: []
+--- !u!114 &916454792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 916454785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3f7afa1130031409d97fc68a1a0f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hadouken: {fileID: 7336117275946196669, guid: e218ed8f3e8697b40b24d4d12ea75ac9, type: 3}
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1381,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1466,7 +1481,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.24, y: 14, z: -8.059999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2847,6 +2862,8 @@ GameObject:
   - component: {fileID: 1639151027}
   - component: {fileID: 1639151026}
   - component: {fileID: 1639151025}
+  - component: {fileID: 1639151030}
+  - component: {fileID: 1639151029}
   m_Layer: 0
   m_Name: MainBuilding (1)
   m_TagString: Untagged
@@ -2948,6 +2965,36 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639151023}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1639151029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639151023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialPoints: 0
+  _initialTeam: {fileID: 1478492254}
+  _ryu: {fileID: 1639151030}
+  _pickedRopes: []
+  _settedRopes: []
+--- !u!114 &1639151030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639151023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3f7afa1130031409d97fc68a1a0f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hadouken: {fileID: 7336117275946196669, guid: e218ed8f3e8697b40b24d4d12ea75ac9, type: 3}
 --- !u!1 &1713231279
 GameObject:
   m_ObjectHideFlags: 0
@@ -2963,7 +3010,6 @@ GameObject:
   - component: {fileID: 1713231282}
   - component: {fileID: 1713231286}
   - component: {fileID: 1713231281}
-  - component: {fileID: 1713231287}
   m_Layer: 0
   m_Name: PickUpRopeTrigger
   m_TagString: Untagged
@@ -3090,24 +3136,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ropeSpawner: {fileID: 1713231281}
-  _building: {fileID: 1713231287}
+  _building: {fileID: 1639151029}
   _delay: 0.5
---- !u!114 &1713231287
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1713231279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8bff2c5cc16e6a14a89dca9cef2f3d29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _initialPoints: 0
-  _initialTeam: {fileID: 1478492254}
-  _pickedRopes: []
-  _settedRopes: []
 --- !u!4 &1741137477 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1741137477, guid: c1dadf30d725fca4d899df0067572e4b, type: 3}

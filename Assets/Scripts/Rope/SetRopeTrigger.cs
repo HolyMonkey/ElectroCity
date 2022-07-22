@@ -51,7 +51,7 @@ public class SetRopeTrigger : MonoBehaviour
 
         _team = handler.Team;
         _building.AddSetedRope(handler.CurrentRope);
-        handler.PlaceRope(CreateNextAttachPoint());
+        handler.PlaceRope(transform);
     }
 
     private bool CanAttach(Collider other, out RopeHandler handler)

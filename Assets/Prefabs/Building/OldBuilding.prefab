@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3562516941857151237}
   - component: {fileID: 3562516941857151242}
   - component: {fileID: 3562516941857151243}
+  - component: {fileID: 731211321921614148}
   m_Layer: 0
   m_Name: OldBuilding
   m_TagString: Untagged
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _initialPoints: 20
   _initialTeam: {fileID: 0}
+  _ryu: {fileID: 0}
   _pickedRopes: []
   _settedRopes: []
 --- !u!114 &3562516941857151243
@@ -149,6 +151,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _building: {fileID: 3562516941857151242}
   _meshRenderer: {fileID: 3562516941857151238}
+--- !u!114 &731211321921614148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3562516941857151232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3f7afa1130031409d97fc68a1a0f41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hadouken: {fileID: 7336117275946196669, guid: e218ed8f3e8697b40b24d4d12ea75ac9, type: 3}
 --- !u!1 &3562516942220252243
 GameObject:
   m_ObjectHideFlags: 0

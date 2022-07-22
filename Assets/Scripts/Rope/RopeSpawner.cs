@@ -5,7 +5,6 @@ using UnityEngine;
 public class RopeSpawner : MonoBehaviour
 {
     [SerializeField] private Rope _ropePrefab;
-    [SerializeField] private ObiSolver _solver;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _ropePoint;
 
@@ -39,8 +38,7 @@ public class RopeSpawner : MonoBehaviour
 
     private void ChangeColor(Rope rope, RopeHandler handler)
     {
-        MeshRenderer renderer = rope.GetComponent<MeshRenderer>();
-        renderer.material.color = handler.Team.Color;
+        rope.Renderer.material.color = handler.Team.Color;
     }
 
     private IEnumerator Delay(Rope rope)

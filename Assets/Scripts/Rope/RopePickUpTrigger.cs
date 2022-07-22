@@ -13,7 +13,7 @@ public class RopePickUpTrigger : MonoBehaviour
     private RopeHandler _currentRopeHandler;
 
     public Building Building => _building;
-    public bool IsThereFreeRope => _building.PickUpedRopes < _building.MaxPickUpedRopes;
+    public bool IsThereFreeRope => _building.PickUpedRopesCount < _building.MaxPickUpedRopes;
     public TeamId TeamId => _building.TeamId;
 
     private void OnTriggerEnter(Collider other)

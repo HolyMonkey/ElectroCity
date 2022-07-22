@@ -47,7 +47,7 @@ public class CircleHandler : MonoBehaviour
 
     private void OnPickUpedRopesChanged()
     {
-        if (_building.PickUpedRopes == 0)
+        if (_building.PickUpedRopesCount == 0)
         {
            foreach(var circle in _circles)
            {
@@ -59,12 +59,12 @@ public class CircleHandler : MonoBehaviour
 
         for (int i = 1; i <= _building.MaxPickUpedRopes; i++)
         {
-            if(_building.PickUpedRopes < i)
+            if(_building.PickUpedRopesCount < i)
             {
                 ChangeAlpha(_circles[_building.MaxPickUpedRopes - i], 1);
             }
 
-            if (_building.PickUpedRopes == i)
+            if (_building.PickUpedRopesCount == i)
             {
                 ChangeAlpha(_circles[_building.MaxPickUpedRopes - i], 0);
             }

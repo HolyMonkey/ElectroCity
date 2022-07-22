@@ -112,7 +112,6 @@ GameObject:
   - component: {fileID: 9201449988478547276}
   - component: {fileID: 9201449988478547271}
   - component: {fileID: 9201449988478547264}
-  - component: {fileID: 9201449988478547265}
   - component: {fileID: 9201449988478547266}
   - component: {fileID: 9201449988578408568}
   - component: {fileID: 9201449988478547267}
@@ -188,20 +187,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &9201449988478547265
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9201449988478547277}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!65 &9201449988478547266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -242,10 +227,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
-  _solver: {fileID: 0}
+  _ropePrefab: {fileID: 5127113358951800463, guid: 38e1d479390db5943ae37adc2e9e05f3, type: 3}
   _startPoint: {fileID: 0}
-  _ropePoint: {fileID: 0}
+  _ropePoint: {fileID: 9201449988478547276}
 --- !u!1001 &1180850925304461254
 PrefabInstance:
   m_ObjectHideFlags: 0
