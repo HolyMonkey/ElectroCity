@@ -12,6 +12,12 @@ public class Hadouken : MonoBehaviour
 
     public TeamId TeamId => _rope.TeamId;
 
+    private void OnDisable()
+    {
+        if (_rope != null)
+            _rope.Torned -= Disable;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Building building) && building != _buildingFrom)

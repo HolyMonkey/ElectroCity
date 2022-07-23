@@ -101,6 +101,7 @@ public class Building : MonoBehaviour
             _maxPickUpedRopes = 1;
         }
 
+        DestroyExcessivePickedRopes();
         EnergyChecked?.Invoke(_maxPickUpedRopes);
     } 
 
@@ -118,9 +119,15 @@ public class Building : MonoBehaviour
             {
                 _areRopesDestroyed = true;
                 rope.Disconnect();
-                rope.Fall();
-                //Destroy(rope.gameObject);
             }
+        }
+    }
+
+    private void DestroyExcessivePickedRopes()
+    {
+        for (int i = _pickedRopes.Count-1; i >= _maxPickUpedRopes; i--)
+        {
+            _pickedRopes[i].Disconnect();
         }
     }
 

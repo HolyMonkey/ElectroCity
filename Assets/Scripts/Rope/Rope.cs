@@ -61,6 +61,7 @@ public class Rope : MonoBehaviour
     public void Disconnect()
     {
         _isConnected = false;
+        Fall();
         Torned?.Invoke();
     }
 
