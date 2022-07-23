@@ -5,7 +5,7 @@ public class ColorChanger : MonoBehaviour
 	[SerializeField] private Building _building;
 	[SerializeField] private MeshRenderer _meshRenderer;
 
-    private float _maxValue = 20f;
+    private float _maxValue = 10f;
     
     private void OnEnable()
     {
@@ -23,10 +23,5 @@ public class ColorChanger : MonoBehaviour
         _meshRenderer.material.SetColor("_ColorGradient", color);
         _meshRenderer.material.SetFloat("_GradientSize", addValue);
     }
-
-  //  private void OnColorChanged(Color color)
-  //  {
-		//_meshRenderer.material.color = color;
-  //  }
     
 }

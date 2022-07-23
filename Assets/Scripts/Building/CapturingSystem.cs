@@ -20,6 +20,7 @@ public class CapturingSystem
 
         PointsChanged?.Invoke(TotalPoints);
         TeamChanged?.Invoke(CurrentTeam);
+        PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
     }
 
     public void ApplyEnergy(int value, Team team)
@@ -35,18 +36,22 @@ public class CapturingSystem
         ChangePoints(-value);
     }
 
+    public void IncreseEnergy(int value)
+    {
+        ChangePoints(value);
+    }
+
     private void ChangeTeamPoints(int value, Team team)
     {
         ChangePoints(value);
-
-        PointsChanged?.Invoke(TotalPoints);
-        PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
 
         if (TotalPoints <= 0)
         {
             ChangeTeam(team);
             TotalPoints++;
         }
+
+        PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
     }
 
     private void ChangePoints(int value)
@@ -54,6 +59,8 @@ public class CapturingSystem
         TotalPoints += value;
 
         TotalPoints = Mathf.Clamp(TotalPoints, 0, _maxPoints);
+
+        PointsChanged?.Invoke(TotalPoints);
     }
 
     private void ChangeTeam(Team team)

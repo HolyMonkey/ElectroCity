@@ -33,17 +33,20 @@ public class Building : MonoBehaviour
     private void Awake()
     {
         CapturingSystem.Init(_initialTeam, _initialPoints);
+
+        if (CapturingSystem.CurrentTeam.TeamId != TeamId.Netural)
+            StartCoroutine(ProduceEnergy());
     }
 
     private void OnEnable()
     {
-        //CapturingSystem.TeamChanged += TryDestroyOthersTeamsRopes;
+        CapturingSystem.TeamChanged += TryDestroyOthersTeamsRopes;
 
     }
 
     private void OnDisable()
     {
-        //CapturingSystem.TeamChanged -= TryDestroyOthersTeamsRopes;
+        CapturingSystem.TeamChanged -= TryDestroyOthersTeamsRopes;
     }
 
     private void Update()
@@ -107,6 +110,20 @@ public class Building : MonoBehaviour
             _spawningCoroutine = StartCoroutine(GivingEnergy());
     }
 
+    private void TryDestroyOthersTeamsRopes(Team team)
+    {
+        foreach (var rope in _pickedRopes)
+        {
+            if (rope.TeamId != team.TeamId && rope != null)
+            {
+                _areRopesDestroyed = true;
+                rope.Disconnect();
+                rope.Fall();
+                //Destroy(rope.gameObject);
+            }
+        }
+    }
+
     private IEnumerator GivingEnergy()
     {
         while(_pickedRopes.Count> 0)
@@ -126,17 +143,15 @@ public class Building : MonoBehaviour
         _spawningCoroutine = null;
     }
 
-    private void TryDestroyOthersTeamsRopes(Team team)
+    private IEnumerator ProduceEnergy()
     {
-        foreach(var rope in _settedRopes)
+        var delay = new WaitForSeconds(0.8f);
+
+        while (true)
         {
-            if(rope.TeamId != team.TeamId && rope != null)
-            {
-                _areRopesDestroyed = true;
-                rope.Disconnect();
-                rope.Fall();
-                //Destroy(rope.gameObject);
-            }
+            CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
+
+            yield return delay;
         }
     }
 }

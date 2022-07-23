@@ -29,6 +29,8 @@ public class Rope : MonoBehaviour
     public bool IsConnected => _isConnected;
     public TeamId TeamId => Team.TeamId;
 
+    public event Action Torned;
+
     private void OnEnable()
     {
         _obiRope.OnRopeTorn += Disappear;
@@ -59,6 +61,7 @@ public class Rope : MonoBehaviour
     public void Disconnect()
     {
         _isConnected = false;
+        Torned?.Invoke();
     }
 
     public void Fall()

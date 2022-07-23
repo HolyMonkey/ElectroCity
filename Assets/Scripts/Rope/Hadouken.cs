@@ -18,7 +18,7 @@ public class Hadouken : MonoBehaviour
             GiveEnergy(building);
 
         if (other.TryGetComponent(out Hadouken otherHadouken) && TeamId != otherHadouken.TeamId)
-            OnHadoukenCollide();
+            Disable();
     }
 
     public void Throw(Rope rope, Building buildingFrom)
@@ -27,18 +27,19 @@ public class Hadouken : MonoBehaviour
         _buildingFrom = buildingFrom;
         _particleSystem.startColor = _rope.Team.Color;
         StartCoroutine(FlyingAlongRope());
+        _rope.Torned += Disable;
     }
 
     private void GiveEnergy(Building building)
     {
         building.CapturingSystem.ApplyEnergy(_rope.Multiplier, _rope.Team);
-        gameObject.SetActive(false);
+        Disable();
     }
 
-    private void OnHadoukenCollide()
+    private void Disable()
     {
+        _rope.Torned -= Disable;
         Destroy(gameObject);
-
     }
 
     private IEnumerator FlyingAlongRope()
@@ -51,7 +52,7 @@ public class Hadouken : MonoBehaviour
             float elapsedTime = 0;
             float time = 0.01f;
 
-            while (elapsedTime < time)
+            while (elapsedTime < time && _rope.IsConnected)
             {
                 transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / time);
 
