@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8032803227436462265
 Transform:
   m_ObjectHideFlags: 0
@@ -4764,6 +4764,7 @@ GameObject:
   - component: {fileID: 8032803227436568443}
   - component: {fileID: 8032803227418163377}
   - component: {fileID: 8032803227418180701}
+  - component: {fileID: 8746078867059234295}
   m_Layer: 0
   m_Name: BasicZoneWhite
   m_TagString: Untagged
@@ -4780,7 +4781,7 @@ Transform:
   m_GameObject: {fileID: 8032803227436223361}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.6706533, y: 0, z: 0.024541855}
-  m_LocalScale: {x: 1, y: 0.4, z: 1}
+  m_LocalScale: {x: 1.2532192, y: 0.50128776, z: 1.2532192}
   m_Children:
   - {fileID: 8032803227436462265}
   - {fileID: 8032803227436506143}
@@ -9508,6 +9509,20 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!114 &8746078867059234295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8032803227436223361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f384b7f8754734b83f9173cadc16bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _building: {fileID: 0}
+  _zone: {fileID: 8032803227418163377}
 --- !u!1 &8032803227436242431
 GameObject:
   m_ObjectHideFlags: 0
@@ -9535,7 +9550,7 @@ Transform:
   m_GameObject: {fileID: 8032803227436242431}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0.75}
+  m_LocalScale: {x: 1, y: 1, z: -0.028050195}
   m_Children: []
   m_Father: {fileID: 8032803227436568443}
   m_RootOrder: 1
@@ -9555,7 +9570,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9570,7 +9585,7 @@ ParticleSystem:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -9579,7 +9594,7 @@ ParticleSystem:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1
-        value: 1
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 0
