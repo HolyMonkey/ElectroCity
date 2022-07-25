@@ -284,7 +284,11 @@ PrefabInstance:
     - target: {fileID: 1792152050900004310, guid: 78c129a290af05f46a75b8f51074478f, type: 3}
       propertyPath: _connectPoint
       value: 
-      objectReference: {fileID: 4049399512745273258}
+      objectReference: {fileID: 6906379625955311373}
+    - target: {fileID: 1792152050900004310, guid: 78c129a290af05f46a75b8f51074478f, type: 3}
+      propertyPath: _refrenceObject
+      value: 
+      objectReference: {fileID: 3886628246849243610}
     - target: {fileID: 1792152050900004311, guid: 78c129a290af05f46a75b8f51074478f, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -334,6 +338,11 @@ PrefabInstance:
 --- !u!4 &3886628246177375608 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1792152050900004311, guid: 78c129a290af05f46a75b8f51074478f, type: 3}
+  m_PrefabInstance: {fileID: 3255841979518879919}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6906379625955311373 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8284213915471624098, guid: 78c129a290af05f46a75b8f51074478f, type: 3}
   m_PrefabInstance: {fileID: 3255841979518879919}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5350854490558963205

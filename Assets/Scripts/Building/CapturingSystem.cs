@@ -5,6 +5,7 @@ public class CapturingSystem
 {
     private const int _maxPoints = 100;
     private bool _canChangeTeam = true;
+    private Func<bool> _isRopesCountEqual;
 
     public int TotalPoints { get; private set; }
     public Team CurrentTeam { get; private set; }
@@ -13,10 +14,11 @@ public class CapturingSystem
     public event Action<Color, float, float> PointsAdded;
     public event Action<Team> TeamChanged;
 
-    public void Init(Team team, int initialPoints)
+    public void Init(Team team, int initialPoints, Func<bool> getPickedRopeCounter)
     {
         CurrentTeam = team;
         TotalPoints = initialPoints;
+        _isRopesCountEqual = getPickedRopeCounter;
 
         PointsChanged?.Invoke(TotalPoints);
         TeamChanged?.Invoke(CurrentTeam);

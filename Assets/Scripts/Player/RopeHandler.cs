@@ -35,11 +35,13 @@ public class RopeHandler : MonoBehaviour
         RopeTaken?.Invoke();
     }
 
-    public void PlaceRope(Transform setPoint)
+    public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
     {
         if(_currentRope != null)
         {
-            _currentRope.EndPoint.SetParent(setPoint);
+            _currentRope.EndPoint.rotation = refernceObjectRotation * Quaternion.Euler(0, 0, 90f);
+            _currentRope.EndPoint.transform.localScale = Vector3.one * 2;
+            _currentRope.EndPoint.SetParent(setPoint,true);
             _currentRope.EndPoint.localPosition = Vector3.zero;
             _currentRope.ObiRope.tearingEnabled = false;
             _currentRope = null;

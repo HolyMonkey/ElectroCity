@@ -6,6 +6,7 @@ public class SetRopeTrigger : MonoBehaviour
     [SerializeField] private Transform _connectPoint;
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
+    [SerializeField] private Transform _refrenceObject;
 
     private Team _team;
     private int _numberOfPlacements;
@@ -59,7 +60,8 @@ public class SetRopeTrigger : MonoBehaviour
 
         _team = handler.Team;
         _building.AddSetedRope(handler.CurrentRope);
-        handler.PlaceRope(transform);
+        Debug.Log(_refrenceObject.eulerAngles);
+        handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
     }
 
     public bool CanAttach(Collider other, out RopeHandler handler)

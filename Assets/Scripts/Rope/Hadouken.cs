@@ -21,14 +21,14 @@ public class Hadouken : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (_isDisabled)
-            return;
+        //if (_isDisabled)
+        //    return;
 
-        if (other.TryGetComponent(out Building building) && building != _buildingFrom)
-            GiveEnergy(building);
+        //if (other.TryGetComponent(out Building building) && building != _buildingFrom)
+        //    GiveEnergy(building);
 
-        if (other.TryGetComponent(out Hadouken otherHadouken) && TeamId != otherHadouken.TeamId)
-            Disable(_rope);
+        //if (other.TryGetComponent(out Hadouken otherHadouken) && TeamId != otherHadouken.TeamId)
+        //    Disable(_rope);
     }
 
     public void Throw(Rope rope, Building buildingFrom)

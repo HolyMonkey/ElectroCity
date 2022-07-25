@@ -16,6 +16,16 @@ public class RopePickUpTrigger : MonoBehaviour
     public bool IsThereFreeRope => _building.PickUpedRopesCount < _building.MaxPickUpedRopes;
     public TeamId TeamId => _building.TeamId;
 
+    private void OnEnable()
+    {
+        _building.CapturingSystem.TeamChanged += ResetTaking;
+    }
+
+    private void OnDisable()
+    {
+        _building.CapturingSystem.TeamChanged -= ResetTaking;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(CanTake(other, out RopeHandler handler))
@@ -34,6 +44,27 @@ public class RopePickUpTrigger : MonoBehaviour
             _isPickingUp = false;
         }
     }
+
+
+    private void ResetTaking(Team team)
+    {
+        if (_takingCoroutine != null)
+            StopCoroutine(_takingCoroutine);
+
+        var colliders = Physics.OverlapBox(transform.position, GetComponent<BoxCollider>().bounds.size / 2);
+
+        foreach (var collider in colliders)
+        {
+            if (collider.TryGetComponent(out RopeHandler ropeHandler))
+            {
+                _takingCoroutine = StartCoroutine(Taking(_delay, ropeHandler));
+
+                return;
+            }
+        }
+    }
+
+
 
     private IEnumerator Taking(float delay, RopeHandler handler)
     {

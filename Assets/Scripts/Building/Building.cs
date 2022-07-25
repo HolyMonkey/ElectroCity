@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class Building : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class Building : MonoBehaviour
     private bool _areRopesDestroyed;
     private readonly int _lowEnergyLevel = 30;
     private readonly int _mediumEnergyLevel = 60;
+    private Coroutine _produceEnergyCoroutine;
 
     public int InitialPoints => _initialPoints;
     public bool IsBuildingNeutral => CapturingSystem.CurrentTeam.TeamId == TeamId.Netural;
@@ -22,33 +24,42 @@ public class Building : MonoBehaviour
     public int PickUpedRopesCount => _pickedRopes.Count;
     public int MaxPickUpedRopes => _maxPickUpedRopes;
     public bool AreRoesDestroyed => _areRopesDestroyed; 
-    public CapturingSystem CapturingSystem { get; private set; } = new CapturingSystem();
     public int TotalPoints => CapturingSystem.TotalPoints;
+    public CapturingSystem CapturingSystem { get; private set; } = new CapturingSystem();
+
 
     public event Action PickUpedRopesChanged;
     public event Action<int> EnergyChecked;
 
     private void Awake()
     {
-        CapturingSystem.Init(_initialTeam, _initialPoints);
+        CapturingSystem.Init(_initialTeam, _initialPoints, GetTeamRopeCount);
 
         if (CapturingSystem.CurrentTeam.TeamId != TeamId.Netural)
-            StartCoroutine(ProduceEnergy());
+            ProduceEnergy();
+
+        CheckEnergy(CapturingSystem.TotalPoints);
     }
 
     private void OnEnable()
     {
         CapturingSystem.TeamChanged += TryDestroyOthersTeamsRopes;
+        CapturingSystem.TeamChanged += ResetProduction;
+        CapturingSystem.PointsChanged += CheckEnergy;
     }
 
     private void OnDisable()
     {
         CapturingSystem.TeamChanged -= TryDestroyOthersTeamsRopes;
+        CapturingSystem.TeamChanged -= ResetProduction;
+        CapturingSystem.PointsChanged -= CheckEnergy;
     }
 
-    private void Update()
+    public bool GetTeamRopeCount()
     {
-        CheckEnergy();
+        bool isEqual = true;
+
+        return isEqual;
     }
 
     public void AddSetedRope(Rope rope)
@@ -69,30 +80,30 @@ public class Building : MonoBehaviour
         PickUpedRopesChanged?.Invoke();
     }
 
-    private void CheckEnergy()
+    private void CheckEnergy(int totalPoints)
     {
-        if (TotalPoints > _mediumEnergyLevel)
+        if (totalPoints > _mediumEnergyLevel)
         {
             _maxPickUpedRopes = 3;
         }
 
-        if (TotalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
+        if (totalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
         {
             _maxPickUpedRopes = 2;
         }
 
-        if (TotalPoints <= _lowEnergyLevel)
+        if (totalPoints <= _lowEnergyLevel)
         {
             _maxPickUpedRopes = 1;
         }
 
         DestroyExcessivePickedRopes();
         EnergyChecked?.Invoke(_maxPickUpedRopes);
-    } 
+    }
 
     //private void ProduceHadouken()
     //{
-    //    if(_spawningCoroutine == null)
+    //    if (_spawningCoroutine == null)
     //        _spawningCoroutine = StartCoroutine(GivingEnergy());
     //}
 
@@ -117,6 +128,8 @@ public class Building : MonoBehaviour
                 rope.Disconnect();
             }
         }
+
+        ProduceEnergy();
     }
 
     private void DestroyExcessivePickedRopes()
@@ -130,7 +143,7 @@ public class Building : MonoBehaviour
 
     //private IEnumerator GivingEnergy()
     //{
-    //    while(_pickedRopes.Count> 0)
+    //    while (_pickedRopes.Count > 0)
     //    {
     //        foreach (var rope in _pickedRopes)
     //        {
@@ -144,16 +157,41 @@ public class Building : MonoBehaviour
     //    _spawningCoroutine = null;
     //}
 
-    private IEnumerator ProduceEnergy()
+    private void ResetProduction(Team team)
     {
-        var delay = new WaitForSeconds(0.8f);
+        StopCoroutine(_produceEnergyCoroutine);
+
+        ProduceEnergy();
+    }
+
+    private void ProduceEnergy()
+    {
+        _produceEnergyCoroutine = StartCoroutine(ProducingEnergy());
+    }
+
+    private bool HasEnemyRope()
+    {
+        bool hasEnemyRope = false;
+
+        foreach (var rope in _settedRopes)
+        {
+            if (rope.TeamId != CapturingSystem.CurrentTeam.TeamId)
+                hasEnemyRope = true;
+        }
+
+        return hasEnemyRope;
+    }
+
+    private IEnumerator ProducingEnergy()
+    {
+        var delay = new WaitForSeconds(3f);
 
         while (true)
         {
-            if (_pickedRopes.Count <= 0)
-                CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
-
             yield return delay;
+
+            if (_pickedRopes.Count <= 0 && CapturingSystem.TotalPoints>3 && HasEnemyRope() == false)
+                CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
         }
     }
 }

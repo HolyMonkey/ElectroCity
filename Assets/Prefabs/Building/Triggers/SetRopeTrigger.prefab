@@ -111,10 +111,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b0f614cf88aa1240b8ee9da25dfab7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _connectPoint: {fileID: 0}
+  _connectPoint: {fileID: 8284213915471624098}
   _building: {fileID: 0}
   _delay: 0.5
-  _plug: {fileID: 4163485808266265404}
+  _refrenceObject: {fileID: 0}
 --- !u!1 &7075680087364101990
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1792152050900004311}
     m_Modifications:
+    - target: {fileID: 1630257360632029233, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6261369215280713237, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
       propertyPath: m_Name
       value: Socket
@@ -288,11 +292,6 @@ PrefabInstance:
 --- !u!4 &8284213915471624098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6750625963248178351, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
-  m_PrefabInstance: {fileID: 3411611021593764621}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &4163485808266265404 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1630257360632029233, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
   m_PrefabInstance: {fileID: 3411611021593764621}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5529763663348813888

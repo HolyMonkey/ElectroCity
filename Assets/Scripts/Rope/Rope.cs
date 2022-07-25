@@ -68,7 +68,7 @@ public class Rope : MonoBehaviour
         Torned?.Invoke(this);
     }
 
-    public void Fall()
+    private void Fall()
     {
         StartCoroutine(Disappearing());
     }
@@ -76,6 +76,7 @@ public class Rope : MonoBehaviour
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
         _isTorn = true;
+        _endPoint.gameObject.SetActive(false);
         StartCoroutine(Disappearing());
     }
 
@@ -99,7 +100,7 @@ public class Rope : MonoBehaviour
             yield return null;
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private IEnumerator GivingEnergy(CapturingSystem capturingSystem)
@@ -107,7 +108,7 @@ public class Rope : MonoBehaviour
         while (IsConnected)
         {
             capturingSystem.ApplyEnergy(Multiplier, Team);
-            float frequency = UnityEngine.Random.Range(0.2f, 0.23f);
+            float frequency = 0.5f;
 
             yield return new WaitForSeconds(frequency);
         }
