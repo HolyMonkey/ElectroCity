@@ -138,10 +138,7 @@ public class Building : MonoBehaviour
             foreach (var rope in _pickedRopes)
             {
                 if (rope.IsConnected)
-                {
                     _ryu.LaunchHadouken(rope, this);
-                    CapturingSystem.DecreaseEnergy(rope.Multiplier);
-                }
             }
 
             yield return new WaitForSeconds(1f);
@@ -156,7 +153,8 @@ public class Building : MonoBehaviour
 
         while (true)
         {
-            CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
+            if (_pickedRopes.Count > 0)
+                CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
 
             yield return delay;
         }
