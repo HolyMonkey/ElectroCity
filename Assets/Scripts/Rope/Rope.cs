@@ -12,6 +12,7 @@ public class Rope : MonoBehaviour
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private ObiParticleAttachment _endAttachment;
     [SerializeField] private ObiParticleAttachment _startAttachment;
+    [SerializeField] private Plug _plug;
 
     private readonly float _movingDownSpeed = 0.5f;
     private readonly float _movingDownTime = 2f;
@@ -28,6 +29,7 @@ public class Rope : MonoBehaviour
     public bool IsTorn => _isTorn;
     public bool IsConnected => _isConnected;
     public TeamId TeamId => Team.TeamId;
+    public Plug Plug => _plug;
 
     public event Action<Rope> Torned;
 

@@ -53,9 +53,12 @@ public class Building : MonoBehaviour
 
     public void AddSetedRope(Rope rope)
     {
-        rope.Torned += OnRopeTorned;
-        _settedRopes.Add(rope);
-        rope.Connect(CapturingSystem);
+        if(rope != null)
+        {
+            rope.Torned += OnRopeTorned;
+            _settedRopes.Add(rope);
+            rope.Connect(CapturingSystem);
+        }
     }
 
     public void AddPickedRope(Rope rope)

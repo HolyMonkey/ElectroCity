@@ -114,6 +114,7 @@ MonoBehaviour:
   _connectPoint: {fileID: 0}
   _building: {fileID: 0}
   _delay: 0.5
+  _plug: {fileID: 4163485808266265404}
 --- !u!1 &7075680087364101990
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,6 +288,11 @@ PrefabInstance:
 --- !u!4 &8284213915471624098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6750625963248178351, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
+  m_PrefabInstance: {fileID: 3411611021593764621}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4163485808266265404 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1630257360632029233, guid: 8696d8bcf60ec54469e056f79e3d3441, type: 3}
   m_PrefabInstance: {fileID: 3411611021593764621}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5529763663348813888

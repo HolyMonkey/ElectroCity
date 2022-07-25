@@ -39,6 +39,7 @@ public class RopeSpawner : MonoBehaviour
     private void ChangeColor(Rope rope, RopeHandler handler)
     {
         rope.Renderer.material.color = handler.Team.Color;
+        rope.Plug.MeshRenderer.material.color = handler.Team.Color;
     }
 
     private IEnumerator Delay(Rope rope)

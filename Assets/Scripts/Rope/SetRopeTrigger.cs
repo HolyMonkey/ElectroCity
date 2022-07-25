@@ -16,9 +16,17 @@ public class SetRopeTrigger : MonoBehaviour
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
     public TeamId TeamId => _building.TeamId;
 
-    private void OnTriggerEnter(Collider other)
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (CanAttach(other, out RopeHandler handler))
+    //    {
+    //        StartCoroutine(Attaching(_delay, handler));
+    //    }
+    //}
+
+    public void Attach(RopeHandler handler)
     {
-        if (CanAttach(other, out RopeHandler handler))
+        if(handler.CurrentRope != null)
         {
             StartCoroutine(Attaching(_delay, handler));
         }
@@ -54,20 +62,20 @@ public class SetRopeTrigger : MonoBehaviour
         handler.PlaceRope(transform);
     }
 
-    private bool CanAttach(Collider other, out RopeHandler handler)
+    public bool CanAttach(Collider other, out RopeHandler handler)
     {
         return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler.Team.TeamId) && handler.PickUpTrigger.Building != _building;
     }
 
-    private Transform CreateNextAttachPoint()
-    {
-        GameObject newAttachPoint = Instantiate(new GameObject(), _connectPoint);
-        _settedRopeCounter++;
-        float angleStep = 180f / 6;
-        float angle = _startAngle - angleStep * _settedRopeCounter;
-        newAttachPoint.transform.localRotation *= Quaternion.Euler(0, angle, 0);
-        newAttachPoint.transform.localPosition += newAttachPoint.transform.forward * _connectPoint.GetComponent<SphereCollider>().radius;
+    //private Transform CreateNextAttachPoint()
+    //{
+    //    GameObject newAttachPoint = Instantiate(new GameObject(), _connectPoint);
+    //    _settedRopeCounter++;
+    //    float angleStep = 180f / 6;
+    //    float angle = _startAngle - angleStep * _settedRopeCounter;
+    //    newAttachPoint.transform.localRotation *= Quaternion.Euler(0, angle, 0);
+    //    newAttachPoint.transform.localPosition += newAttachPoint.transform.forward * _connectPoint.GetComponent<SphereCollider>().radius;
 
-        return newAttachPoint.transform;
-    }
+    //    return newAttachPoint.transform;
+    //}
 }

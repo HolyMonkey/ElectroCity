@@ -37,11 +37,14 @@ public class RopeHandler : MonoBehaviour
 
     public void PlaceRope(Transform setPoint)
     {
-        _currentRope.EndPoint.SetParent(setPoint);
-        _currentRope.EndPoint.localPosition = Vector3.zero;
-        _currentRope.ObiRope.tearingEnabled = false;
-        _currentRope = null;
-        _hasRope = false;
+        if(_currentRope != null)
+        {
+            _currentRope.EndPoint.SetParent(setPoint);
+            _currentRope.EndPoint.localPosition = Vector3.zero;
+            _currentRope.ObiRope.tearingEnabled = false;
+            _currentRope = null;
+            _hasRope = false;
+        }
     }
 
     private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
