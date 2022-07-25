@@ -68,8 +68,9 @@ public class MultiColorSlider : MonoBehaviour
 
         _image.sprite.texture.SetPixels32(colors);
 
-        _image.sprite.texture.Apply();
+        _image.sprite.texture.Apply(false);
     }
+
 
     private int GetXPixelIndex(int percent)
     {

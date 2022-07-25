@@ -10,6 +10,7 @@ public class Teams : MonoBehaviour
 
     private bool isSwaped;
     private Building[] _buildings;
+    private int _elapsedFrames;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class Teams : MonoBehaviour
 
     private void Update()
     {
+        _elapsedFrames++;
+
         foreach (var team in _teams)
         {
             int TotalPoints = 0;
@@ -32,7 +35,12 @@ public class Teams : MonoBehaviour
             team.SetPoint(TotalPoints);
         }
 
-        ReColor();
+
+        if (_elapsedFrames > 2)
+        {
+            ReColor();
+            _elapsedFrames = 0;
+        }
     }
 
     private void ReColor()

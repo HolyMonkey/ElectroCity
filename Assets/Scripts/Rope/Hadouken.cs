@@ -9,6 +9,7 @@ public class Hadouken : MonoBehaviour
 
     private Rope _rope;
     private Building _buildingFrom;
+    private bool _isDisabled;
 
     public TeamId TeamId => _rope.TeamId;
 
@@ -20,6 +21,9 @@ public class Hadouken : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_isDisabled)
+            return;
+
         if (other.TryGetComponent(out Building building) && building != _buildingFrom)
             GiveEnergy(building);
 
@@ -45,6 +49,7 @@ public class Hadouken : MonoBehaviour
     private void Disable()
     {
         _rope.Torned -= Disable;
+        _isDisabled = true;
         Destroy(gameObject);
     }
 

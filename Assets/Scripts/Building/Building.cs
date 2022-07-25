@@ -153,7 +153,7 @@ public class Building : MonoBehaviour
 
         while (true)
         {
-            if (_pickedRopes.Count > 0)
+            if (_pickedRopes.Count <= 0)
                 CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
 
             yield return delay;
