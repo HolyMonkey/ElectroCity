@@ -36,7 +36,7 @@ public class Teams : MonoBehaviour
         }
 
 
-        if (_elapsedFrames > 2)
+        if (_elapsedFrames > 4)
         {
             ReColor();
             _elapsedFrames = 0;

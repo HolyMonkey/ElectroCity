@@ -28,7 +28,7 @@ public class Hadouken : MonoBehaviour
             GiveEnergy(building);
 
         if (other.TryGetComponent(out Hadouken otherHadouken) && TeamId != otherHadouken.TeamId)
-            Disable();
+            Disable(_rope);
     }
 
     public void Throw(Rope rope, Building buildingFrom)
@@ -43,10 +43,10 @@ public class Hadouken : MonoBehaviour
     private void GiveEnergy(Building building)
     {
         building.CapturingSystem.ApplyEnergy(_rope.Multiplier, _rope.Team);
-        Disable();
+        Disable(_rope);
     }
 
-    private void Disable()
+    private void Disable(Rope rope)
     {
         _rope.Torned -= Disable;
         _isDisabled = true;

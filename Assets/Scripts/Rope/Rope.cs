@@ -29,7 +29,7 @@ public class Rope : MonoBehaviour
     public bool IsConnected => _isConnected;
     public TeamId TeamId => Team.TeamId;
 
-    public event Action Torned;
+    public event Action<Rope> Torned;
 
     private void OnEnable()
     {
@@ -54,7 +54,8 @@ public class Rope : MonoBehaviour
     public void Connect(CapturingSystem capturingSystem)
     {
         _isConnected = true;
-        //StartCoroutine(GivingEnergy(capturingSystem));
+        StartCoroutine(GivingEnergy(capturingSystem));
+        StartCoroutine(MovingTexture());
         _onRopeConnected?.Invoke();
     }
 
@@ -62,7 +63,7 @@ public class Rope : MonoBehaviour
     {
         _isConnected = false;
         Fall();
-        Torned?.Invoke();
+        Torned?.Invoke(this);
     }
 
     public void Fall()
@@ -99,14 +100,26 @@ public class Rope : MonoBehaviour
         Destroy(gameObject);
     }
 
-    //private IEnumerator GivingEnergy(CapturingSystem capturingSystem)
-    //{
-    //    while (IsConnected)
-    //    {
-    //        capturingSystem.ApplyEnergy(Multiplier, Team);
-    //        float frequency = Random.Range(0.2f, 0.23f);
+    private IEnumerator GivingEnergy(CapturingSystem capturingSystem)
+    {
+        while (IsConnected)
+        {
+            capturingSystem.ApplyEnergy(Multiplier, Team);
+            float frequency = UnityEngine.Random.Range(0.2f, 0.23f);
 
-    //        yield return new WaitForSeconds(frequency);
-    //    }
-    //}
+            yield return new WaitForSeconds(frequency);
+        }
+    }
+
+    private IEnumerator MovingTexture()
+    {
+        float value = 0f;
+        while (IsConnected)
+        {
+            value += Time.deltaTime;
+            _meshRenderer.material.SetTextureOffset("_MainTex", Vector2.up * value);
+
+            yield return null;
+        }
+    }
 }

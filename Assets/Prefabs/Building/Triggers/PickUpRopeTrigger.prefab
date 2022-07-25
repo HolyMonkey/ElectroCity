@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ee34d91ced9fa244b4674754889f47d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _ropePrefab: {fileID: 5127113358951800463, guid: 38e1d479390db5943ae37adc2e9e05f3, type: 3}
+  _ropePrefab: {fileID: 1693616581, guid: 2b911e4758dd554458e319eef1438d70, type: 3}
   _startPoint: {fileID: 0}
   _ropePoint: {fileID: 9201449988478547276}
 --- !u!1001 &1180850925304461254
