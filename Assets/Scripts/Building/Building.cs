@@ -187,13 +187,21 @@ public class Building : MonoBehaviour
     {
         var delay = new WaitForSeconds(3f);
 
+        int multiplier;
+
         while (true)
         {
+
             yield return delay;
 
             if (_pickedRopes.Count <= 0 && CapturingSystem.TotalPoints>3 && HasEnemyRope() == false)
             {
-                CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
+                multiplier = 1;
+
+                if (CapturingSystem.TotalPoints >= CapturingSystem.MaxPoints)
+                    multiplier = 2;
+
+                CapturingSystem.IncreseEnergy(_maxPickUpedRopes*multiplier);
             }
         }
     }
