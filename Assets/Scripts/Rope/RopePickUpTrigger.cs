@@ -57,7 +57,11 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             if (collider.TryGetComponent(out RopeHandler ropeHandler))
             {
-                _takingCoroutine = StartCoroutine(Taking(_delay, ropeHandler));
+                if (CanAttach(ropeHandler))
+                {
+                    _currentRopeHandler = ropeHandler;
+                    _takingCoroutine = StartCoroutine(Taking(_delay, ropeHandler));
+                }
 
                 return;
             }
@@ -80,7 +84,12 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private bool CanTake(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && !handler.HasRope && !_isPickingUp &&
-            handler.Team.TeamId == _building.TeamId && IsThereFreeRope;
+        return other.TryGetComponent(out handler) && CanAttach(handler);
+
     }
+    private bool CanAttach(RopeHandler handler)
+    {
+        return !handler.HasRope && !_isPickingUp && handler.Team.TeamId == _building.TeamId && IsThereFreeRope;
+    }
+
 }
