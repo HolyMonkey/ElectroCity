@@ -49,7 +49,7 @@ public class RopeInteractionHandler : MonoBehaviour
             if (CanReach(navMeshAgent, ropeSetTrigger.transform.position) == false)
                 continue;
 
-            if (ropeSetTrigger.TeamId == teamId || ropeSetTrigger.IsTryingPlaceTwice(teamId))
+            if (ropeSetTrigger.TeamId == teamId || ropeSetTrigger.IsFree == false)
                 continue;
 
             var tempDistance = Vector3.Distance(ropeSetTrigger.transform.position, position);

@@ -89,7 +89,7 @@ public class SetRopeTrigger : MonoBehaviour
 
     public bool CanAttach(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && handler.HasRope && !IsTryingPlaceTwice(handler.Team.TeamId) && handler.PickUpTrigger.Building != _building;
+        return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.PickUpTrigger.Building != _building;
     }
 
     //private Transform CreateNextAttachPoint()
