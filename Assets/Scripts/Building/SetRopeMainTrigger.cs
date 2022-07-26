@@ -9,11 +9,11 @@ public class SetRopeMainTrigger : MonoBehaviour
     {
         if(other.TryGetComponent(out RopeHandler handler))
         {
-            FindClosestTrigger(handler, other);
+            FindClosestTrigger(handler);
         }
     }
 
-    private void FindClosestTrigger(RopeHandler handler, Collider other)
+    private void FindClosestTrigger(RopeHandler handler)
     {
         float distance = Mathf.Infinity;
         SetRopeTrigger closestTrigger = null;
@@ -23,12 +23,13 @@ public class SetRopeMainTrigger : MonoBehaviour
             if (distance > Vector3.Distance(handler.transform.position, _triggers[i].transform.position))
             {
                 distance = Vector3.Distance(handler.transform.position, _triggers[i].transform.position);
-                closestTrigger = _triggers[i];
-                print(closestTrigger.CanAttach(other, out handler));
+
+                if (_triggers[i].IsFree)
+                    closestTrigger = _triggers[i];
             }
         }
 
-        if (closestTrigger != null && closestTrigger.CanAttach(other, out handler))
+        if (closestTrigger != null)
         {
             closestTrigger.Attach(handler);
             _triggers.Remove(closestTrigger);
