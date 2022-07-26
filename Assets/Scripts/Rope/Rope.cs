@@ -8,7 +8,6 @@ public class Rope : MonoBehaviour
 {
     [SerializeField] private ObiRope _obiRope;
     [SerializeField] private Transform _startPoint;
-    [SerializeField] private Transform _endPoint;
     [SerializeField] private MeshRenderer _meshRenderer;
     [SerializeField] private ObiParticleAttachment _endAttachment;
     [SerializeField] private ObiParticleAttachment _startAttachment;
@@ -25,7 +24,7 @@ public class Rope : MonoBehaviour
     public MeshRenderer Renderer => _meshRenderer;
     public ObiRope ObiRope => _obiRope;
     public Transform StartPoint => _startPoint;
-    public Transform EndPoint => _endPoint;
+    public Transform EndPoint => _plug.transform;
     public bool IsTorn => _isTorn;
     public bool IsConnected => _isConnected;
     public TeamId TeamId => Team.TeamId;
@@ -61,10 +60,12 @@ public class Rope : MonoBehaviour
         _onRopeConnected?.Invoke();
     }
 
-    public void Disconnect()
+    public void Disconnect(bool destroyRope = true)
     {
         _isConnected = false;
-        Fall();
+
+        if(destroyRope)
+            Fall();
     }
 
     private void Fall()
@@ -76,7 +77,7 @@ public class Rope : MonoBehaviour
     {
         Torned?.Invoke(this);
         _isTorn = true;
-        _endPoint.gameObject.SetActive(false);
+        _plug.DESTRUCTION();
         StartCoroutine(Disappearing());
     }
 

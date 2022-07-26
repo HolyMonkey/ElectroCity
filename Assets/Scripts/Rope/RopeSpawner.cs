@@ -27,8 +27,6 @@ public class RopeSpawner : MonoBehaviour
         rope.transform.position = _startPoint.position;
         rope.StartPoint.SetParent(_startPoint);
 
-        StartCoroutine(Delay(rope));
-
         handler.TakeRope(rope);
     }
 
@@ -36,12 +34,5 @@ public class RopeSpawner : MonoBehaviour
     {
         rope.Renderer.material.color = handler.Team.Color;
         rope.Plug.MeshRenderer.material.color = handler.Team.Color;
-    }
-
-    private IEnumerator Delay(Rope rope)
-    {
-        yield return new WaitForSeconds(1f);
-
-        rope.ObiRope.tearingEnabled = true;
     }
 }

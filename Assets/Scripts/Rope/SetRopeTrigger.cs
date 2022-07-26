@@ -11,9 +11,8 @@ public class SetRopeTrigger : MonoBehaviour
     private Rope _currentRope;
     private Team _team;
     private int _numberOfPlacements;
+    private Coroutine _attachingCoroutine;
     private readonly int _maxNumberOfPlacements = 1;
-    private int _settedRopeCounter;
-    private float _startAngle = 90f;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
     public bool IsFree => _currentRope == null;
@@ -26,24 +25,26 @@ public class SetRopeTrigger : MonoBehaviour
         //    StartCoroutine(Attaching(_delay, handler));
         //}
 
-        //if (other.TryGetComponent(out RopeHandler ropeHandler) && IsFree == false && !ropeHandler.HasRope)
-        //{
-        //    TakeRope(ropeHandler);
-        //}
+        if (other.TryGetComponent(out RopeHandler ropeHandler) && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == _currentRope.TeamId)
+        {
+            TakeRope(ropeHandler);
+        }
     }
 
     public void Attach(RopeHandler handler)
     {
         if(handler.CurrentRope != null)
         {
-            StartCoroutine(Attaching(_delay, handler));
+            _attachingCoroutine = StartCoroutine(Attaching(_delay, handler));
         }
     }
 
     public void TakeRope(RopeHandler handler)
     {
+        if (_attachingCoroutine != null)
+            StopCoroutine(_attachingCoroutine);
+
         handler.TakeRope(_currentRope);
-        _building.OnRopeRemoved(_currentRope);
         DeleteRope(_currentRope);
     }
 
@@ -72,6 +73,8 @@ public class SetRopeTrigger : MonoBehaviour
     private void DeleteRope(Rope rope)
     {
         rope.Torned -= DeleteRope;
+        _currentRope.Disconnect(false);
+        _building.OnRopeRemoved(_currentRope);
         _currentRope = null;
     }
 

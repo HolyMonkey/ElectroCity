@@ -192,7 +192,9 @@ public class Building : MonoBehaviour
             yield return delay;
 
             if (_pickedRopes.Count <= 0 && CapturingSystem.TotalPoints>3 && HasEnemyRope() == false)
+            {
                 CapturingSystem.IncreseEnergy(_maxPickUpedRopes);
+            }
         }
     }
 }

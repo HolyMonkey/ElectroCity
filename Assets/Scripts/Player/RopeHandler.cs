@@ -2,6 +2,7 @@ using UnityEngine;
 using Obi;
 using static Obi.ObiRope;
 using System;
+using System.Collections;
 
 public class RopeHandler : MonoBehaviour
 {
@@ -30,11 +31,13 @@ public class RopeHandler : MonoBehaviour
     public void TakeRope(Rope rope)
     {
         _currentRope = rope;
-        _currentRope.ObiRope.OnRopeTorn += BreakRope;
+        rope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
         rope.EndPoint.SetParent(_ropePoint);
         rope.StartPoint.localPosition = Vector3.zero;
         rope.EndPoint.localPosition = Vector3.zero;
+        rope.EndPoint.localRotation = Quaternion.Euler(70f, 15f, 135f);
+        StartCoroutine(Delay(rope));
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
@@ -57,5 +60,14 @@ public class RopeHandler : MonoBehaviour
         _currentRope = null;
         _hasRope = false;
         RopeBreaked?.Invoke();
+    }
+
+    private IEnumerator Delay(Rope rope)
+    {
+        rope.ObiRope.tearingEnabled = false;
+
+        yield return new WaitForSeconds(1f);
+
+        rope.ObiRope.tearingEnabled = true;
     }
 }

@@ -23,13 +23,10 @@ public class SetRopeMainTrigger : MonoBehaviour
         {
             var tempDistance = Vector3.Distance(handler.transform.position, _triggers[i].transform.position);
 
-            if (distance > tempDistance)
+            if (distance > tempDistance && _triggers[i].IsFree)
             {
-                if (_triggers[i].IsFree)
-                {
-                    closestTrigger = _triggers[i];
-                    distance = tempDistance;
-                }
+                closestTrigger = _triggers[i];
+                distance = tempDistance;
             }
         }
 
