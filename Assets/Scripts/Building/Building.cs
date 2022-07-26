@@ -13,8 +13,8 @@ public class Building : MonoBehaviour
 
     private int _maxPickUpedRopes = 3;
     private bool _areRopesDestroyed;
-    private readonly int _lowEnergyLevel = 30;
-    private readonly int _mediumEnergyLevel = 60;
+    private readonly int _lowEnergyLevel = 20;
+    private readonly int _mediumEnergyLevel = 40;
     private Coroutine _produceEnergyCoroutine;
 
     public int InitialPoints => _initialPoints;

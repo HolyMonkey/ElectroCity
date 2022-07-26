@@ -3,12 +3,13 @@ using System;
 
 public class CapturingSystem
 {
-    private const int _maxPoints = 100;
+    private const int _maxPoints = 60;
     private bool _canChangeTeam = true;
     private Func<bool> _isRopesCountEqual;
 
     public int TotalPoints { get; private set; }
     public Team CurrentTeam { get; private set; }
+    public int MaxPoints => _maxPoints;
 
     public event Action<int> PointsChanged;
     public event Action<Color, float, float> PointsAdded;

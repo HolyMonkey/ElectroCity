@@ -24,6 +24,13 @@ public class PointsCounter : MonoBehaviour
 
     private void OnPointsChanged(int point)
     {
-        _value.text = point.ToString();
+        if(point >= _building.CapturingSystem.MaxPoints)
+        {
+            _value.text = "MAX";
+        }
+        else
+        {
+            _value.text = point.ToString();
+        }
     }
 }
