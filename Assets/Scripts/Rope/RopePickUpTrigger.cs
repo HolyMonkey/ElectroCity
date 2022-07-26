@@ -51,7 +51,7 @@ public class RopePickUpTrigger : MonoBehaviour
         if (_takingCoroutine != null)
             StopCoroutine(_takingCoroutine);
 
-        var colliders = Physics.OverlapBox(transform.position, GetComponent<BoxCollider>().bounds.size / 2);
+        var colliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius);
 
         foreach (var collider in colliders)
         {

@@ -8,7 +8,6 @@ public class Building : MonoBehaviour
 {
     [SerializeField] private int _initialPoints;
     [SerializeField] private Team _initialTeam;
-    [SerializeField] private Ryu _ryu;
     [SerializeField] private List<Rope> _pickedRopes;
     [SerializeField] private List<Rope> _settedRopes;
 

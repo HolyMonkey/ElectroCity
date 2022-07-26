@@ -86,6 +86,7 @@ public class Rope : MonoBehaviour
 
         _endAttachment.enabled = false;
         _startAttachment.enabled = false;
+        //Destroy(_plug.gameObject);
 
         yield return new WaitForSeconds(2f);
 

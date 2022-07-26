@@ -26,7 +26,7 @@ public class SetRopeTrigger : MonoBehaviour
         //    StartCoroutine(Attaching(_delay, handler));
         //}
 
-        //if(other.TryGetComponent(out RopeHandler ropeHandler) && IsFree == false && !ropeHandler.HasRope)
+        //if (other.TryGetComponent(out RopeHandler ropeHandler) && IsFree == false && !ropeHandler.HasRope)
         //{
         //    TakeRope(ropeHandler);
         //}
