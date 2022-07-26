@@ -66,7 +66,7 @@ public class Building : MonoBehaviour
     {
         if(rope != null)
         {
-            rope.Torned += OnRopeTorned;
+            rope.Torned += OnRopeRemoved;
             _settedRopes.Add(rope);
             rope.Connect(CapturingSystem);
         }
@@ -76,7 +76,7 @@ public class Building : MonoBehaviour
     {
         _pickedRopes.Add(rope);
         //rope.LaunchOnRopeConnected(ProduceHadouken);
-        rope.Torned += OnRopeTorned;
+        rope.Torned += OnRopeRemoved;
         PickUpedRopesChanged?.Invoke();
     }
 
@@ -107,15 +107,17 @@ public class Building : MonoBehaviour
     //        _spawningCoroutine = StartCoroutine(GivingEnergy());
     //}
 
-    private void OnRopeTorned(Rope rope)
+    public void OnRopeRemoved(Rope rope)
     {
-        rope.Torned -= OnRopeTorned;
+        rope.Torned -= OnRopeRemoved;
 
         if(_settedRopes.Contains(rope))
             _settedRopes.Remove(rope);
 
         if (_pickedRopes.Contains(rope))
             _pickedRopes.Remove(rope);
+
+        PickUpedRopesChanged?.Invoke();
     }
 
     private void TryDestroyOthersTeamsRopes(Team team)

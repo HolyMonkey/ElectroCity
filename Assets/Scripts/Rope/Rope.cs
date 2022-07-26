@@ -65,7 +65,6 @@ public class Rope : MonoBehaviour
     {
         _isConnected = false;
         Fall();
-        Torned?.Invoke(this);
     }
 
     private void Fall()
@@ -75,6 +74,7 @@ public class Rope : MonoBehaviour
 
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
+        Torned?.Invoke(this);
         _isTorn = true;
         _endPoint.gameObject.SetActive(false);
         StartCoroutine(Disappearing());
@@ -100,7 +100,7 @@ public class Rope : MonoBehaviour
             yield return null;
         }
 
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 
     private IEnumerator GivingEnergy(CapturingSystem capturingSystem)

@@ -5,7 +5,7 @@ public class SetRopeMainTrigger : MonoBehaviour
 {
     [SerializeField] private List<SetRopeTrigger> _triggers;
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out RopeHandler handler))
         {

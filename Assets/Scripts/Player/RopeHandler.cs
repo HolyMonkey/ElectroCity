@@ -32,7 +32,9 @@ public class RopeHandler : MonoBehaviour
         _currentRope = rope;
         _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
-        RopeTaken?.Invoke();
+        rope.EndPoint.SetParent(_ropePoint);
+        rope.StartPoint.localPosition = Vector3.zero;
+        rope.EndPoint.localPosition = Vector3.zero;
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)

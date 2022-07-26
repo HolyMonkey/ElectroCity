@@ -26,10 +26,6 @@ public class RopeSpawner : MonoBehaviour
         rope.SetTeamId(handler.Team);
         rope.transform.position = _startPoint.position;
         rope.StartPoint.SetParent(_startPoint);
-        rope.EndPoint.SetParent(handler.RopePoint);
-
-        rope.StartPoint.localPosition = Vector3.zero;
-        rope.EndPoint.localPosition = Vector3.zero;
 
         StartCoroutine(Delay(rope));
 
