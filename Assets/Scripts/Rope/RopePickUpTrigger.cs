@@ -76,9 +76,13 @@ public class RopePickUpTrigger : MonoBehaviour
 
         yield return new WaitForSeconds(delay);
 
-        handler.SetTrigger(this);
-        _ropeSpawner.Spawn(handler);
-        _building.AddPickedRope(handler.CurrentRope);
+        if(handler.HasRope == false)
+        {
+            handler.SetTrigger(this);
+            _ropeSpawner.Spawn(handler);
+            _building.AddPickedRope(handler.CurrentRope);
+        }
+
         _isPickingUp = false;
     }
 
