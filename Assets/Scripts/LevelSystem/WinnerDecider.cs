@@ -30,6 +30,8 @@ public class WinnerDecider : MonoBehaviour
     {
         _isWinned = true;
 
+        FindObjectOfType<PlayerMover>().Disable();
+
         if (team.TeamId == TeamId.First)
             StartCoroutine(DelayedEnable());
         else

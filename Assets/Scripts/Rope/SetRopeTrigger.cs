@@ -7,11 +7,13 @@ public class SetRopeTrigger : MonoBehaviour
     [SerializeField] private Building _building;
     [SerializeField] private float _delay;
     [SerializeField] private Transform _refrenceObject;
+    [SerializeField] private RopePickUpTrigger _ropePickUpTrigger;
 
     private Rope _currentRope;
     private Team _team;
     private int _numberOfPlacements;
     private Coroutine _attachingCoroutine;
+    private Coroutine _takingCoroutine;
     private readonly int _maxNumberOfPlacements = 1;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
@@ -27,9 +29,13 @@ public class SetRopeTrigger : MonoBehaviour
         //}
 
         if (other.TryGetComponent(out RopeHandler ropeHandler) && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == TeamId.First)
-        {
             TakeRope(ropeHandler);
-        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out RopeHandler ropeHandler))
+            UntakeRope(ropeHandler);
     }
 
     public void Attach(RopeHandler handler)
@@ -42,33 +48,31 @@ public class SetRopeTrigger : MonoBehaviour
 
     public void TakeRope(RopeHandler handler)
     {
+        _takingCoroutine = StartCoroutine(TakingRope(handler));
+        _currentRope.Plug.Raise();
+        _ropePickUpTrigger.StopTaking();
+    }
+
+    private void UntakeRope(RopeHandler handler)
+    {
+        if(_takingCoroutine != null)
+            StopCoroutine(_takingCoroutine);
+
+        if(_currentRope!= null)
+            _currentRope.Plug.Set();
+
+        _ropePickUpTrigger.TryAttach(handler);
+    }
+
+    private IEnumerator TakingRope(RopeHandler handler)
+    {
+        yield return new WaitForSeconds(0.6f);
+
         if (_attachingCoroutine != null)
             StopCoroutine(_attachingCoroutine);
 
         handler.TakeRope(_currentRope);
         DeleteRope(_currentRope);
-    }
-
-
-    public bool IsTryingPlaceTwice(TeamId teamId)
-    {
-        //if (_building.AreRoesDestroyed)
-        //{
-        //    _numberOfPlacements--;
-        //}
-
-        //if(_team == null)
-        //{
-        //    return false;
-        //}
-
-        //if (teamId != _team.TeamId && _numberOfPlacements < _maxNumberOfPlacements)
-        //{
-        //    _numberOfPlacements++;
-        //    return false;
-        //}
-
-        return !IsFree;
     }
 
     private void DeleteRope(Rope rope)
@@ -78,7 +82,6 @@ public class SetRopeTrigger : MonoBehaviour
         _building.OnRopeRemoved(_currentRope);
         _currentRope = null;
     }
-
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
@@ -95,16 +98,4 @@ public class SetRopeTrigger : MonoBehaviour
     {
         return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.PickUpTrigger.Building != _building;
     }
-
-    //private Transform CreateNextAttachPoint()
-    //{
-    //    GameObject newAttachPoint = Instantiate(new GameObject(), _connectPoint);
-    //    _settedRopeCounter++;
-    //    float angleStep = 180f / 6;
-    //    float angle = _startAngle - angleStep * _settedRopeCounter;
-    //    newAttachPoint.transform.localRotation *= Quaternion.Euler(0, angle, 0);
-    //    newAttachPoint.transform.localPosition += newAttachPoint.transform.forward * _connectPoint.GetComponent<SphereCollider>().radius;
-
-    //    return newAttachPoint.transform;
-    //}
 }

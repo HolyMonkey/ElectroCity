@@ -68,6 +68,11 @@ public class Rope : MonoBehaviour
             Fall();
     }
 
+    public void Disable()
+    {
+        Destroy(gameObject);
+    }
+
     private void Fall()
     {
         StartCoroutine(Disappearing());

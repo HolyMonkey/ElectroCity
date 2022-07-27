@@ -49,6 +49,11 @@ public class PlayerMover : MonoBehaviour
         _rigidBody.MovePosition(transform.position + direction.normalized * speed * Time.deltaTime);
     }
 
+    public void Disable()
+    {
+        this.enabled = false;
+    }
+
     private void Rotate(Vector3 direction)
     {
         Quaternion lookRotation = Quaternion.LookRotation(direction);

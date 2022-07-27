@@ -1,5 +1,6 @@
 using Obi;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RopeSpawner : MonoBehaviour
@@ -7,6 +8,9 @@ public class RopeSpawner : MonoBehaviour
     [SerializeField] private Rope _ropePrefab;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _ropePoint;
+
+    private RopeHandler _cachedRopeHandler;
+    private Rope _cachedRope;
 
     private void Start()
     {
@@ -18,16 +22,25 @@ public class RopeSpawner : MonoBehaviour
         _ropePoint = point;
     }
 
-    public void Spawn(RopeHandler handler)
+    public Rope Spawn(RopeHandler handler)
     {
         var rope = Instantiate(_ropePrefab, _ropePoint);
-
+        rope.EndPoint.transform.position = transform.position;
+        _cachedRope = rope;
+        _cachedRopeHandler = handler;
         ChangeColor(rope, handler);
         rope.SetTeamId(handler.Team);
-        rope.transform.position = _startPoint.position;
-        rope.StartPoint.SetParent(_startPoint);
+        AttachRope();
 
-        handler.TakeRope(rope);
+        return rope;
+    }
+
+    public void AttachRope()
+    {
+        _cachedRope.transform.position = _startPoint.position;
+        _cachedRope.StartPoint.SetParent(_startPoint);
+
+        _cachedRopeHandler.TakeRope(_cachedRope);
     }
 
     private void ChangeColor(Rope rope, RopeHandler handler)
