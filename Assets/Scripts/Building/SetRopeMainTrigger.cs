@@ -7,7 +7,7 @@ public class SetRopeMainTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.TryGetComponent(out RopeHandler handler))
+        if(other.TryGetComponent(out RopeHandler handler) && handler.HasRope)
         {
             if(TryFindClosestTrigger(handler, out SetRopeTrigger setRopeTrigger))
                 setRopeTrigger.Attach(handler);
@@ -23,7 +23,7 @@ public class SetRopeMainTrigger : MonoBehaviour
         {
             var tempDistance = Vector3.Distance(handler.transform.position, _triggers[i].transform.position);
 
-            if (distance > tempDistance && _triggers[i].IsFree)
+            if (distance > tempDistance && _triggers[i].IsFree && handler.PickUpTrigger.Building != _triggers[i].Building)
             {
                 closestTrigger = _triggers[i];
                 distance = tempDistance;

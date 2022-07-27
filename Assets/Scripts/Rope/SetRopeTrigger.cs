@@ -17,6 +17,7 @@ public class SetRopeTrigger : MonoBehaviour
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
     public bool IsFree => _currentRope == null;
     public TeamId TeamId => _building.TeamId;
+    public Building Building => _building;
 
     private void OnTriggerEnter(Collider other)
     {
