@@ -36,7 +36,8 @@ public class RopeHandler : MonoBehaviour
         rope.EndPoint.SetParent(_ropePoint);
         rope.StartPoint.localPosition = Vector3.zero;
         rope.EndPoint.localPosition = Vector3.zero;
-        rope.EndPoint.localRotation = Quaternion.Euler(70f, 15f, 135f);
+        //rope.EndPoint.localRotation = Quaternion.Euler(70f, 15f, 135f);
+        rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
         StartCoroutine(Delay(rope));
     }
@@ -45,7 +46,8 @@ public class RopeHandler : MonoBehaviour
     {
         if(_currentRope != null)
         {
-            _currentRope.EndPoint.rotation = refernceObjectRotation * Quaternion.Euler(0, 0, 90f);
+            _currentRope.EndPoint.rotation = refernceObjectRotation;
+            _currentRope.Plug.SetSocketRotatation();
             _currentRope.EndPoint.transform.localScale = Vector3.one * 2;
             _currentRope.EndPoint.SetParent(setPoint,true);
             _currentRope.EndPoint.localPosition = Vector3.zero;
