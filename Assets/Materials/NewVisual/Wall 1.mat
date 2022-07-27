@@ -123,7 +123,7 @@ Material:
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.27221, g: 0.33400002, b: 0.29884365, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
-    - _ColorGradient: {r: 0.34955296, g: 0.5647059, b: 0.4212706, a: 1}
+    - _ColorGradient: {r: 0.37722355, g: 0.5647059, b: 0.43858138, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FlatRimColor: {r: 0.256, g: 0.20438743, b: 0.14828679, a: 1}
     - _FlatSpecularColor: {r: 0.18867922, g: 0.17366795, b: 0.15735134, a: 1}
