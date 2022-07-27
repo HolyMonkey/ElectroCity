@@ -22,7 +22,7 @@ public class CapturingSystem
         _isRopesCountEqual = getPickedRopeCounter;
 
         PointsChanged?.Invoke(TotalPoints);
-        TeamChanged?.Invoke(CurrentTeam);
+        //TeamChanged?.Invoke(CurrentTeam);
         PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
     }
 

@@ -9,6 +9,11 @@ public class CircleHandler : MonoBehaviour
 
     private readonly int _maxPossibleRopesCounter = 3;
 
+    private void Start()
+    {
+        ChangeColor(_building.CapturingSystem.CurrentTeam);
+    }
+
     private void OnEnable()
     {
         _building.EnergyChecked += OnEnergyChecked;

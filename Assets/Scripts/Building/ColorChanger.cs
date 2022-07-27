@@ -19,9 +19,9 @@ public class ColorChanger : MonoBehaviour
 
     public void ChangeColor(Color color, float value, float maxValue)
     {
-        float addValue = value * _maxValue/maxValue;
-        _meshRenderer.material.SetColor("_ColorGradient", color);
-        _meshRenderer.material.SetFloat("_GradientSize", addValue);
+        //float addValue = value * _maxValue/maxValue;
+        //_meshRenderer.material.SetColor("_ColorGradient", color);
+        //_meshRenderer.material.SetFloat("_GradientSize", addValue);
+        _meshRenderer.material.color = color;
     }
-    
 }

@@ -8,6 +8,12 @@ public class BasciZoneColorChanger : MonoBehaviour
     [SerializeField] private ParticleSystem _zone;
 
     [System.Obsolete]
+    private void Start()
+    {
+        ChangeColor(_building.CapturingSystem.CurrentTeam);
+    }
+
+    [System.Obsolete]
     private void OnEnable()
     {
         _building.CapturingSystem.TeamChanged += ChangeColor;
