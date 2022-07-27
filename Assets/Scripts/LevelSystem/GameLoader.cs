@@ -14,6 +14,6 @@ public class GameLoader : MonoBehaviour
         //GameAnalytics.Initialize();
         _integrationMetric.OnGameStart();
         _levelsHandler.LoadNextLevel();
-        _integrationMetric.SetUserProperty();
+        //_integrationMetric.SetUserProperty();
     }
 }
