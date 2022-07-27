@@ -2,24 +2,48 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Linq;
 
 public class Teams : MonoBehaviour
 {
-    [SerializeField] private Team[] _teams;
+    [SerializeField] private List<Team> _teams;
     [SerializeField] private MultiColorSlider _multiColorSlider;
 
-    private bool isSwaped;
+    private WinnerDecider _winnerDecider;
+    private bool _gameOver;
     private Building[] _buildings;
     private int _elapsedFrames;
+    private int _counter;
 
     private void Awake()
     {
         _multiColorSlider.CreateBlank();
         _buildings = FindObjectsOfType<Building>();
+        _winnerDecider = FindObjectOfType<WinnerDecider>();
+        _counter = _teams.Count;
+    }
+
+    private void OnEnable()
+    {
+        foreach (var team in _teams)
+        {
+            team.Lost += OnTeamLost;
+        }
+    }
+
+    private void OnDisable()
+    {
+        foreach (var team in _teams)
+        {
+            team.Lost -= OnTeamLost;
+        }
     }
 
     private void Update()
     {
+        if (_gameOver)
+            return;
+
         _elapsedFrames++;
 
         foreach (var team in _teams)
@@ -35,7 +59,6 @@ public class Teams : MonoBehaviour
             team.SetPoint(TotalPoints);
         }
 
-
         if (_elapsedFrames > 4)
         {
             ReColor();
@@ -46,6 +69,21 @@ public class Teams : MonoBehaviour
     private void ReColor()
     {
         _multiColorSlider.Colorize(_teams);
+    }
+
+    private void OnTeamLost(Team team)
+    {
+        if (_teams.Contains(team))
+        {
+            team.Lost -= OnTeamLost;
+            _counter--;
+        }
+
+        if (_counter <= 1)
+        {
+            _winnerDecider.EndGame(_teams[0]);
+            _gameOver = true;
+        }
     }
 }
 

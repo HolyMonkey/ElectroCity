@@ -17,6 +17,7 @@ public class Team : MonoBehaviour
     public Color32 Color => _color;
 
     public event Action PointsChanged;
+    public event Action<Team> Lost;
 
     public void AddPoints(int amount)
     {
@@ -30,6 +31,7 @@ public class Team : MonoBehaviour
         if (Points - amount <= 0)
         {
             IsLost = true;
+            Lost?.Invoke(this);
             points = (int)Points;
         }
 

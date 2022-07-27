@@ -21,7 +21,7 @@ public class MultiColorSlider : MonoBehaviour
         _image.sprite = _tempSprite;
     }
 
-    public void Colorize(Team[] teams)
+    public void Colorize(List<Team> teams)
     {
         int lastStop = 0;
         int totalPercent = 0;
