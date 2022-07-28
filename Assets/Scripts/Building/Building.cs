@@ -32,7 +32,7 @@ public class Building : MonoBehaviour
 
     private void Awake()
     {
-        CapturingSystem.Init(_initialTeam, _initialPoints, GetTeamRopeCount);
+        CapturingSystem.Init(_initialTeam, _initialPoints);
 
         if (CapturingSystem.CurrentTeam.TeamId != TeamId.Netural)
             ProduceEnergy();
@@ -122,9 +122,10 @@ public class Building : MonoBehaviour
 
     private void TryDestroyOthersTeamsRopes(Team team)
     {
+
         foreach (var rope in _pickedRopes)
         {
-            if (rope.TeamId != team.TeamId && rope != null)
+            if (rope != null)
             {
                 _areRopesDestroyed = true;
                 rope.Disconnect();

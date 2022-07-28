@@ -7,11 +7,12 @@ public class Team : MonoBehaviour
 {
     [SerializeField] private Color32 _color;
     [SerializeField] private TeamId _teamId;
+    [SerializeField] private SkinnedMeshRenderer _stickmanMesh;
 
     private int _totalAmount;
 
-    public bool IsLost { get; private set; }
     public float Points { get; private set; }
+    public Material StickmanMaterial => _stickmanMesh.material;
 
     public TeamId TeamId => _teamId;
     public Color32 Color => _color;
@@ -30,8 +31,6 @@ public class Team : MonoBehaviour
 
         if (Points - amount <= 0)
         {
-            IsLost = true;
-            Lost?.Invoke(this);
             points = (int)Points;
         }
 
@@ -53,6 +52,26 @@ public class Team : MonoBehaviour
     {
         Points = amount;
     }
+
+    public void OnBuildingCaptured(Team teamThatCapture, int value)
+    {
+        if (Points <= Mathf.Abs(value))
+            OnTeamLost(teamThatCapture);
+    }
+
+    private void OnTeamLost(Team teamThatCapture)
+    {
+        ChangeTeamData(teamThatCapture);
+        Lost?.Invoke(this);
+    }
+
+    private void ChangeTeamData(Team teamThatCapture)
+    {
+        _color = teamThatCapture.Color;
+        _teamId = teamThatCapture.TeamId;
+        Points = teamThatCapture.Points;
+
+        if (_stickmanMesh != null)
+            _stickmanMesh.material = teamThatCapture.StickmanMaterial;
+    }
 }
-
-

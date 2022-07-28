@@ -12,13 +12,12 @@ GameObject:
   - component: {fileID: 6724074683908683002}
   - component: {fileID: 8111074946698562803}
   - component: {fileID: 5238788594804519600}
-  - component: {fileID: 886966157381175339}
   - component: {fileID: 380633567368318813}
   - component: {fileID: 1478492251}
-  - component: {fileID: 1478492252}
   - component: {fileID: 1478492253}
   - component: {fileID: 1478492254}
   - component: {fileID: 1887862549}
+  - component: {fileID: 3195934819168474139}
   m_Layer: 0
   m_Name: Bot
   m_TagString: Untagged
@@ -137,7 +136,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
-  m_Acceleration: 10
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 720
   m_StoppingDistance: 0
@@ -148,22 +147,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!54 &886966157381175339
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989327830680940395}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &380633567368318813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,19 +175,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.55933845, y: 1.7317549, z: 0.39197457}
   m_Center: {x: 0, y: 0.8755953, z: 0}
---- !u!114 &1478492252
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8989327830680940395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62359d80fdc0e4315ab6331b78ec5b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  kinematicForParticles: 1
 --- !u!114 &1478492253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +208,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4280889599
   _teamId: 1
+  _stickmanMesh: {fileID: 8475090883930013776}
 --- !u!114 &1887862549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +222,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8475090883925851792}
+--- !u!54 &3195934819168474139
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989327830680940395}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &8475090883918547952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -329,5 +316,10 @@ Animator:
 --- !u!4 &8475090883918418262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400038, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
+  m_PrefabInstance: {fileID: 8475090883918547952}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &8475090883930013776 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
   m_PrefabInstance: {fileID: 8475090883918547952}
   m_PrefabAsset: {fileID: 0}

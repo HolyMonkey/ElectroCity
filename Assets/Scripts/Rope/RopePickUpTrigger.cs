@@ -41,10 +41,11 @@ public class RopePickUpTrigger : MonoBehaviour
         if(other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine != null)
         {
             StopTaking();
-            _currentRopeHandler = null;
 
-            if (_cachedRope != null && ropeHandler.HasRope == false)
+            if (_cachedRope != null && ropeHandler.HasRope == false && ropeHandler == _currentRopeHandler)
                 RopeFlyBack();
+
+            _currentRopeHandler = null;
         }
     }
 
