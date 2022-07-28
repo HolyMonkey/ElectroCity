@@ -27,6 +27,7 @@ public class Building : MonoBehaviour
 
 
     public event Action PickUpedRopesChanged;
+    public event Action SettedRopesChanged;
     public event Action<int> EnergyChecked;
 
     private void Awake()
@@ -67,6 +68,7 @@ public class Building : MonoBehaviour
             rope.Torned += OnRopeRemoved;
             _settedRopes.Add(rope);
             rope.Connect(CapturingSystem);
+            SettedRopesChanged?.Invoke();
         }
     }
 
