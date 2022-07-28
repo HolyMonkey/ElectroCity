@@ -12,7 +12,8 @@ public class CapturingSystem
     public int MaxPoints => _maxPoints;
 
     public event Action<int> PointsChanged;
-    public event Action<Color, float, float> PointsAdded;
+    public event Action<Color> PointsAdded;
+    //public event Action<Color, float, float> PointsAdded;
     public event Action<Team> TeamChanged;
 
     public void Init(Team team, int initialPoints, Func<bool> getPickedRopeCounter)
@@ -23,7 +24,8 @@ public class CapturingSystem
 
         PointsChanged?.Invoke(TotalPoints);
         //TeamChanged?.Invoke(CurrentTeam);
-        PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
+        //PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
+        PointsAdded?.Invoke(CurrentTeam.Color);
     }
 
     public void ApplyEnergy(int value, Team team)
@@ -54,7 +56,8 @@ public class CapturingSystem
             ChangePoints(1);
         }
 
-        PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
+        //PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
+        PointsAdded?.Invoke(CurrentTeam.Color);
     }
 
     private void ChangePoints(int value)

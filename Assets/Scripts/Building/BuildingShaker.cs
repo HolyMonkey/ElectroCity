@@ -16,15 +16,9 @@ public class BuildingShaker : MonoBehaviour
     //[SerializeField] private int _vibrato;
     //[SerializeField] private float _randomness;
 
-    private void OnEnable()
-    {
-        _building.CapturingSystem.PointsChanged += StartAnimation;
-    }
+    private void OnEnable() => _building.CapturingSystem.PointsChanged += StartAnimation;
 
-    private void OnDisable()
-    {
-        _building.CapturingSystem.PointsChanged -= StartAnimation;
-    }
+    private void OnDisable() => _building.CapturingSystem.PointsChanged -= StartAnimation;
 
     private void StartAnimation(int value = 0)
     {

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SmokeActivator : MonoBehaviour
+public class EffectActivator : MonoBehaviour
 {
     [SerializeField] private Building _building;
     [SerializeField] private ParticleSystem _effect;

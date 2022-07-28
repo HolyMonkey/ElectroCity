@@ -1276,7 +1276,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.61, y: 14, z: -12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1388,7 +1388,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.61, y: 14, z: -12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2681,11 +2681,6 @@ NavMeshAgent:
   m_CorrespondingSourceObject: {fileID: 5238788594804519600, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
   m_PrefabInstance: {fileID: 4554956885625316603}
   m_PrefabAsset: {fileID: 0}
---- !u!23 &1490434660 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: 6751308379710311975, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
-  m_PrefabInstance: {fileID: 512577283282476524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1538210556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 140641593919805886, guid: c1dadf30d725fca4d899df0067572e4b, type: 3}
@@ -3034,6 +3029,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8856936014614290361, guid: 0c263373a3a26314888cc8f9d4e62185, type: 3}
   m_PrefabInstance: {fileID: 8856936016122557058}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &2074162127 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 3980688230959582884, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+  m_PrefabInstance: {fileID: 512577283282476524}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2124034876
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,7 +3168,7 @@ PrefabInstance:
     - target: {fileID: 512577283270140353, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: _meshRenderer
       value: 
-      objectReference: {fileID: 1490434660}
+      objectReference: {fileID: 2074162127}
     - target: {fileID: 512577283270140354, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: m_SourceCollider
       value: 

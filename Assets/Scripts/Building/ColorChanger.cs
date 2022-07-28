@@ -9,20 +9,14 @@ public class ColorChanger : MonoBehaviour
 
     private void Start()
     {
-        ChangeColor(_building.CapturingSystem.CurrentTeam.Color);    
+        ChangeColor(_building.CapturingSystem.CurrentTeam.Color);
     }
 
-    private void OnEnable()
-    {
-        _building.CapturingSystem.PointsAdded += ChangeColor;
-    }
+    private void OnEnable() => _building.CapturingSystem.PointsAdded += ChangeColor;
 
-    private void OnDisable()
-    {
-        _building.CapturingSystem.PointsAdded -= ChangeColor;
-    }
+    private void OnDisable() => _building.CapturingSystem.PointsAdded -= ChangeColor;
 
-    public void ChangeColor(Color color, float value = 0, float maxValue = 0)
+    public void ChangeColor(Color color)
     {
         //float addValue = value * _maxValue/maxValue;
         //_meshRenderer.material.SetColor("_ColorGradient", color);
