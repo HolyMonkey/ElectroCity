@@ -85,13 +85,16 @@ public class SetRopeTrigger : MonoBehaviour
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
-        yield return new WaitForSeconds(delay);
+        if (handler.CurrentRope != null)
+        {
+            yield return new WaitForSeconds(delay);
 
-        _team = handler.Team;
-        _building.AddSetedRope(handler.CurrentRope);
-        _currentRope = handler.CurrentRope;
-        _currentRope.Torned += DeleteRope;
-        handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
+            _team = handler.Team;
+            _building.AddSetedRope(handler.CurrentRope);
+            _currentRope = handler.CurrentRope;
+            _currentRope.Torned += DeleteRope;
+            handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
+        }
     }
 
     public bool CanAttach(Collider other, out RopeHandler handler)
