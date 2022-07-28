@@ -9,7 +9,7 @@ public class SetRopeMainTrigger : MonoBehaviour
     {
         if(other.TryGetComponent(out RopeHandler handler) && handler.HasRope)
         {
-            if(TryFindClosestTrigger(handler, out SetRopeTrigger setRopeTrigger) && setRopeTrigger != null)
+            if(TryFindClosestTrigger(handler, out SetRopeTrigger setRopeTrigger))
                 setRopeTrigger.Attach(handler);
         }
     }
