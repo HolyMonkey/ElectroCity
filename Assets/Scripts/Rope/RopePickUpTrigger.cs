@@ -42,10 +42,10 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             StopTaking();
 
-            if (_cachedRope != null && ropeHandler.HasRope == false && ropeHandler == _currentRopeHandler)
-                RopeFlyBack();
-
             _currentRopeHandler = null;
+
+            if (_cachedRope != null && ropeHandler.HasRope == false && _cachedRope.IsConnected == false)
+                RopeFlyBack();
         }
     }
 
