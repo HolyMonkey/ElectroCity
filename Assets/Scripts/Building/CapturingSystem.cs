@@ -51,7 +51,7 @@ public class CapturingSystem
         if (TotalPoints <= 0)
         {
             ChangeTeam(team);
-            TotalPoints++;
+            ChangePoints(1);
         }
 
         PointsAdded?.Invoke(CurrentTeam.Color, TotalPoints, _maxPoints);
