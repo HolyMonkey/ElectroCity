@@ -43,8 +43,8 @@ public class RopePickUpTrigger : MonoBehaviour
             StopTaking();
             _currentRopeHandler = null;
 
-            //if (_cachedRope != null && ropeHandler.HasRope == false)
-            //    RopeFlyBack();
+            if (_cachedRope != null && ropeHandler.HasRope == false)
+                RopeFlyBack();
         }
     }
 
@@ -56,7 +56,7 @@ public class RopePickUpTrigger : MonoBehaviour
             _isPickingUp = false;
         }
 
-        //RopeFlyBack();
+        RopeFlyBack();
     }
 
     public bool TryAttach(RopeHandler ropeHandler)
@@ -82,9 +82,9 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             if (collider.TryGetComponent(out RopeHandler ropeHandler))
             {
-                //TryAttach(ropeHandler);
+                TryAttach(ropeHandler);
 
-                Taking(0, ropeHandler);
+                //Taking(0, ropeHandler);
 
                 return;
             }
@@ -104,10 +104,10 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             handler.SetTrigger(this);
 
-            //if(_cachedRope == null)
-            _cachedRope = _ropeSpawner.Spawn(handler);
+            if (_cachedRope == null)
+                _cachedRope = _ropeSpawner.Spawn(handler);
 
-            //_cachedRope.Plug.FlyTo(handler.RopePoint, OnRopeFlyEnd);
+            _cachedRope.Plug.FlyTo(handler.RopePoint, OnRopeFlyEnd);
         }
 
         _isPickingUp = false;
@@ -115,8 +115,8 @@ public class RopePickUpTrigger : MonoBehaviour
 
     public void RopeFlyBack()
     {
-        //if (_cachedRope != null)
-        //    _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
+        if (_cachedRope != null)
+            _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
     }
 
     private void OnRopeFlyEnd()

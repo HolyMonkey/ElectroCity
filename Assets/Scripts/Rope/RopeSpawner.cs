@@ -30,7 +30,7 @@ public class RopeSpawner : MonoBehaviour
         _cachedRopeHandler = handler;
         ChangeColor(rope, handler);
         rope.SetTeamId(handler.Team);
-        AttachRope();
+        //AttachRope();
 
         return rope;
     }
