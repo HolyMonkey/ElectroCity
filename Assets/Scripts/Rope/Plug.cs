@@ -70,9 +70,9 @@ public class Plug : MonoBehaviour
 
     private IEnumerator Flying(Transform endPoint, Action onCoroutineEnd)
     {
-        while (Vector3.Distance(transform.position, endPoint.position) > 0.1f)
+        while (Vector3.Distance(transform.position, endPoint.position) > 0.5f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 4f* Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, endPoint.position, 3f* Time.deltaTime);
 
             yield return null;
         }
