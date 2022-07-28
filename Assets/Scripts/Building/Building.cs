@@ -74,9 +74,10 @@ public class Building : MonoBehaviour
 
     public void AddPickedRope(Rope rope)
     {
+        rope.Torned += OnRopeRemoved;
         _pickedRopes.Add(rope);
         //rope.LaunchOnRopeConnected(ProduceHadouken);
-        rope.Torned += OnRopeRemoved;
+
         PickUpedRopesChanged?.Invoke();
     }
 

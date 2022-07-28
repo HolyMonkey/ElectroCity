@@ -70,6 +70,7 @@ public class Rope : MonoBehaviour
 
     public void Disable()
     {
+        _plug.DESTRUCTION();
         Destroy(gameObject);
     }
 
@@ -107,7 +108,7 @@ public class Rope : MonoBehaviour
             yield return null;
         }
 
-        Destroy(gameObject);
+        Disable();
     }
 
     private IEnumerator GivingEnergy(CapturingSystem capturingSystem)
