@@ -12,4 +12,9 @@ public class BotAnimator : MonoBehaviour
     {
         _animator.SetTrigger(Run);
     }
+
+    public void ResetRun()
+    {
+        _animator.ResetTrigger(Run);
+    }
 }
