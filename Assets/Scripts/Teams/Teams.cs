@@ -77,6 +77,8 @@ public class Teams : MonoBehaviour
         {
             team.Lost -= OnTeamLost;
             _counter--;
+
+            _teams.Remove(team);
         }
 
         if (_counter <= 1)
