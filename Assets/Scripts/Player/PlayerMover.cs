@@ -51,7 +51,7 @@ public class PlayerMover : MonoBehaviour
 
     public void Disable()
     {
-        this.enabled = false;
+        enabled = false;
     }
 
     private void Rotate(Vector3 direction)

@@ -462,6 +462,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ropeHandler: {fileID: 230069515590018988}
+  _mover: {fileID: 1880495861290320885}
+  _animator: {fileID: 4263399149581529398}
 --- !u!114 &1880495861290320885
 MonoBehaviour:
   m_ObjectHideFlags: 0

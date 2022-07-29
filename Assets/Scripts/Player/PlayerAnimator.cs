@@ -7,6 +7,8 @@ public class PlayerAnimator : MonoBehaviour
     private Animator _animator;
     private string _currentState;
 
+    private const string Dancing = "Dancing";
+
     private void Awake()
     {
         _animator = GetComponent<Animator>();
@@ -19,5 +21,10 @@ public class PlayerAnimator : MonoBehaviour
 
         _animator.Play(newState);
         _currentState = newState;
+    }
+
+    public void StartDancing()
+    {
+        _animator.Play(Dancing);
     }
 }

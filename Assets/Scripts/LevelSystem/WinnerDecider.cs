@@ -30,7 +30,9 @@ public class WinnerDecider : MonoBehaviour
     {
         _isWinned = true;
 
-        FindObjectOfType<PlayerMover>().Disable();
+        Player player = FindObjectOfType<Player>();
+        player.Mover.Disable();
+        //player.Animator.StartDancing();
 
         if (team.TeamId == TeamId.First)
             StartCoroutine(DelayedEnable());
@@ -40,9 +42,6 @@ public class WinnerDecider : MonoBehaviour
 
     private void SetLose()
     {
-        if (_isWinned)
-            return;
-
         _isWinned = false;
         StartCoroutine(DelayedLose(1f));
     }
