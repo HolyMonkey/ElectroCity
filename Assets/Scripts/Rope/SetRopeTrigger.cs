@@ -15,9 +15,10 @@ public class SetRopeTrigger : MonoBehaviour
     private Coroutine _attachingCoroutine;
     private Coroutine _takingCoroutine;
     private readonly int _maxNumberOfPlacements = 1;
+    private bool _isAttaching;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
-    public bool IsFree => _currentRope == null;
+    public bool IsFree => _currentRope == null && _isAttaching == false;
     public TeamId TeamId => _building.TeamId;
     public Building Building => _building;
 
@@ -40,7 +41,7 @@ public class SetRopeTrigger : MonoBehaviour
 
     public void Attach(RopeHandler handler)
     {
-        if(handler.CurrentRope != null)
+        if(handler.CurrentRope != null && IsFree)
         {
             _attachingCoroutine = StartCoroutine(Attaching(_delay, handler));
         }
@@ -85,13 +86,20 @@ public class SetRopeTrigger : MonoBehaviour
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
+        _isAttaching = true;
+
         yield return new WaitForSeconds(delay);
 
-        _team = handler.Team;
-        _building.AddSetedRope(handler.CurrentRope);
-        _currentRope = handler.CurrentRope;
-        _currentRope.Torned += DeleteRope;
-        handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
+        if (handler.CurrentRope!= null)
+        {
+            _currentRope = handler.CurrentRope;
+            _currentRope.Torned += DeleteRope;
+            _team = handler.Team;
+            _building.AddSetedRope(handler.CurrentRope);
+            handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
+        }
+
+        _isAttaching = false;
     }
 
     public bool CanAttach(Collider other, out RopeHandler handler)
