@@ -38,15 +38,15 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine != null)
-        {
-            StopTaking();
+        //if(other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine != null)
+        //{
+        //    StopTaking();
 
-            //_currentRopeHandler = null;
+        //    //_currentRopeHandler = null;
 
-            if (_cachedRope != null && ropeHandler.HasRope == false && _cachedRope.IsConnected == false)
-                RopeFlyBack();
-        }
+        //    if (_cachedRope != null && ropeHandler.HasRope == false && _cachedRope.IsConnected == false)
+        //        RopeFlyBack();
+        //}
     }
 
     public void StopTaking()

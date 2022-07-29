@@ -72,7 +72,7 @@ public class Plug : MonoBehaviour
     {
         while (Vector3.Distance(transform.position, endPoint.position) > 0.5f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 6f* Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 10f* Time.deltaTime);
             _meshRenderer.transform.LookAt(endPoint,Vector3.up);
             _meshRenderer.transform.rotation *= Quaternion.Euler(-90f, 0f, 0f);
 
