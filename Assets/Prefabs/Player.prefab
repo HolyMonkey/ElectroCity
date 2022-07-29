@@ -519,7 +519,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4294754133
   _teamId: 0
-  _stickmanMaterial: {fileID: 2100000, guid: 6055e59734bf631428c6de537a49441b, type: 2}
+  _stickmanMesh: {fileID: 301044974011864028}
 --- !u!114 &1377390413
 MonoBehaviour:
   m_ObjectHideFlags: 0

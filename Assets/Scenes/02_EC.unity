@@ -1066,7 +1066,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.94, y: 14, z: -1.5699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -1166,7 +1166,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.94, y: 14, z: -1.5699997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -2532,7 +2532,7 @@ PrefabInstance:
       objectReference: {fileID: 1478492254}
     - target: {fileID: 512577283270140352, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: _initialPoints
-      value: 60
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 512577283270140354, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: m_SourceCollider
