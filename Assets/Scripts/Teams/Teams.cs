@@ -81,7 +81,7 @@ public class Teams : MonoBehaviour
             _teams.Remove(team);
         }
 
-        if (_counter <= 1)
+        if (_counter <= 1 || team.TeamId == TeamId.First)
         {
             _winnerDecider.EndGame(_teams[0]);
             _gameOver = true;
