@@ -61,8 +61,8 @@ public class Team : MonoBehaviour
 
     private void OnTeamLost(Team teamThatCapture)
     {
-        ChangeTeamData(teamThatCapture);
         Lost?.Invoke(this);
+        ChangeTeamData(teamThatCapture);
     }
 
     private void ChangeTeamData(Team teamThatCapture)
