@@ -231,6 +231,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: EndScreens
       objectReference: {fileID: 0}
+    - target: {fileID: 4446604115850312978, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5269176209571890685, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
+      propertyPath: m_text
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5464559382725212471, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
+      propertyPath: m_text
+      value: Level 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7072374494952030444, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

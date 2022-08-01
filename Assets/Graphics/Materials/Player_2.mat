@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Player
+  m_Name: Player_2
   m_Shader: {fileID: 4800000, guid: f7e38193b7f064d7380403618fd8b69e, type: 3}
   m_ShaderKeywords: _CELPRIMARYMODE_SINGLE _TEXTUREBLENDINGMODE_MULTIPLY _UNITYSHADOWMODE_MULTIPLY
   m_LightmapFlags: 4
@@ -101,9 +101,9 @@ Material:
     - _Parallax: 0.02
     - _QueueOffset: 0
     - _RimEnabled: 0
-    - _SelfShadingSize: 0.641
+    - _SelfShadingSize: 0.686
     - _SelfShadingSizeExtra: 0
-    - _ShadowEdgeSize: 0.248
+    - _ShadowEdgeSize: 0.441
     - _ShadowEdgeSizeExtra: 0.28
     - _SmoothnessTextureChannel: 0
     - _SpecularEnabled: 0
@@ -119,8 +119,8 @@ Material:
     - _VertexColorsEnabled: 0
     - _ZWrite: 1
     m_Colors:
-    - _Color: {r: 0, g: 0.42644438, b: 0.7529412, a: 1}
-    - _ColorDim: {r: 0.12682448, g: 0.32261217, b: 0.4716981, a: 1}
+    - _Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 1}
+    - _ColorDim: {r: 0.43320575, g: 0.44027683, b: 0.5188679, a: 1}
     - _ColorDimCurve: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
     - _ColorDimExtra: {r: 0.24705884, g: 0.19607845, b: 0.06666667, a: 1}
     - _ColorDimSteps: {r: 0.85023, g: 0.85034, b: 0.85045, a: 0.85056}
