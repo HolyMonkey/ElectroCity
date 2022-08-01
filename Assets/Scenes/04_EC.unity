@@ -1198,6 +1198,7 @@ MonoBehaviour:
   _color:
     serializedVersion: 2
     rgba: 4284045657
+  _circleColor: {r: 0, g: 0, b: 0, a: 0}
   _teamId: 4
   _stickmanMesh: {fileID: 0}
 --- !u!114 &463875331
@@ -2106,7 +2107,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.61, y: 14, z: -12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2218,7 +2219,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.61, y: 14, z: -12.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -6075,42 +6076,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 416087483}
     m_Modifications:
-    - target: {fileID: 983690821, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 983690821, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.2716675
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830763205, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1830763205, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.2716675
-      objectReference: {fileID: 0}
-    - target: {fileID: 1846657217, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 857996779054975655, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 857996779054975655, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -47.700195
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985078179576498900, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1985078179576498900, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2093907425860879439, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -6198,14 +6163,6 @@ PrefabInstance:
     - target: {fileID: 4191008521160387130, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
       propertyPath: m_Name
       value: UICanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4191008521160387130, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8665750680382199433, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
-      propertyPath: m_text
-      value: Level 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}

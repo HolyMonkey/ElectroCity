@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 289274843096205206}
   - component: {fileID: 3723472465133553715}
   - component: {fileID: 1461586524564569337}
-  - component: {fileID: 254748677670281342}
-  - component: {fileID: 254748677670281337}
   - component: {fileID: 254748677670281336}
+  - component: {fileID: 6462752024840823734}
   m_Layer: 0
   m_Name: Wall_side
   m_TagString: Untagged
@@ -84,34 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &254748677670281342
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101241449267371308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6404368629829635483, guid: b3f59bf21ced2284697a7531ec71094b, type: 3}
---- !u!64 &254748677670281337
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101241449267371308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6404368629829635483, guid: b3f59bf21ced2284697a7531ec71094b, type: 3}
 --- !u!114 &254748677670281336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,5 +98,18 @@ MonoBehaviour:
   thickness: 0
   material: {fileID: 0}
   filter: -65535
-  m_SourceCollider: {fileID: 254748677670281342}
+  m_SourceCollider: {fileID: 0}
   m_DistanceField: {fileID: 0}
+--- !u!65 &6462752024840823734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101241449267371308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.423791, y: 1.9711988, z: 1.2375703}
+  m_Center: {x: 0, y: 0.366815, z: -3.9999998}
