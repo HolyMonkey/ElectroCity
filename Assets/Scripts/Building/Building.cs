@@ -118,6 +118,7 @@ public class Building : MonoBehaviour
         if (_pickedRopes.Contains(rope))
             _pickedRopes.Remove(rope);
 
+        SettedRopesChanged?.Invoke();
         PickUpedRopesChanged?.Invoke();
     }
 

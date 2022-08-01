@@ -5,37 +5,14 @@ using System.Collections;
 
 public class TextAnimator : MonoBehaviour
 {
-	[SerializeField] private TMP_Text _value;
-    [SerializeField] private float _targetSize;
-    [SerializeField] private float _speed;
+    [SerializeField] private float _duration;
 
-    private float _startSize;
-
-    private void Start()
+    public void DoRotation()
     {
-        _startSize = _value.fontSize;
-        StartCoroutine(Animating());
-    }
-
-    private IEnumerator Animating()
-    {
-        while (true)
-        {
-            while (_value.fontSize < _targetSize)
-            {
-                _value.fontSize = Mathf.MoveTowards(_value.fontSize, _targetSize, _speed * Time.deltaTime);
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(0.2f);
-
-            while (_value.fontSize > _startSize)
-            {
-                _value.fontSize = Mathf.MoveTowards(_value.fontSize, _startSize, _speed * Time.deltaTime);
-                yield return null;
-            }
-
-            yield return new WaitForSeconds(0.2f);
-        }
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(transform.DORotate(new Vector3(0, 0, 4f), _duration, RotateMode.Fast));
+        sequence.Append(transform.DORotate(new Vector3(0, 0, -3f), _duration, RotateMode.Fast));
+        sequence.Append(transform.DORotate(new Vector3(0, 0, 2f), _duration, RotateMode.Fast));
+        sequence.Append(transform.DORotate(new Vector3(0, 0, 0f), _duration, RotateMode.Fast));
     }
 }
