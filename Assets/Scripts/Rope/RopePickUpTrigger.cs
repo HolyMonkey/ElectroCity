@@ -116,8 +116,8 @@ public class RopePickUpTrigger : MonoBehaviour
 
     public void RopeFlyBack()
     {
-        //if (_cachedRope != null)
-        //    _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
+        if (_cachedRope != null)
+            _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
     }
 
     private void OnRopeFlyEnd()

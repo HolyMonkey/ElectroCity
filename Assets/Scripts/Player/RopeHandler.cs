@@ -59,7 +59,9 @@ public class RopeHandler : MonoBehaviour
 
     private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
-        _currentRope.ObiRope.OnRopeTorn -= BreakRope;
+        if(_currentRope != null)
+            _currentRope.ObiRope.OnRopeTorn -= BreakRope;
+
         _currentRope = null;
         _hasRope = false;
         RopeBreaked?.Invoke();
