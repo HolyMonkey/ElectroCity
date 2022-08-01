@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 637709743436934492}
   - component: {fileID: 2240554025231561181}
   - component: {fileID: 2240554025231561180}
+  - component: {fileID: 1753347380263452771}
+  - component: {fileID: 8807443458967164249}
   m_Layer: 0
   m_Name: Wall_corner
   m_TagString: Untagged
@@ -114,3 +116,29 @@ MonoBehaviour:
   filter: -65535
   m_SourceCollider: {fileID: 2240554025231561181}
   m_DistanceField: {fileID: 0}
+--- !u!65 &1753347380263452771
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430286310122359945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.857783, y: 1.9711988, z: 1.2133522}
+  m_Center: {x: 3.1833644, y: 0.36681497, z: -4.00558}
+--- !u!65 &8807443458967164249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1430286310122359945}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2376842, y: 1.9711988, z: 3.1175833}
+  m_Center: {x: 3.993414, y: 0.36681497, z: -3.0534644}
