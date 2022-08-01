@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Bluecorner Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1430286310122359945, guid: 7f59f7dd897664d4dbac3af43fba1a8c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1770677159153817139, guid: 7f59f7dd897664d4dbac3af43fba1a8c, type: 3}
       propertyPath: m_RootOrder
       value: 0

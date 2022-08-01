@@ -15,6 +15,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Wall_Blueside_connect Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1273149014761081210, guid: 4547bc97bde6e324f8e16086efd728cd, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 1936814900974801856, guid: 4547bc97bde6e324f8e16086efd728cd, type: 3}
       propertyPath: m_RootOrder
       value: 0
