@@ -81,6 +81,7 @@ public class Rope : MonoBehaviour
 
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
+        obiRope.OnRopeTorn -= Disappear;
         Torned?.Invoke(this);
         _isTorn = true;
         _plug.DESTRUCTION();
