@@ -8,8 +8,8 @@ public class RopeHandler : MonoBehaviour
 {
     [SerializeField] private Team _team;
     [SerializeField] private Transform _ropePoint;
-    [SerializeField] private Rope _currentRope;
     
+    private Rope _currentRope;
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
 
@@ -31,7 +31,7 @@ public class RopeHandler : MonoBehaviour
     public void TakeRope(Rope rope)
     {
         _currentRope = rope;
-        rope.ObiRope.OnRopeTorn += BreakRope;
+        _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;
         rope.EndPoint.SetParent(_ropePoint);
         rope.StartPoint.localPosition = Vector3.zero;
@@ -59,11 +59,11 @@ public class RopeHandler : MonoBehaviour
 
     private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
+        _hasRope = false;
         if(_currentRope != null)
             _currentRope.ObiRope.OnRopeTorn -= BreakRope;
 
         _currentRope = null;
-        _hasRope = false;
         RopeBreaked?.Invoke();
     }
 

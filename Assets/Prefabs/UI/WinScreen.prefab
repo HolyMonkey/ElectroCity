@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 759187784839762919, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
       propertyPath: m_Name
-      value: EndScreen
+      value: WinScreen
       objectReference: {fileID: 0}
     - target: {fileID: 5201421742730772002, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
       propertyPath: m_Pivot.x
@@ -94,6 +94,22 @@ PrefabInstance:
     - target: {fileID: 5201421742730772002, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917040679482891248, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 431.8665
+      objectReference: {fileID: 0}
+    - target: {fileID: 5917040679482891248, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 179.0163
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499980178262440250, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
+      propertyPath: m_fontSize
+      value: 119.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499980178262440250, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 119.46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
