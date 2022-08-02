@@ -16,6 +16,7 @@ public class Building : MonoBehaviour
     private readonly int _mediumEnergyLevel = 40;
     private Coroutine _produceEnergyCoroutine;
 
+    public IReadOnlyList<Rope> SettedRopes => _settedRopes;
     public int InitialPoints => _initialPoints;
     public bool IsBuildingNeutral => CapturingSystem.CurrentTeam.TeamId == TeamId.Netural;
     public TeamId TeamId => CapturingSystem.CurrentTeam.TeamId;
