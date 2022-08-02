@@ -42,6 +42,9 @@ public class WinnerDecider : MonoBehaviour
         }
         else
         {
+            player.CameraHandler.ActivateFinishCamera();
+            player.Animator.StartShock();
+            player.EffectsHandler.EnableLoseEffects();
             SetLose();
         }
     }
@@ -49,7 +52,7 @@ public class WinnerDecider : MonoBehaviour
     private void SetLose()
     {
         _isWinned = false;
-        StartCoroutine(DelayedLose(1f));
+        StartCoroutine(DelayedLose(3f));
     }
 
     private IEnumerator DelayedEnable()

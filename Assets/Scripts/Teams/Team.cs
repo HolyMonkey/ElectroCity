@@ -67,11 +67,12 @@ public class Team : MonoBehaviour
 
     private void ChangeTeamData(Team teamThatCapture)
     {
+        TeamId initialTeamId = _teamId;
         _color = teamThatCapture.Color;
         _teamId = teamThatCapture.TeamId;
         Points = teamThatCapture.Points;
 
-        if (_stickmanMesh != null)
+        if (_stickmanMesh != null && initialTeamId != TeamId.First)
             _stickmanMesh.material = teamThatCapture.StickmanMaterial;
     }
 }
