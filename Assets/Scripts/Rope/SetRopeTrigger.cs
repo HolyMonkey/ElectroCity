@@ -15,7 +15,7 @@ public class SetRopeTrigger : MonoBehaviour
     private Coroutine _attachingCoroutine;
     private Coroutine _takingCoroutine;
     private readonly int _maxNumberOfPlacements = 1;
-    private bool _isAttaching;
+    public static bool _isAttaching;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
     public bool IsFree => _currentRope == null && _isAttaching == false;

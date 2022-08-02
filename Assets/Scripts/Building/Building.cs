@@ -75,6 +75,9 @@ public class Building : MonoBehaviour
 
     public void AddPickedRope(Rope rope)
     {
+        if (rope == null)
+            return;
+
         rope.Torned += OnRopeRemoved;
         _pickedRopes.Add(rope);
         //rope.LaunchOnRopeConnected(ProduceHadouken);

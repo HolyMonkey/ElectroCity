@@ -23,7 +23,9 @@ public class LevelsHandler : MonoBehaviour
     private void Awake()
     {
         Counter = SaveSystem.LoadLevelsProgression();
-        _levelNumber = SaveSystem.LoadLevelNumber();
+        //_levelNumber = SaveSystem.LoadLevelNumber();
+        _levelNumber = SaveSystem.LoadLevelsProgression();
+
         _count = SaveSystem.LoadLevel();
         _levelLoop = SaveSystem.LoadLevelLoop();
     }

@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: States 1
   m_EditorClassIdentifier: 
-  hashCode: -1021778364
+  hashCode: -320107691
   material: {fileID: 7374927986402738804}
-  materialHashCode: -284891420
+  materialHashCode: 208403285
   m_Version: 1.1.0
   m_SourceFontFileGUID: 18656ef7a51c9493bbb7e0a789ec9bf7
   m_SourceFontFile_EditorRef: {fileID: 0}
@@ -2562,6 +2562,7 @@ Material:
     - _BumpFace: 0
     - _BumpOutline: 0
     - _ColorMask: 15
+    - _CullMode: 0
     - _Diffuse: 0.5
     - _FaceDilate: 0
     - _FaceUVSpeedX: 0
@@ -2577,7 +2578,7 @@ Material:
     - _OutlineSoftness: 0
     - _OutlineUVSpeedX: 0
     - _OutlineUVSpeedY: 0
-    - _OutlineWidth: 0
+    - _OutlineWidth: 0.138
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333

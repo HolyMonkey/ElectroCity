@@ -92,6 +92,7 @@ public class Rope : MonoBehaviour
     {
         yield return new WaitForSeconds(0.5f);
 
+        _obiRope.Tear(_obiRope.elements[2]);
         _endAttachment.enabled = false;
         _startAttachment.enabled = false;
         //Destroy(_plug.gameObject);

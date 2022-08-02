@@ -36,7 +36,6 @@ public class RopeHandler : MonoBehaviour
         rope.EndPoint.SetParent(_ropePoint);
         rope.StartPoint.localPosition = Vector3.zero;
         rope.EndPoint.localPosition = Vector3.zero;
-        //rope.EndPoint.localRotation = Quaternion.Euler(70f, 15f, 135f);
         rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
         StartCoroutine(Delay(rope));
@@ -60,11 +59,12 @@ public class RopeHandler : MonoBehaviour
     private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
         _hasRope = false;
+        RopeBreaked?.Invoke();
+
         if(_currentRope != null)
             _currentRope.ObiRope.OnRopeTorn -= BreakRope;
 
         _currentRope = null;
-        RopeBreaked?.Invoke();
     }
 
     private IEnumerator Delay(Rope rope)

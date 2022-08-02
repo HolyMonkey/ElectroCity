@@ -105,8 +105,7 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             handler.SetTrigger(this);
 
-            if (_cachedRope == null)
-                _cachedRope = _ropeSpawner.Spawn(handler);
+            _cachedRope = _ropeSpawner.Spawn(handler);
 
             _cachedRope.Plug.FlyTo(handler.RopePoint, OnRopeFlyEnd);
         }
@@ -122,6 +121,13 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnRopeFlyEnd()
     {
+        if (_currentRopeHandler.HasRope)
+        {
+            RopeFlyBack();
+
+            return;
+        }
+
         _ropeSpawner.AttachRope();
         _building.AddPickedRope(_currentRopeHandler.CurrentRope);
         _cachedRope = null;
