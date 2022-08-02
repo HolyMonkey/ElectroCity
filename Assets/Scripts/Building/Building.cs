@@ -6,11 +6,12 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     [SerializeField] private int _initialPoints;
+    [SerializeField] private bool _canGiveRopes = true;
     [SerializeField] private Team _initialTeam;
     [SerializeField] private List<Rope> _pickedRopes;
     [SerializeField] private List<Rope> _settedRopes;
+    [SerializeField] private int _maxPickUpedRopes = 3;
 
-    private int _maxPickUpedRopes = 3;
     private bool _areRopesDestroyed;
     private readonly int _lowEnergyLevel = 20;
     private readonly int _mediumEnergyLevel = 40;
@@ -87,23 +88,26 @@ public class Building : MonoBehaviour
 
     private void CheckEnergy(int totalPoints)
     {
-        if (totalPoints > _mediumEnergyLevel)
+        if (_canGiveRopes)
         {
-            _maxPickUpedRopes = 3;
-        }
+            if (totalPoints > _mediumEnergyLevel)
+            {
+                _maxPickUpedRopes = 3;
+            }
 
-        if (totalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
-        {
-            _maxPickUpedRopes = 2;
-        }
+            if (totalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
+            {
+                _maxPickUpedRopes = 2;
+            }
 
-        if (totalPoints <= _lowEnergyLevel)
-        {
-            _maxPickUpedRopes = 1;
-        }
+            if (totalPoints <= _lowEnergyLevel)
+            {
+                _maxPickUpedRopes = 1;
+            }
 
-        DestroyExcessivePickedRopes();
-        EnergyChecked?.Invoke(_maxPickUpedRopes);
+            DestroyExcessivePickedRopes();
+            EnergyChecked?.Invoke(_maxPickUpedRopes);
+        }
     }
 
     //private void ProduceHadouken()
