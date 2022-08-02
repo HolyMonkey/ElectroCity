@@ -1,5 +1,4 @@
 using UnityEngine;
-using DG.Tweening;
 
 public class BuildingShaker : MonoBehaviour
 {
@@ -9,11 +8,11 @@ public class BuildingShaker : MonoBehaviour
     private const string StartShaking = "StartShaking";
     private const string StopShaking = "StopShaking";
 
-    private void OnEnable() => _building.SettedRopesChanged += StartAnimation;
+    private void OnEnable() => _building.SettedRopesChanged += SetAnimationTrigger;
 
-    private void OnDisable() => _building.SettedRopesChanged -= StartAnimation;
+    private void OnDisable() => _building.SettedRopesChanged -= SetAnimationTrigger;
 
-    private void StartAnimation()
+    private void SetAnimationTrigger()
     {
         if(_building.SettedRopes.Count > 0)
         {

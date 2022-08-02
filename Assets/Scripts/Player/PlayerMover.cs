@@ -13,9 +13,6 @@ public class PlayerMover : MonoBehaviour
     private float _threshold = 0.01f;
     private const int LeftMouseButton = 0;
 
-    private const string Idle = "Idle";
-    private const string Running = "Running";
-
     private void Awake()
     {
         _rigidBody = GetComponent<Rigidbody>();
@@ -36,11 +33,11 @@ public class PlayerMover : MonoBehaviour
         {
             Move(direction, _speed);
             Rotate(direction);
-            _animator.TryChangeStateTo(Running);
+            _animator.StartRunning();
         }
         else
         {
-            _animator.TryChangeStateTo(Idle);
+            _animator.StartIdling();
         }
     }
 

@@ -32,7 +32,7 @@ public class WinnerDecider : MonoBehaviour
 
         Player player = FindObjectOfType<Player>();
         player.Mover.Disable();
-        //player.Animator.StartDancing();
+        player.Animator.StartDancing();
 
         if (team.TeamId == TeamId.First)
             StartCoroutine(DelayedEnable());
