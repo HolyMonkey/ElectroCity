@@ -6,7 +6,6 @@ using UnityEngine;
 public class Team : MonoBehaviour
 {
     [SerializeField] private Color32 _color;
-    [SerializeField] private Color _circleColor;
     [SerializeField] private TeamId _teamId;
     [SerializeField] private SkinnedMeshRenderer _stickmanMesh;
 
@@ -17,7 +16,6 @@ public class Team : MonoBehaviour
 
     public TeamId TeamId => _teamId;
     public Color32 Color => _color;
-    public Color CircleColor => _circleColor;
 
     public event Action PointsChanged;
     public event Action<Team> Lost;

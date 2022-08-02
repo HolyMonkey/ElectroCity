@@ -434,7 +434,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!136 &6574403992984387163
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -520,6 +520,7 @@ MonoBehaviour:
   _color:
     serializedVersion: 2
     rgba: 4294754133
+  _circleColor: {r: 0, g: 0, b: 0, a: 0}
   _teamId: 0
   _stickmanMesh: {fileID: 301044974011864028}
 --- !u!114 &1377390413
