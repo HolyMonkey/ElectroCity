@@ -984,6 +984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TeamCircle
       objectReference: {fileID: 0}
+    - target: {fileID: 2389060925609536004, guid: 1a0c81aa20ace7446ac2296575183955, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2389060925609536005, guid: 1a0c81aa20ace7446ac2296575183955, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -1038,6 +1042,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2389060925609536005, guid: 1a0c81aa20ace7446ac2296575183955, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2389060926761068506, guid: 1a0c81aa20ace7446ac2296575183955, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2626547110023873476, guid: 1a0c81aa20ace7446ac2296575183955, type: 3}
+      propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

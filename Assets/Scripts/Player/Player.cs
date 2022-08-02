@@ -13,6 +13,4 @@ public class Player : MonoBehaviour
     public PlayerAnimator Animator => _animator;
     public PlayerEffectsHandler EffectsHandler => _effectsHandler;
     public PlayerCameraHandler CameraHandler => _cameraHandler;
-
-
 }
