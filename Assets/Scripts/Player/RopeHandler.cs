@@ -13,6 +13,7 @@ public class RopeHandler : MonoBehaviour
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
 
+    public bool IsBot { get; private set; }
     public RopePickUpTrigger PickUpTrigger => _pickUpTrigger;
     public Team Team => _team;
     public Transform RopePoint => _ropePoint;
@@ -22,6 +23,12 @@ public class RopeHandler : MonoBehaviour
     public event Action RopeTaken;
 
     public event Action RopeBreaked;
+
+    private void Awake()
+    {
+        if (_team.TeamId != TeamId.First)
+            IsBot = true;
+    }
 
     public void SetTrigger(RopePickUpTrigger pickUpTrigger)
     {
