@@ -339,6 +339,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7072374494952030444, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
   m_PrefabInstance: {fileID: 409384974312879475}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8318519535407513251 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8565631015959235536, guid: 8f3d7b984ccde854fb80304bf2cddb2a, type: 3}
+  m_PrefabInstance: {fileID: 409384974312879475}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a4f5ed4e0eea84ba0a66afb1ac4d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2523772872903742633
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -536,6 +547,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2093907425860879439}
     m_Modifications:
+    - target: {fileID: 4496515926574537420, guid: a8103d59dd99da14aa0a674053f73af6, type: 3}
+      propertyPath: _decider
+      value: 
+      objectReference: {fileID: 8318519535407513251}
     - target: {fileID: 4496515926574537422, guid: a8103d59dd99da14aa0a674053f73af6, type: 3}
       propertyPath: m_Name
       value: MultiColorSlider

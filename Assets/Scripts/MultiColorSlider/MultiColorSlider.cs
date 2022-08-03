@@ -7,10 +7,20 @@ public class MultiColorSlider : MonoBehaviour
 {
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _sprite;
+    [SerializeField] private WinnerDecider _decider;
 
     private Sprite _tempSprite;
     private Color32[] _colors;
 
+    private void OnEnable()
+    {
+        _decider.GameEnded += OnGameEnded;
+    }
+
+    private void OnDisable()
+    {
+        _decider.GameEnded -= OnGameEnded;
+    }
     public void CreateBlank()
     {
         Texture2D texture = new Texture2D((int)_sprite.rect.width, (int)_sprite.rect.height);
@@ -75,5 +85,10 @@ public class MultiColorSlider : MonoBehaviour
     private int GetXPixelIndex(int percent)
     {
         return ((int)_image.sprite.rect.width * percent) / 100;
+    }
+
+    private void OnGameEnded()
+    {
+        gameObject.SetActive(false);
     }
 }

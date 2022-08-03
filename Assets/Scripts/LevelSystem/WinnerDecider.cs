@@ -12,6 +12,8 @@ public class WinnerDecider : MonoBehaviour
     private int _counter;
     private bool _isWinned;
 
+    public Action GameEnded;
+
     private void Awake()
     {
         if (_winScreen.activeInHierarchy)
@@ -72,6 +74,7 @@ public class WinnerDecider : MonoBehaviour
 
     private void ShowScreen(GameObject screen)
     {
+        GameEnded?.Invoke();
         screen.SetActive(true);
 
         _joyStickCanvas.Disable();
