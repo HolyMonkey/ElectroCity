@@ -13,4 +13,20 @@ public class Player : MonoBehaviour
     public PlayerAnimator Animator => _animator;
     public PlayerEffectsHandler EffectsHandler => _effectsHandler;
     public PlayerCameraHandler CameraHandler => _cameraHandler;
+
+    private Vector3 _initialPos;
+
+    private void Awake()
+    {
+        _initialPos = transform.position;
+    }
+
+
+    private void Update()
+    {
+        if (transform.position.y < -10)
+            transform.position = _initialPos;
+    }
+
+
 }
