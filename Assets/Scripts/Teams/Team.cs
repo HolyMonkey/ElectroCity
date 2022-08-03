@@ -55,7 +55,7 @@ public class Team : MonoBehaviour
 
     public void OnBuildingCaptured(Team teamThatCapture, int value)
     {
-        if (Points <= Mathf.Abs(value))
+        if (Points <= 1)
             OnTeamLost(teamThatCapture);
     }
 
