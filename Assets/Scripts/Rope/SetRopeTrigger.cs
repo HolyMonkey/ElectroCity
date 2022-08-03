@@ -105,7 +105,7 @@ public class SetRopeTrigger : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
-        if (handler.CurrentRope!= null)
+        if (handler.CurrentRope!= null && IsFree)
         {
             _currentRope = handler.CurrentRope;
             _currentRope.Torned += DeleteRope;
