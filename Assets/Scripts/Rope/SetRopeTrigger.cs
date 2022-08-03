@@ -33,6 +33,7 @@ public class SetRopeTrigger : MonoBehaviour
         if (other.TryGetComponent(out RopeHandler ropeHandler) && IsAttaching == false && ropeHandler.IsBot == false && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == TeamId.First)
         {
             _setRopHandler.Pick(this);
+            _setRopHandler.UnTakeExcept(this, ropeHandler);
             TakeRope(ropeHandler);
         }
     }
@@ -40,7 +41,9 @@ public class SetRopeTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent(out RopeHandler ropeHandler))
+        { 
             UntakeRope(ropeHandler);
+        }
     }
 
     public void Init(SetRopHandler setRopHandler)
@@ -67,8 +70,9 @@ public class SetRopeTrigger : MonoBehaviour
         _ropePickUpTrigger.StopTaking();
     }
 
-    private void UntakeRope(RopeHandler handler)
+    public void UntakeRope(RopeHandler handler)
     {
+        IsAttaching = false;
         if(_takingCoroutine != null)
             StopCoroutine(_takingCoroutine);
 
@@ -110,7 +114,7 @@ public class SetRopeTrigger : MonoBehaviour
             handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
         }
 
-        _setRopHandler.UnPick();
+        IsAttaching = false;
     }
 
     public bool CanAttach(Collider other, out RopeHandler handler)

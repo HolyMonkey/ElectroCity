@@ -30,4 +30,13 @@ public class SetRopHandler : MonoBehaviour
             trigger.IsAttaching = false;
         }
     }
+
+    public void UnTakeExcept(SetRopeTrigger setRopeTrigger, RopeHandler ropeHandler)
+    {
+        foreach (var trigger in _setRopeTriggers)
+        {
+            if (trigger != setRopeTrigger)
+                trigger.UntakeRope(ropeHandler);
+        }
+    }
 }
