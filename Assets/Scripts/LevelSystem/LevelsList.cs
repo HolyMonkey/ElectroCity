@@ -28,6 +28,7 @@ public class LevelsList : ScriptableObject
     public AssetReference GetCurrentScene()
     {
         Debug.Log(PlayerPrefs.GetInt(CurrentLevelIndex));
+
         if (PlayerPrefs.HasKey(CurrentLevelIndex))
         {
             _currentScene = _scenes[PlayerPrefs.GetInt(CurrentLevelIndex)];

@@ -9,6 +9,6 @@ public class LevelCountView : MonoBehaviour
 
     private void OnEnable()
     {
-        _levelView.text = $"Level {SaveSystem.LoadLevelsProgression()}";
+        _levelView.text = $"Level {SaveSystem.LoadLevelNumber()}";
     }
 }
