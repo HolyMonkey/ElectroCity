@@ -8,7 +8,9 @@ public class RopeHandler : MonoBehaviour
 {
     [SerializeField] private Team _team;
     [SerializeField] private Transform _ropePoint;
-    
+    [SerializeField] private bool _disableTearing;
+
+
     private Rope _currentRope;
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
@@ -83,6 +85,7 @@ public class RopeHandler : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
-        rope.ObiRope.tearingEnabled = true;
+        if(_disableTearing == false)
+            rope.ObiRope.tearingEnabled = true;
     }
 }
