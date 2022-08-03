@@ -600,6 +600,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _meshRenderer: {fileID: 392337751301071267}
+  _particleSystem: {fileID: 8406078331144519374}
 --- !u!1 &5203056980740125982
 GameObject:
   m_ObjectHideFlags: 0
@@ -669,6 +670,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3795404155836949637}
     m_Modifications:
+    - target: {fileID: 1985845039871889225, guid: 499187dd1eb134549b721f59b99a9db6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2686157351150437061, guid: 499187dd1eb134549b721f59b99a9db6, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8166821995081853797, guid: 499187dd1eb134549b721f59b99a9db6, type: 3}
       propertyPath: m_Name
       value: Plug
@@ -740,5 +749,10 @@ Transform:
 --- !u!23 &392337751301071267 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 7662484600641079984, guid: 499187dd1eb134549b721f59b99a9db6, type: 3}
+  m_PrefabInstance: {fileID: 8009441100091255571}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &8406078331144519374 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1985845039890191837, guid: 499187dd1eb134549b721f59b99a9db6, type: 3}
   m_PrefabInstance: {fileID: 8009441100091255571}
   m_PrefabAsset: {fileID: 0}

@@ -6,6 +6,7 @@ using System;
 public class Plug : MonoBehaviour
 {
     [SerializeField] private MeshRenderer _meshRenderer;
+    [SerializeField] private ParticleSystem _particleSystem;
 
     public MeshRenderer MeshRenderer => _meshRenderer;
 
@@ -27,6 +28,7 @@ public class Plug : MonoBehaviour
     {
         _meshRenderer.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
         _meshRenderer.transform.localPosition = Vector3.up*0.2f;
+        _particleSystem.Play();
     }
 
     public void Raise()
