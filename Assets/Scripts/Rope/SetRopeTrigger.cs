@@ -49,6 +49,9 @@ public class SetRopeTrigger : MonoBehaviour
 
     public void TakeRope(RopeHandler handler)
     {
+        if (_currentRope == null)
+            return;
+
         _takingCoroutine = StartCoroutine(TakingRope(handler));
         _currentRope.Plug.Raise();
         _ropePickUpTrigger.StopTaking();

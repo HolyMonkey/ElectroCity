@@ -37,6 +37,9 @@ public class RopeHandler : MonoBehaviour
 
     public void TakeRope(Rope rope)
     {
+        if (rope == null)
+            return;
+
         _currentRope = rope;
         _currentRope.ObiRope.OnRopeTorn += BreakRope;
         _hasRope = true;

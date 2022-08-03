@@ -18,7 +18,6 @@ public class LevelsList : ScriptableObject
     public AssetReference GetScene(int index)
     {
         index -= 1;
-        Debug.Log(index);
         _currentScene = _scenes[index];
 
         SaveCurrentIndex(index);
