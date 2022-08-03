@@ -15,10 +15,11 @@ public class SetRopeTrigger : MonoBehaviour
     private Coroutine _attachingCoroutine;
     private Coroutine _takingCoroutine;
     private readonly int _maxNumberOfPlacements = 1;
-    public static bool _isAttaching;
+    public bool IsAttaching;
+    private SetRopHandler _setRopHandler;
 
     public bool IsTryingToPlaceTwice => _numberOfPlacements < _maxNumberOfPlacements;
-    public bool IsFree => _currentRope == null && _isAttaching == false;
+    public bool IsFree => _currentRope == null;
     public TeamId TeamId => _building.TeamId;
     public Building Building => _building;
 
@@ -29,14 +30,22 @@ public class SetRopeTrigger : MonoBehaviour
         //    StartCoroutine(Attaching(_delay, handler));
         //}
 
-        if (other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler.IsBot == false && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == TeamId.First)
+        if (other.TryGetComponent(out RopeHandler ropeHandler) && IsAttaching == false && ropeHandler.IsBot == false && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == TeamId.First)
+        {
+            _setRopHandler.Pick(this);
             TakeRope(ropeHandler);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.TryGetComponent(out RopeHandler ropeHandler))
             UntakeRope(ropeHandler);
+    }
+
+    public void Init(SetRopHandler setRopHandler)
+    {
+        _setRopHandler = setRopHandler;
     }
 
     public void Attach(RopeHandler handler)
@@ -51,6 +60,7 @@ public class SetRopeTrigger : MonoBehaviour
     {
         if (_currentRope == null)
             return;
+
 
         _takingCoroutine = StartCoroutine(TakingRope(handler));
         _currentRope.Plug.Raise();
@@ -89,8 +99,6 @@ public class SetRopeTrigger : MonoBehaviour
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
-        _isAttaching = true;
-
         yield return new WaitForSeconds(delay);
 
         if (handler.CurrentRope!= null)
@@ -102,7 +110,7 @@ public class SetRopeTrigger : MonoBehaviour
             handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
         }
 
-        _isAttaching = false;
+        _setRopHandler.UnPick();
     }
 
     public bool CanAttach(Collider other, out RopeHandler handler)

@@ -64,6 +64,8 @@ public class Teams : MonoBehaviour
             ReColor();
             _elapsedFrames = 0;
         }
+
+        IsAllBuildingCaptured();
     }
 
     private void ReColor()
@@ -88,6 +90,28 @@ public class Teams : MonoBehaviour
             _winnerDecider.EndGame(_teams[0]);
             _gameOver = true;
         }
+    }
+
+    private void IsAllBuildingCaptured()
+    {
+        if (_gameOver)
+            return;
+
+        var teamId = _buildings[0].TeamId;
+        bool isAllEqual = false;
+
+        foreach (var building in _buildings)
+        {
+            if (building.TeamId != teamId)
+            {
+                isAllEqual = false;
+
+                return;
+            }
+        }
+
+        _winnerDecider.EndGame(_teams[0]);
+        _gameOver = isAllEqual;
     }
 }
 
