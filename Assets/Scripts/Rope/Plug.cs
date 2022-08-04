@@ -47,12 +47,12 @@ public class Plug : MonoBehaviour
         _socketFlyingCoroutine = StartCoroutine(Flying(Vector3.zero));
     }
 
-    public void FlyTo(Transform transform, Action onCoroutineEnd)
+    public void FlyTo(Transform transform, Action onCoroutineEnd, bool isTeleport = false)
     {
         if (_playerFlyingCoroutine != null)
             StopCoroutine(_playerFlyingCoroutine);
 
-        _playerFlyingCoroutine = StartCoroutine(Flying(transform, onCoroutineEnd));
+        _playerFlyingCoroutine = StartCoroutine(Flying(transform, onCoroutineEnd, isTeleport));
     }
 
     private IEnumerator Flying(Vector3 endPosition)
@@ -70,11 +70,15 @@ public class Plug : MonoBehaviour
         }
     }
 
-    private IEnumerator Flying(Transform endPoint, Action onCoroutineEnd)
+    private IEnumerator Flying(Transform endPoint, Action onCoroutineEnd, bool isTeleport = false)
     {
         while (Vector3.Distance(transform.position, endPoint.position) > 0.5f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 10f* Time.deltaTime);
+            if (isTeleport == false)
+                transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 10f * Time.deltaTime);
+            else
+                transform.position = endPoint.position;
+
             _meshRenderer.transform.LookAt(endPoint,Vector3.up);
             _meshRenderer.transform.rotation *= Quaternion.Euler(-90f, 0f, 0f);
 

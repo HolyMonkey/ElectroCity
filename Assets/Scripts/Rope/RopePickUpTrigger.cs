@@ -92,7 +92,12 @@ public class RopePickUpTrigger : MonoBehaviour
         }
     }
 
-    private IEnumerator Taking(float delay, RopeHandler handler)
+    public void TakeTutor(float delay, RopeHandler handler)
+    {
+        StartCoroutine(Taking(delay, handler, true));
+    }
+
+    private IEnumerator Taking(float delay, RopeHandler handler, bool isTeleport = false)
     {
         _isPickingUp = true;
 
@@ -107,7 +112,7 @@ public class RopePickUpTrigger : MonoBehaviour
 
             _cachedRope = _ropeSpawner.Spawn(handler);
 
-            _cachedRope.Plug.FlyTo(handler.RopePoint, OnRopeFlyEnd);
+            _cachedRope.Plug.FlyTo(handler.RopePoint, OnRopeFlyEnd, isTeleport);
         }
 
         _isPickingUp = false;
@@ -117,6 +122,11 @@ public class RopePickUpTrigger : MonoBehaviour
     {
         if (_cachedRope != null)
             _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
+    }
+
+    public void SetCurrentRopeHandler(RopeHandler handler)
+    {
+        _currentRopeHandler = handler;
     }
 
     private void OnRopeFlyEnd()

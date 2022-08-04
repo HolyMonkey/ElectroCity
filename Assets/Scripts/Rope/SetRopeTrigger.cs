@@ -55,6 +55,7 @@ public class SetRopeTrigger : MonoBehaviour
     {
         if(handler.CurrentRope != null && IsFree)
         {
+            Debug.Log("his");
             _attachingCoroutine = StartCoroutine(Attaching(_delay, handler));
         }
     }
