@@ -10,7 +10,7 @@ public class RopeHandler : MonoBehaviour
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private bool _disableTearing;
 
-    private Rope _currentRope;
+    [SerializeField] private Rope _currentRope;
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
 
@@ -22,8 +22,8 @@ public class RopeHandler : MonoBehaviour
     public bool HasRope => _hasRope;
 
     public event Action RopeTaken;
-
     public event Action RopeBreaked;
+    public event Action EnemyRopeBreaked;
 
     private void Awake()
     {
@@ -33,13 +33,13 @@ public class RopeHandler : MonoBehaviour
 
     private void Update()
     {
-        if (_currentRope == null)
-            return;
+        //if (_currentRope == null)
+        //    return;
 
-        if (_currentRope.ObiRope.CalculateLength() > 15f)
-        {
-            _currentRope.Disconnect();
-        }
+        //if (_currentRope.ObiRope.CalculateLength() > 15f)
+        //{
+        //    _currentRope.Disconnect();
+        //}
     }
 
     public void SetTrigger(RopePickUpTrigger pickUpTrigger)
@@ -60,6 +60,11 @@ public class RopeHandler : MonoBehaviour
         rope.EndPoint.localPosition = Vector3.zero;
         rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
+
+        if(rope.TeamId != TeamId.First && Team.TeamId == TeamId.First)
+        {
+            StartCoroutine(DelayBeforeBreaking());
+        }
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
@@ -85,6 +90,16 @@ public class RopeHandler : MonoBehaviour
         if(_currentRope != null)
             _currentRope.ObiRope.OnRopeTorn -= BreakRope;
 
+        _currentRope = null;
+    }
+
+    private IEnumerator DelayBeforeBreaking()
+    {
+        yield return new WaitForSeconds(0.2f);
+
+        EnemyRopeBreaked?.Invoke();
+        _currentRope.Disconnect();
+        _hasRope = false;
         _currentRope = null;
     }
 

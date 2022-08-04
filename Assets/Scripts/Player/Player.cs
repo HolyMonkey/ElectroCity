@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -16,11 +17,20 @@ public class Player : MonoBehaviour
 
     private Vector3 _initialPos;
 
+    private void OnEnable()
+    {
+        _ropeHandler.EnemyRopeBreaked += BreakEnemyRope;
+    }
+
     private void Awake()
     {
         _initialPos = transform.position;
     }
 
+    private void OnDisable()
+    {
+        _ropeHandler.EnemyRopeBreaked -= BreakEnemyRope;
+    }
 
     private void Update()
     {
@@ -30,5 +40,20 @@ public class Player : MonoBehaviour
             _mover.Enable();
             _effectsHandler.StartTrail();
         }
+    }
+
+    private void BreakEnemyRope()
+    {
+        StartCoroutine(BreakingEnemyRope());
+    }
+
+    private IEnumerator BreakingEnemyRope()
+    {
+        _mover.Disable();
+        _animator.StartKick();
+
+        yield return new WaitForSeconds(1f);
+
+        _mover.Enable();
     }
 }
