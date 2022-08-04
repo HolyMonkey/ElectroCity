@@ -25,8 +25,10 @@ public class Player : MonoBehaviour
     private void Update()
     {
         if (transform.position.y < -10)
+        {
             transform.position = _initialPos;
+            _mover.Enable();
+            _effectsHandler.StartTrail();
+        }
     }
-
-
 }

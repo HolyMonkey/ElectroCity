@@ -51,6 +51,11 @@ public class PlayerMover : MonoBehaviour
         enabled = false;
     }
 
+    public void Enable()
+    {
+        enabled = true;
+    }
+
     private void Rotate(Vector3 direction)
     {
         Quaternion lookRotation = Quaternion.LookRotation(direction);

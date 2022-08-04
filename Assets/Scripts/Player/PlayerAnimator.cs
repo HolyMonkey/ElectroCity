@@ -11,6 +11,7 @@ public class PlayerAnimator : MonoBehaviour
     private const string Running = "Running";
     private const string Dancing = "Dancing";
     private const string Shock = "Shock";
+    private const string Falling = "Falling";
 
     private void Awake()
     {
@@ -35,6 +36,11 @@ public class PlayerAnimator : MonoBehaviour
     public void StartShock()
     {
         TryChangeStateTo(Shock);
+    }
+
+    public void StartFalling()
+    {
+        TryChangeStateTo(Falling);
     }
 
     private void TryChangeStateTo(string newState)

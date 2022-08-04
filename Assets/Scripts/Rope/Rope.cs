@@ -18,6 +18,7 @@ public class Rope : MonoBehaviour
     private bool _isTorn;
     private bool _isConnected;
     private Action _onRopeConnected;
+    private ObiSolver.ObiCollisionEventArgs _collisionEvent;
 
     public Team Team { get; private set; }
     public int Multiplier { get; private set; } = 1;
@@ -35,11 +36,29 @@ public class Rope : MonoBehaviour
     private void OnEnable()
     {
         _obiRope.OnRopeTorn += Disappear;
+        _obiRope.solver.OnCollision += DetectCollision;
     }
 
     private void OnDisable()
     {
         _obiRope.OnRopeTorn -= Disappear;
+    }
+
+    private void DetectCollision(object sender, ObiSolver.ObiCollisionEventArgs e)
+    {
+        var world = ObiColliderWorld.GetInstance();
+
+        foreach (Oni.Contact contact in e.contacts)
+        {
+            ObiColliderBase collision = world.colliderHandles[contact.bodyB].owner;
+
+            if (collision != null && collision.gameObject.TryGetComponent(out Saw _))
+            {
+                Disconnect();
+                //_obiRope.Tear(_obiRope.elements[2]);
+                _obiRope.solver.OnCollision -= DetectCollision;
+            }
+        }
     }
 
     public void SetTeamId(Team team)

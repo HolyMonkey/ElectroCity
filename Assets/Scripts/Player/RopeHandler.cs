@@ -10,7 +10,6 @@ public class RopeHandler : MonoBehaviour
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private bool _disableTearing;
 
-
     private Rope _currentRope;
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
@@ -78,7 +77,7 @@ public class RopeHandler : MonoBehaviour
         }
     }
 
-    private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
+    private void BreakRope(ObiRope obiRope, ObiRopeTornEventArgs tearInfos)
     {
         _hasRope = false;
         RopeBreaked?.Invoke();

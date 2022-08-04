@@ -7,6 +7,7 @@ public class PlayerEffectsHandler : MonoBehaviour
     [SerializeField] private ParticleSystem _winEffect2;
     [SerializeField] private ParticleSystem _shockEffect;
     [SerializeField] private ParticleSystem _smokeEffect;
+    [SerializeField] private ParticleSystem _trailEffect;
 
     public void EnableWinEffects()
     {
@@ -19,6 +20,16 @@ public class PlayerEffectsHandler : MonoBehaviour
         _shockEffect.Play();
         StartCoroutine(Disabling(_shockEffect, 1.5f));
         StartCoroutine(WaitingForActivation(_smokeEffect, 3f));
+    }
+
+    public void StartTrail()
+    {
+        _trailEffect.Play();
+    }
+
+    public void StopTrail()
+    {
+        _trailEffect.Stop();
     }
 
     private IEnumerator Disabling(ParticleSystem effect, float delay)
