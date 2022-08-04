@@ -106,23 +106,6 @@ public class Rope : MonoBehaviour
         StartCoroutine(Disappearing());
     }
 
-    private void DetectCollision(object sender, ObiSolver.ObiCollisionEventArgs e)
-    {
-        var world = ObiColliderWorld.GetInstance();
-
-        foreach (Oni.Contact contact in e.contacts)
-        {
-            ObiColliderBase collision = world.colliderHandles[contact.bodyB].owner;
-
-            if (collision != null && collision.gameObject.TryGetComponent(out Saw _))
-            {
-                Disconnect();
-                //_obiRope.Tear(_obiRope.elements[2]);
-                _obiRope.solver.OnCollision -= DetectCollision;
-            }
-        }
-    }
-
     private void Disappear(ObiRope obiRope, ObiRopeTornEventArgs tearInfo)
     {
         obiRope.OnRopeTorn -= Disappear;
