@@ -32,6 +32,17 @@ public class RopeHandler : MonoBehaviour
             IsBot = true;
     }
 
+    private void Update()
+    {
+        if (_currentRope == null)
+            return;
+
+        if (_currentRope.ObiRope.CalculateLength() > 15f)
+        {
+            _currentRope.Disconnect();
+        }
+    }
+
     public void SetTrigger(RopePickUpTrigger pickUpTrigger)
     {
         _pickUpTrigger = pickUpTrigger;
@@ -50,7 +61,6 @@ public class RopeHandler : MonoBehaviour
         rope.EndPoint.localPosition = Vector3.zero;
         rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
-        StartCoroutine(Delay(rope));
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
