@@ -90,20 +90,20 @@ public class Building : MonoBehaviour
     {
         if (_canGiveRopes)
         {
-            if (totalPoints > _mediumEnergyLevel)
-            {
-                _maxPickUpedRopes = 3;
-            }
+            //if (totalPoints > _mediumEnergyLevel)
+            //{
+            //    _maxPickUpedRopes = 3;
+            //}
 
-            if (totalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
-            {
-                _maxPickUpedRopes = 2;
-            }
+            //if (totalPoints > _lowEnergyLevel && TotalPoints <= _mediumEnergyLevel)
+            //{
+            //    _maxPickUpedRopes = 2;
+            //}
 
-            if (totalPoints <= _lowEnergyLevel)
-            {
-                _maxPickUpedRopes = 1;
-            }
+            //if (totalPoints <= _lowEnergyLevel)
+            //{
+            //    _maxPickUpedRopes = 1;
+            //}
 
             DestroyExcessivePickedRopes();
             EnergyChecked?.Invoke(_maxPickUpedRopes);

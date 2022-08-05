@@ -943,6 +943,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plug_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
 --- !u!4 &1972124586600749126 stripped
@@ -1017,6 +1021,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plug_1
       objectReference: {fileID: 0}
+    - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
 --- !u!4 &7270969430769908023 stripped
@@ -1090,6 +1098,10 @@ PrefabInstance:
     - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
       propertyPath: m_Name
       value: plug_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
@@ -1394,6 +1406,10 @@ PrefabInstance:
     - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
       propertyPath: m_Name
       value: plug_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5293156569901600528, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 90bb9b05ef0b6d34e990a61a111fbfd5, type: 3}
@@ -1828,7 +1844,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3254317052233746656, guid: 44ab79684de6eed4ead022a825fced69, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3254317052233746656, guid: 44ab79684de6eed4ead022a825fced69, type: 3}
       propertyPath: m_StaticEditorFlags

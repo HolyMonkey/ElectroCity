@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5282656855987934130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 0.0037264375, y: 0.0037264375, z: 0.0037264375}
   m_Children: []
   m_Father: {fileID: 8713814388361128280}
@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.595, y: 0.168}
+  m_AnchoredPosition: {x: 0.595, y: -0.005}
   m_SizeDelta: {x: 61.1963, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1879982179539891687
@@ -185,7 +185,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.044, y: 0.09399998}
+  m_AnchoredPosition: {x: -0.044, y: -0.079}
   m_SizeDelta: {x: 0.4139, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8713814387463453534
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8713814388361128295}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08f8dd71061b1704d9bd99cf218d05e5, type: 3}
   m_Name: 
@@ -437,6 +437,10 @@ PrefabInstance:
     - target: {fileID: 2489504451092976120, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
       propertyPath: m_Name
       value: CircleOutline (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489504451092976120, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3070952279153262681, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
       propertyPath: m_Pivot.x
@@ -574,6 +578,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CircleOutline
       objectReference: {fileID: 0}
+    - target: {fileID: 2489504451092976120, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3070952279153262681, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -709,6 +717,10 @@ PrefabInstance:
     - target: {fileID: 2489504451092976120, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
       propertyPath: m_Name
       value: CircleOutline (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2489504451092976120, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3070952279153262681, guid: 57bf4c680ca218048ad630e211d8f5e0, type: 3}
       propertyPath: m_Pivot.x
