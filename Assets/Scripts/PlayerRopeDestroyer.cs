@@ -5,7 +5,7 @@ public class PlayerRopeDestroyer : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent(out Player player))
+        if (other.TryGetComponent(out Player player) && player.RopeHandler.HasRope)
         {
             StartCoroutine(Interacting(player));
         }

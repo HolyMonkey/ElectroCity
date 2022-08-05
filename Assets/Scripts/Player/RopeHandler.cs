@@ -73,6 +73,7 @@ public class RopeHandler : MonoBehaviour
         {
             _currentRope.EndPoint.rotation = refernceObjectRotation;
             _currentRope.Plug.SetSocketRotatation();
+            _currentRope.ObiRope.OnRopeTorn -= BreakRope;
             _currentRope.EndPoint.transform.localScale = Vector3.one * 2;
             _currentRope.EndPoint.SetParent(setPoint,true);
             _currentRope.EndPoint.localPosition = Vector3.zero;

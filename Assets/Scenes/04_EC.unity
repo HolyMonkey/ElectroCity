@@ -5486,6 +5486,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialBotEnabler
       objectReference: {fileID: 0}
+    - target: {fileID: 8795298689129721729, guid: 9a61e9ecb89561b4994e69ff41b253ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a61e9ecb89561b4994e69ff41b253ee, type: 3}
 --- !u!1001 &1876295492332125909

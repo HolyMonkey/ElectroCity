@@ -55,9 +55,8 @@ public class RopePickUpTrigger : MonoBehaviour
         {
             StopCoroutine(_takingCoroutine);
             _isPickingUp = false;
+            RopeFlyBack();
         }
-
-        //RopeFlyBack();
     }
 
     public bool TryAttach(RopeHandler ropeHandler)

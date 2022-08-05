@@ -98,7 +98,7 @@ public class Teams : MonoBehaviour
             return;
 
         var teamId = _buildings[0].TeamId;
-        bool isAllEqual = false;
+        bool isAllEqual = true;
 
         foreach (var building in _buildings)
         {
@@ -111,7 +111,7 @@ public class Teams : MonoBehaviour
         }
 
         _winnerDecider.EndGame(_teams[0]);
-        _gameOver = isAllEqual;
+        _gameOver = true;
     }
 }
 
