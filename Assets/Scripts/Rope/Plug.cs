@@ -15,7 +15,7 @@ public class Plug : MonoBehaviour
 
     public void DESTRUCTION()
     {
-        gameObject.SetActive(false);
+        _meshRenderer.enabled = false;
     }
 
     public void SetHandRotation()
@@ -72,7 +72,7 @@ public class Plug : MonoBehaviour
 
     private IEnumerator Flying(Transform endPoint, Action onCoroutineEnd, bool isTeleport = false)
     {
-        while (Vector3.Distance(transform.position, endPoint.position) > 0.5f)
+        while (Vector3.Distance(transform.position, endPoint.position) > 0.5f && enabled)
         {
             if (isTeleport == false)
                 transform.position = Vector3.MoveTowards(transform.position, endPoint.position, 10f * Time.deltaTime);
