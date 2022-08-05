@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        _ropeHandler.EnemyRopeBreaked += BreakEnemyRope;
+        _ropeHandler.EnemyRopeBreaked += TearRope;
     }
 
     private void Awake()
@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
 
     private void OnDisable()
     {
-        _ropeHandler.EnemyRopeBreaked -= BreakEnemyRope;
+        _ropeHandler.EnemyRopeBreaked -= TearRope;
     }
 
     private void Update()
@@ -42,12 +42,12 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void BreakEnemyRope()
+    public void TearRope()
     {
-        StartCoroutine(BreakingEnemyRope());
+        StartCoroutine(TearingRope());
     }
 
-    private IEnumerator BreakingEnemyRope()
+    private IEnumerator TearingRope()
     {
         _mover.Disable();
         _animator.StartKick();

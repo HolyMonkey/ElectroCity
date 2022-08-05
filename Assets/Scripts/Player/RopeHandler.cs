@@ -10,7 +10,7 @@ public class RopeHandler : MonoBehaviour
     [SerializeField] private Transform _ropePoint;
     [SerializeField] private bool _disableTearing;
 
-    [SerializeField] private Rope _currentRope;
+    private Rope _currentRope;
     private RopePickUpTrigger _pickUpTrigger;
     private bool _hasRope;
 
