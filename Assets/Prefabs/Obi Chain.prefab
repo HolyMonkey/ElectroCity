@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2223682810411672407}
+  - component: {fileID: 5798517015201810581}
+  - component: {fileID: 2687031547740128266}
   m_Layer: 0
   m_Name: RopeAttach
   m_TagString: Untagged
@@ -30,6 +32,36 @@ Transform:
   m_Father: {fileID: 1529800862700493516}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5798517015201810581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436293529546680542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2687031547740128266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 436293529546680542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6757b231cedd544c583ef8aeaf773b2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thickness: 0
+  material: {fileID: 0}
+  filter: 1
+  m_SourceCollider: {fileID: 5798517015201810581}
+  m_DistanceField: {fileID: 0}
 --- !u!1 &1334104080521722187
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,7 +75,6 @@ GameObject:
   - component: {fileID: 1334104080521722189}
   - component: {fileID: 1334104080521722194}
   - component: {fileID: 1334104080521722188}
-  - component: {fileID: 4505400404022438756}
   - component: {fileID: 3795404155822418597}
   - component: {fileID: 3795404155822418596}
   - component: {fileID: 3795404155822418595}
@@ -346,7 +377,7 @@ MonoBehaviour:
   _distanceConstraintsEnabled: 1
   _stretchingScale: 0.5
   _stretchCompliance: 0
-  _maxCompression: 0
+  _maxCompression: 0.535
   _bendConstraintsEnabled: 1
   _bendCompliance: 0
   _maxBending: 0.1
@@ -382,7 +413,7 @@ MonoBehaviour:
   m_Actor: {fileID: 1334104080521722184}
   m_Target: {fileID: 2223682810411672407}
   m_ParticleGroup: {fileID: -53998285165153434, guid: 9b7a30b754796421d9e0b869d8eb345b, type: 2}
-  m_AttachmentType: 0
+  m_AttachmentType: 1
   m_ConstrainOrientation: 0
   m_Compliance: 0
   m_BreakThreshold: Infinity
@@ -401,25 +432,6 @@ MonoBehaviour:
   m_Actor: {fileID: 1334104080521722184}
   m_Target: {fileID: 7950348544694856538}
   m_ParticleGroup: {fileID: -4517029930201779066, guid: 9b7a30b754796421d9e0b869d8eb345b, type: 2}
-  m_AttachmentType: 0
-  m_ConstrainOrientation: 0
-  m_Compliance: 0
-  m_BreakThreshold: Infinity
---- !u!114 &4505400404022438756
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334104080521722187}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d03c9194b7ab4aaba4dfa5afec22c69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actor: {fileID: 1334104080521722184}
-  m_Target: {fileID: 2223682810411672407}
-  m_ParticleGroup: {fileID: 7546284794258584817, guid: 9b7a30b754796421d9e0b869d8eb345b, type: 2}
   m_AttachmentType: 0
   m_ConstrainOrientation: 0
   m_Compliance: 0

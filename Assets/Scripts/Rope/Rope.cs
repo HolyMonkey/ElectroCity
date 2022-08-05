@@ -98,7 +98,7 @@ public class Rope : MonoBehaviour
     public void Disable()
     {
         //gameObject.SetActive(false);
-        _plug.DESTRUCTION();
+        //_plug.DESTRUCTION();
     }
 
     private void Fall()
@@ -118,13 +118,13 @@ public class Rope : MonoBehaviour
     private IEnumerator Disappearing()
     {
         yield return new WaitForSeconds(0.5f);
-
+        _endAttachment.enabled = false;
+        _startAttachment.enabled = false;
         _obiRope.tearingEnabled = true;
-        _obiRope.Tear(_obiRope.elements[2]);
-        //_endAttachment.enabled = false;
-        _plug.transform.parent = null;
-        //_startAttachment.enabled = false;
+        _obiRope.Tear(_obiRope.elements[_obiRope.elements.Count-1]);
+
         //Destroy(_plug.gameObject);
+        _plug.DESTRUCTION();
 
         yield return new WaitForSeconds(2f);
 

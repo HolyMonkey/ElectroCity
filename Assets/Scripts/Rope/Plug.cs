@@ -15,6 +15,7 @@ public class Plug : MonoBehaviour
 
     public void DESTRUCTION()
     {
+        _meshRenderer.transform.parent = null;
         _meshRenderer.enabled = false;
     }
 
