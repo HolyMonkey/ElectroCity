@@ -278,6 +278,7 @@ GameObject:
   - component: {fileID: 1478492253}
   - component: {fileID: 1478492254}
   - component: {fileID: 1887862549}
+  - component: {fileID: 1441838576781636481}
   - component: {fileID: 3195934819168474139}
   - component: {fileID: 7215326540046413094}
   m_Layer: 6
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _team: {fileID: 1478492254}
   _ropePoint: {fileID: 8475090883918418262}
+  _disableTearing: 0
 --- !u!65 &1478492251
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -485,6 +487,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8475090883925851792}
+--- !u!114 &1441838576781636481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8989327830680940395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f88c04ec7ad5c48860fa559e5296d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _behaviour: {fileID: 6724074683908683002}
 --- !u!54 &3195934819168474139
 Rigidbody:
   m_ObjectHideFlags: 0
