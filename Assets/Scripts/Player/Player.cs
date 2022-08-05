@@ -52,7 +52,11 @@ public class Player : MonoBehaviour
         _mover.Disable();
         _animator.StartKick();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
+
+        _effectsHandler.EnableTearEffect();
+
+        yield return new WaitForSeconds(0.5f);
 
         _mover.Enable();
     }

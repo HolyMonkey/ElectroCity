@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class PlayerRopeDestroyer : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem _tearEffect;
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player))
@@ -20,6 +18,6 @@ public class PlayerRopeDestroyer : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        _tearEffect.Play();
+        player.EffectsHandler.EnableTearEffect();
     }
 }
