@@ -158,6 +158,11 @@ namespace Obi
         public delegate void RopeTornCallback(ObiRope rope, ObiRopeTornEventArgs tearInfo);
         public event RopeTornCallback OnRopeTorn;  /**< Called when a constraint is torn.*/
 
+        public void OnDisconect()
+        {
+            OnRopeTorn?.Invoke(this, new ObiRopeTornEventArgs(elements[0], elements[0].particle1));
+        }
+
         public class ObiRopeTornEventArgs
         {
             public ObiStructuralElement element;    /**< info about the element being torn.*/

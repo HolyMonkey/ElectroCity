@@ -118,10 +118,11 @@ public class Rope : MonoBehaviour
     private IEnumerator Disappearing()
     {
         yield return new WaitForSeconds(0.5f);
+        //_obiRope.tearingEnabled = true;
         _endAttachment.enabled = false;
         _startAttachment.enabled = false;
-        _obiRope.tearingEnabled = true;
-        _obiRope.Tear(_obiRope.elements[_obiRope.elements.Count-1]);
+        //_obiRope.Tear(_obiRope.elements[_obiRope.elements.Count - 1]);
+        _obiRope.OnDisconect();
 
         //Destroy(_plug.gameObject);
         _plug.DESTRUCTION();
