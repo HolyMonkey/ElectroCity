@@ -25,16 +25,21 @@ public class SetRopeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //if (CanAttach(other, out RopeHandler handler))
-        //{
-        //    StartCoroutine(Attaching(_delay, handler));
-        //}
+        if (CanAttach(other, out RopeHandler handler) && handler.PickUpTrigger.Building != Building)
+        {
+            Attach(handler);
+        }
 
         if (other.TryGetComponent(out RopeHandler ropeHandler) && IsAttaching == false && ropeHandler.IsBot == false && IsFree == false && ropeHandler.HasRope == false && ropeHandler.Team.TeamId == TeamId.First)
         {
             _setRopHandler.Pick(this);
             _setRopHandler.UnTakeExcept(this, ropeHandler);
             TakeRope(ropeHandler);
+        }
+
+        if (other.TryGetComponent(out Player player) && IsFree == false && _currentRope.TeamId != TeamId.First)
+        {
+            player.RopeHandler.BreakeEnemyRope(_currentRope);
         }
     }
 
@@ -73,11 +78,15 @@ public class SetRopeTrigger : MonoBehaviour
     public void UntakeRope(RopeHandler handler)
     {
         IsAttaching = false;
+
         if(_takingCoroutine != null)
             StopCoroutine(_takingCoroutine);
 
         if(_currentRope!= null)
             _currentRope.Plug.Set();
+
+        if (_attachingCoroutine != null)
+            StopCoroutine(_attachingCoroutine);
 
         _ropePickUpTrigger.TryAttach(handler);
     }
@@ -103,6 +112,8 @@ public class SetRopeTrigger : MonoBehaviour
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
+
+        IsAttaching = true;
         yield return new WaitForSeconds(delay);
 
         if (handler.CurrentRope!= null && IsFree)

@@ -61,10 +61,19 @@ public class RopeHandler : MonoBehaviour
         rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
 
-        if(rope.TeamId != TeamId.First && Team.TeamId == TeamId.First)
-        {
-            StartCoroutine(DelayBeforeBreaking());
-        }
+        //if(rope.TeamId != TeamId.First && Team.TeamId == TeamId.First)
+        //{
+            
+        //}
+    }
+
+    public void BreakeEnemyRope(Rope rope)
+    {
+        rope.EndPoint.SetParent(_ropePoint);
+        rope.StartPoint.localPosition = Vector3.zero;
+        rope.EndPoint.localPosition = Vector3.zero;
+        rope.Plug.SetHandRotation();
+        StartCoroutine(DelayBeforeBreaking(rope));
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
@@ -94,12 +103,12 @@ public class RopeHandler : MonoBehaviour
         _currentRope = null;
     }
 
-    private IEnumerator DelayBeforeBreaking()
+    private IEnumerator DelayBeforeBreaking(Rope rope)
     {
         yield return new WaitForSeconds(0.2f);
 
         EnemyRopeBreaked?.Invoke();
-        _currentRope.Disconnect();
+        rope.Disconnect();
         _hasRope = false;
         _currentRope = null;
     }
