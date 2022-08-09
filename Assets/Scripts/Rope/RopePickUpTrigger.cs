@@ -76,15 +76,13 @@ public class RopePickUpTrigger : MonoBehaviour
     {
         StopTaking();
 
-        var colliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius);
+        var colliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius*transform.localScale.y);
 
         foreach (var collider in colliders)
         {
             if (collider.TryGetComponent(out RopeHandler ropeHandler))
             {
                 TryAttach(ropeHandler);
-
-                //Taking(0, ropeHandler);
 
                 return;
             }

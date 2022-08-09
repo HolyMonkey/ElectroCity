@@ -25,7 +25,7 @@ public class SetRopeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (CanAttach(other, out RopeHandler handler) && handler.PickUpTrigger.Building != Building)
+        if (CanAttach(other, out RopeHandler handler))
         {
             Attach(handler);
         }
@@ -130,6 +130,6 @@ public class SetRopeTrigger : MonoBehaviour
 
     public bool CanAttach(Collider other, out RopeHandler handler)
     {
-        return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.PickUpTrigger.Building != _building;
+        return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.CurrentRope.Building != _building;
     }
 }

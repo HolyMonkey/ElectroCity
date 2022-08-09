@@ -8,6 +8,7 @@ public class RopeSpawner : MonoBehaviour
     [SerializeField] private Rope _ropePrefab;
     [SerializeField] private Transform _startPoint;
     [SerializeField] private Transform _ropePoint;
+    [SerializeField] private Building _building;
 
     private RopeHandler _cachedRopeHandler;
     private Rope _cachedRope;
@@ -30,6 +31,7 @@ public class RopeSpawner : MonoBehaviour
         _cachedRopeHandler = handler;
         ChangeColor(rope, handler);
         rope.SetTeamId(handler.Team);
+        rope.SetBuilding(_building);
         //AttachRope();
 
         return rope;

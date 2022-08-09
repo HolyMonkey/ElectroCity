@@ -21,6 +21,7 @@ public class Rope : MonoBehaviour
     private Action _onRopeConnected;
     private ObiCollisionEventArgs _collisionEvent;
 
+    public Building Building { get; private set; }
     public Team Team { get; private set; }
     public int Multiplier { get; private set; } = 1;
     public MeshRenderer Renderer => _meshRenderer;
@@ -66,6 +67,11 @@ public class Rope : MonoBehaviour
                     rope.Disconnect();
             }
         }
+    }
+
+    public void SetBuilding(Building building)
+    {
+        Building = building;
     }
 
     public void SetTeamId(Team team)

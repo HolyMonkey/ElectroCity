@@ -709,6 +709,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3886628247451675462, guid: 238828d911c7980498b5eaede08f44fc, type: 3}
+      propertyPath: _building
+      value: 
+      objectReference: {fileID: 512577283270140352}
+    - target: {fileID: 3886628247451675462, guid: 238828d911c7980498b5eaede08f44fc, type: 3}
       propertyPath: _startPoint
       value: 
       objectReference: {fileID: 512577283270140382}
