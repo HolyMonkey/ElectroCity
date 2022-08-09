@@ -120,7 +120,10 @@ public class RopePickUpTrigger : MonoBehaviour
     public void RopeFlyBack()
     {
         if (_cachedRope != null)
+        {
             _cachedRope.Plug.FlyTo(transform, _cachedRope.Disable);
+            _cachedRope = null;
+        }
     }
 
     public void SetCurrentRopeHandler(RopeHandler handler)

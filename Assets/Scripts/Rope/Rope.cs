@@ -97,7 +97,7 @@ public class Rope : MonoBehaviour
 
     public void Disable()
     {
-        //gameObject.SetActive(false);
+        gameObject.SetActive(false);
         //_plug.DESTRUCTION();
     }
 

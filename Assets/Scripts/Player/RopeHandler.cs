@@ -109,8 +109,6 @@ public class RopeHandler : MonoBehaviour
 
         EnemyRopeBreaked?.Invoke();
         rope.Disconnect();
-        _hasRope = false;
-        _currentRope = null;
     }
 
     private IEnumerator Delay(Rope rope)

@@ -5,6 +5,11 @@ public class SetRopeMainTrigger : MonoBehaviour
 {
     [SerializeField] private List<SetRopeTrigger> _triggers;
 
+    public int GetActiveTriggerCount()
+    {
+        return _triggers.FindAll(trigger => trigger.gameObject.activeInHierarchy).Count;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if(other.TryGetComponent(out RopeHandler handler) && handler.HasRope)
@@ -23,7 +28,7 @@ public class SetRopeMainTrigger : MonoBehaviour
         {
             var tempDistance = Vector3.Distance(handler.transform.position, _triggers[i].transform.position);
 
-            if (distance > tempDistance && _triggers[i].IsFree && handler.PickUpTrigger.Building != _triggers[i].Building)
+            if (_triggers[i].gameObject.activeInHierarchy && distance > tempDistance && _triggers[i].IsFree && handler.PickUpTrigger.Building != _triggers[i].Building)
             {
                 closestTrigger = _triggers[i];
                 distance = tempDistance;

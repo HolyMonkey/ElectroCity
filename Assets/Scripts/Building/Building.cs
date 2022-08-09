@@ -6,6 +6,7 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     [SerializeField] private int _initialPoints;
+    [SerializeField] private SetRopeMainTrigger _setRopeMainTrigger;
     [SerializeField] private bool _canGiveRopes = true;
     [SerializeField] private Team _initialTeam;
     [SerializeField] private List<Rope> _pickedRopes;
@@ -35,6 +36,7 @@ public class Building : MonoBehaviour
     private void Awake()
     {
         CapturingSystem.Init(_initialTeam, _initialPoints);
+        _maxPickUpedRopes = _setRopeMainTrigger.GetActiveTriggerCount();
 
         if (CapturingSystem.CurrentTeam.TeamId != TeamId.Netural)
             ProduceEnergy();

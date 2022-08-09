@@ -4406,6 +4406,10 @@ PrefabInstance:
       propertyPath: _ropePoint
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 512577282297611183, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 512577282876839858, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: _solver
       value: 
@@ -4478,7 +4482,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 843193784824464606, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2539877088539234046, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4167073867860944570, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4401325034603674124, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4781930053225538196, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6392801773524290256, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -4486,6 +4510,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5a91aa18e161a1042ba490003cf2438c, type: 2}
+    - target: {fileID: 7385528042829246405, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
 --- !u!1001 &533646385419333425
