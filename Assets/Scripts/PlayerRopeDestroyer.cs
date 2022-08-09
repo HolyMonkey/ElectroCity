@@ -23,6 +23,8 @@ public class PlayerRopeDestroyer : MonoBehaviour
 
     private IEnumerator Interacting(Player player)
     {
+        yield return new WaitForSeconds(1f);
+
         player.RopeHandler.CurrentRope.Disconnect();
         player.TearRope();
 
