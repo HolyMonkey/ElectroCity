@@ -10,10 +10,15 @@ public class BotEnabler : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(EnableWithDelay());
+        //StartCoroutine(EnableWithDelay());
 
         if (_enableBehaviour)
             _bot.enabled = false;
+    }
+
+    public void Activate()
+    {
+        StartCoroutine(EnableWithDelay());
     }
 
     private IEnumerator EnableWithDelay()

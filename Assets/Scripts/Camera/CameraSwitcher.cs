@@ -6,17 +6,22 @@ public class CameraSwitcher : MonoBehaviour
 {
 	[SerializeField] private CinemachineVirtualCamera _playerCamera;
 	[SerializeField] private CinemachineVirtualCamera _topViewCamera;
-    [SerializeField] private float _delay;
+    //[SerializeField] private float _delay;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    StartCoroutine(Changing());
+    //}
+
+    //private IEnumerator Changing()
+    //{
+    //    yield return new WaitForSeconds(_delay);
+
+    //    _topViewCamera.Priority = -1;
+    //}
+
+    public void Change()
     {
-        StartCoroutine(Changing());
-    }
-
-    private IEnumerator Changing()
-    {
-        yield return new WaitForSeconds(_delay);
-
         _topViewCamera.Priority = -1;
     }
 }
