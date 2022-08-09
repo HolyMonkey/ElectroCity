@@ -3,11 +3,21 @@ using UnityEngine;
 
 public class PlayerRopeDestroyer : MonoBehaviour
 {
+    private Coroutine _coroutine;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out Player player) && player.RopeHandler.HasRope)
         {
-            StartCoroutine(Interacting(player));
+           _coroutine = StartCoroutine(Interacting(player));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.TryGetComponent(out Player player) && player.RopeHandler.HasRope)
+        {
+            StopCoroutine(_coroutine);
         }
     }
 
