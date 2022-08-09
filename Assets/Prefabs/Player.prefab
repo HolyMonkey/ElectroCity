@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017036992}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: upperarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017036994}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: upperarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017036996}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017036998}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -131,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037000}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -162,7 +162,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037002}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thumb_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -193,7 +193,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037004}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thigh_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -224,7 +224,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037006}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: thigh_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -256,7 +256,7 @@ GameObject:
   m_Component:
   - component: {fileID: 301044974017037010}
   - component: {fileID: 301044974011864028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stickman_heads_sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 6957849444231164810}
   - component: {fileID: 1377390413}
   - component: {fileID: 1377390414}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -603,7 +603,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037012}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037014}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skelet.c
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -698,7 +698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037018}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: spine_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: pelvis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037022}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -793,7 +793,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: lowerarm_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -824,7 +824,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037026}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: neck_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037028}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: index_02_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -885,7 +885,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037030}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: lowerarm_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -916,7 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037032}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: index_01_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -947,7 +947,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037034}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: index_02_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -977,7 +977,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037036}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1008,7 +1008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: index_01_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1039,7 +1039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037040}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hand_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1071,7 +1071,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037042}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: hand_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1103,7 +1103,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1133,7 +1133,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037046}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: foot_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1163,7 +1163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: clavicle_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037050}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: clavicle_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1225,7 +1225,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037052}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: calf_l
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1256,7 +1256,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 301044974017037054}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: calf_r
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 737560121970595984}
   - component: {fileID: 2570067280470692304}
   - component: {fileID: 5558477694287242927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cm
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1382,7 +1382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1135955632082117794}
   - component: {fileID: 6787957838079388869}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: CM vcam (End)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1396,8 +1396,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8460632940325112967}
-  m_LocalRotation: {x: 0.0000000031274203, y: 0.9777277, z: -0.2098776, w: 0.00000001456928}
-  m_LocalPosition: {x: 0, y: 6, z: 9.11}
+  m_LocalRotation: {x: 7.127171e-17, y: 0.9777277, z: -0.20987763, w: 3.956353e-17}
+  m_LocalPosition: {x: 0, y: 6, z: 9.109999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9071940196221759542}
@@ -1449,6 +1449,18 @@ PrefabInstance:
     - target: {fileID: 137932, guid: ae31abe4586d91d4f87f43d2cfa6c5a8, type: 3}
       propertyPath: m_Name
       value: LightningOrbBlue 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 137932, guid: ae31abe4586d91d4f87f43d2cfa6c5a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 145400, guid: ae31abe4586d91d4f87f43d2cfa6c5a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 151624, guid: ae31abe4586d91d4f87f43d2cfa6c5a8, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 442120, guid: ae31abe4586d91d4f87f43d2cfa6c5a8, type: 3}
       propertyPath: m_RootOrder
@@ -1609,6 +1621,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: untitled
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed868ad18a53e254caf96fc2fd1c7179, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed868ad18a53e254caf96fc2fd1c7179, type: 3}
 --- !u!4 &1465878254483798284 stripped
@@ -1626,6 +1642,10 @@ PrefabInstance:
     - target: {fileID: 130900, guid: 636b0dc828d061e47bcdff1e313b6826, type: 3}
       propertyPath: m_Name
       value: SmokeDark 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 130900, guid: 636b0dc828d061e47bcdff1e313b6826, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 477408, guid: 636b0dc828d061e47bcdff1e313b6826, type: 3}
       propertyPath: m_RootOrder
@@ -1750,9 +1770,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6221501284590361569}
     m_Modifications:
+    - target: {fileID: 3489204710206972657, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206985507, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3489204710207231499, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_RootOrder
@@ -1831,9 +1863,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 301044974017037008}
     m_Modifications:
+    - target: {fileID: 4412980300228966921, guid: 2bc8dc546245ce74ca911148ee7f2f45, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 4412980300229003117, guid: 2bc8dc546245ce74ca911148ee7f2f45, type: 3}
       propertyPath: m_Name
       value: SmokeExplosionDark 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4412980300229003117, guid: 2bc8dc546245ce74ca911148ee7f2f45, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 4412980300229163963, guid: 2bc8dc546245ce74ca911148ee7f2f45, type: 3}
       propertyPath: m_RootOrder
@@ -1898,9 +1938,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 301044974017037008}
     m_Modifications:
+    - target: {fileID: 127810, guid: c5366d5515c75a14e9557e16f8d8c38c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 129898, guid: c5366d5515c75a14e9557e16f8d8c38c, type: 3}
       propertyPath: m_Name
       value: ConfettiBlastRainbow 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 129898, guid: c5366d5515c75a14e9557e16f8d8c38c, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 192986, guid: c5366d5515c75a14e9557e16f8d8c38c, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 420096, guid: c5366d5515c75a14e9557e16f8d8c38c, type: 3}
       propertyPath: m_RootOrder
@@ -1977,9 +2029,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6221501284590361569}
     m_Modifications:
+    - target: {fileID: 3489204710206972657, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206985507, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3489204710207231499, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_RootOrder
@@ -2062,6 +2126,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SmokeWhiteTrail 1
       objectReference: {fileID: 0}
+    - target: {fileID: 125742, guid: f45cab085c8b69241a062b1ded44f66b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 421518, guid: f45cab085c8b69241a062b1ded44f66b, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -2125,9 +2193,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 301044974017037008}
     m_Modifications:
+    - target: {fileID: 3489204710206972657, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206985507, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3489204710207231499, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_RootOrder
@@ -2220,9 +2300,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6221501284590361569}
     m_Modifications:
+    - target: {fileID: 3489204710206972657, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_Name
       value: ConfettiDirectionalRainbow (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206984211, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3489204710206985507, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3489204710207231499, guid: 47fdd8ef5100ec44fb5e44cef1de8700, type: 3}
       propertyPath: m_RootOrder
