@@ -103,7 +103,9 @@ public class Rope : MonoBehaviour
 
     public void Disable()
     {
+        _obiRope.StopAllCoroutines();
         gameObject.SetActive(false);
+        Destroy(gameObject);
         //_plug.DESTRUCTION();
     }
 
