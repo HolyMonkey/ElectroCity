@@ -56,10 +56,10 @@ public class PointsCounter : MonoBehaviour
     {
         Color.RGBToHSV(color, out float h, out float s, out float v);
 
-        v /= 1.1f;
+        v /= 1.2f;
 
         if (_building.CapturingSystem.CurrentTeam.TeamId == TeamId.Third)
-            v /= 1.2f;
+            v /= 1.3f;
 
         Color colorRGB = Color.HSVToRGB(h, s, v);
         
