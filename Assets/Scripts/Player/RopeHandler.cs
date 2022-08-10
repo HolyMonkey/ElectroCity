@@ -61,6 +61,11 @@ public class RopeHandler : MonoBehaviour
         rope.Plug.SetHandRotation();
         RopeTaken?.Invoke();
 
+        if(gameObject.GetComponent<Player>())
+        {
+            SoundHandler.Instance.PlayPickUpSound();
+        }
+
         //if(rope.TeamId != TeamId.First && Team.TeamId == TeamId.First)
         //{
             
@@ -89,6 +94,11 @@ public class RopeHandler : MonoBehaviour
             _currentRope.ObiRope.tearingEnabled = false;
             _currentRope = null;
             _hasRope = false;
+
+            if(gameObject.GetComponent<Player>())
+            {
+                SoundHandler.Instance.PlaySetSound();
+            }
         }
     }
 

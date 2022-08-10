@@ -54,6 +54,7 @@ public class Player : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
+        SoundHandler.Instance.PlayBreakSound();
         _effectsHandler.EnableTearEffect();
 
         yield return new WaitForSeconds(0.5f);

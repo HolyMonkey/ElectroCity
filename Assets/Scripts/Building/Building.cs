@@ -14,8 +14,6 @@ public class Building : MonoBehaviour
     [SerializeField] private int _maxPickUpedRopes = 3;
 
     private bool _areRopesDestroyed;
-    private readonly int _lowEnergyLevel = 20;
-    private readonly int _mediumEnergyLevel = 40;
     private Coroutine _produceEnergyCoroutine;
 
     public bool CanGiveRope => _canGiveRopes;

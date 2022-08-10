@@ -39,6 +39,7 @@ public class WinnerDecider : MonoBehaviour
         {
             player.Animator.StartDancing();
             player.EffectsHandler.EnableWinEffects();
+            SoundHandler.Instance.PlayWinSound();
             StartCoroutine(DelayedEnable());
 
         }
@@ -47,6 +48,7 @@ public class WinnerDecider : MonoBehaviour
             player.CameraHandler.ActivateFinishCamera();
             player.Animator.StartShock();
             player.EffectsHandler.EnableLoseEffects();
+            SoundHandler.Instance.PlayLoseSound();
             SetLose();
         }
     }

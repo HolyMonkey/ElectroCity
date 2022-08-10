@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 179.0163
       objectReference: {fileID: 0}
+    - target: {fileID: 7904469674290998909, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
+      propertyPath: m_fontSize
+      value: 76.65
+      objectReference: {fileID: 0}
     - target: {fileID: 8499980178262440250, guid: 2b6f93bd081930146a0b5438ca98af73, type: 3}
       propertyPath: m_fontSize
       value: 119.46

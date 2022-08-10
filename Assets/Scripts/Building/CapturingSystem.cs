@@ -72,6 +72,8 @@ public class CapturingSystem
         CurrentTeam = team;
 
         TeamChanged?.Invoke(team);
-    }
 
+        if(team.TeamId == TeamId.First)
+        SoundHandler.Instance.PlayCapturingSound();
+    }
 }
