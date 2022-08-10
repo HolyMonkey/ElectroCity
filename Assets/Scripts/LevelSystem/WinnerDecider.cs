@@ -77,6 +77,7 @@ public class WinnerDecider : MonoBehaviour
         GameEnded?.Invoke();
         screen.SetActive(true);
 
-        _joyStickCanvas.Disable();
+        if(_joyStickCanvas != null)
+            _joyStickCanvas.Disable();
     }
 }

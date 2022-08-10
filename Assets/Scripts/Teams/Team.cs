@@ -62,10 +62,20 @@ public class Team : MonoBehaviour
     private void OnTeamLost(Team teamThatCapture)
     {
         Lost?.Invoke(this);
+
+        var handlers = FindObjectsOfType<RopeHandler>();
+
+        foreach (var handler in handlers)
+        {
+            if (handler.Team.TeamId == TeamId && handler.Team != this && handler.TryGetComponent(out Team team))
+                team.ChangeTeamData(teamThatCapture);
+
+        }
+
         ChangeTeamData(teamThatCapture);
     }
 
-    private void ChangeTeamData(Team teamThatCapture)
+    public void ChangeTeamData(Team teamThatCapture)
     {
         TeamId initialTeamId = _teamId;
         _color = teamThatCapture.Color;
