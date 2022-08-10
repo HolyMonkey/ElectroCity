@@ -411,7 +411,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 1
+  m_ObstacleAvoidanceType: 0
 --- !u!114 &380633567368318813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _color:
     serializedVersion: 2
-    rgba: 4280889599
+    rgba: 4282402815
   _teamId: 1
   _stickmanMesh: {fileID: 8475090883930013776}
 --- !u!114 &1887862549

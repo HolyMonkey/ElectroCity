@@ -21,6 +21,11 @@ public class PointsCounter : MonoBehaviour
         _building.CapturingSystem.PointsChanged += Slidering;
     }
 
+    private void Start()
+    {
+        Slidering(_building.CapturingSystem.TotalPoints);
+    }
+
     private void OnDisable()
     {
         _building.CapturingSystem.PointsChanged -= Slidering;
@@ -60,6 +65,9 @@ public class PointsCounter : MonoBehaviour
 
         if (_building.CapturingSystem.CurrentTeam.TeamId == TeamId.Third)
             v /= 1.3f;
+
+        if (_building.CapturingSystem.CurrentTeam.TeamId == TeamId.Second)
+            v /= 1.4f;
 
         Color colorRGB = Color.HSVToRGB(h, s, v);
         
