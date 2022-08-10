@@ -67,13 +67,13 @@ public class RopeHandler : MonoBehaviour
         //}
     }
 
-    public void BreakeEnemyRope(Rope rope)
+    public void BreakeEnemyRope(Rope rope, SetRopeTrigger setRopeTrigger)
     {
         rope.EndPoint.SetParent(_ropePoint);
         rope.StartPoint.localPosition = Vector3.zero;
         rope.EndPoint.localPosition = Vector3.zero;
         rope.Plug.SetHandRotation();
-        StartCoroutine(DelayBeforeBreaking(rope));
+        StartCoroutine(DelayBeforeBreaking(rope, setRopeTrigger));
     }
 
     public void PlaceRope(Transform setPoint, Quaternion refernceObjectRotation)
@@ -103,14 +103,15 @@ public class RopeHandler : MonoBehaviour
         _currentRope = null;
     }
 
-    private IEnumerator DelayBeforeBreaking(Rope rope)
+    private IEnumerator DelayBeforeBreaking(Rope rope, SetRopeTrigger setRopeTrigger)
     {
-        _hasRope = true;
         yield return new WaitForSeconds(0.2f);
 
         EnemyRopeBreaked?.Invoke();
         rope.Disconnect();
-        _hasRope = false;
+        rope.ObiRope.OnDisconect();
+        if (_currentRope !=null)
+            setRopeTrigger.ForceAttach(this);
     }
 
     private IEnumerator Delay(Rope rope)

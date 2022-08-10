@@ -29,6 +29,9 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (_building.CanGiveRope == false)
+            return;
+
         if(CanTake(other, out RopeHandler handler))
         {
             _currentRopeHandler = handler;
@@ -38,6 +41,9 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (_building.CanGiveRope == false)
+            return;
+
         if (other.TryGetComponent(out RopeHandler ropeHandler) && ropeHandler == _currentRopeHandler && _takingCoroutine != null)
         {
             StopTaking();

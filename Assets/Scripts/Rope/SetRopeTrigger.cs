@@ -39,7 +39,7 @@ public class SetRopeTrigger : MonoBehaviour
 
         if (other.TryGetComponent(out Player player) && IsFree == false && _currentRope.TeamId != TeamId.First)
         {
-            player.RopeHandler.BreakeEnemyRope(_currentRope);
+            player.RopeHandler.BreakeEnemyRope(_currentRope, this);
         }
     }
 
@@ -104,6 +104,9 @@ public class SetRopeTrigger : MonoBehaviour
 
     private void DeleteRope(Rope rope)
     {
+        if (_currentRope == null)
+            return;
+
         _currentRope.Torned -= DeleteRope;
         _currentRope.Disconnect(false);
         _building.OnRopeRemoved(_currentRope);
@@ -117,14 +120,21 @@ public class SetRopeTrigger : MonoBehaviour
         yield return new WaitForSeconds(delay);
 
         if (handler.CurrentRope!= null && IsFree)
-        {
-            _currentRope = handler.CurrentRope;
-            _currentRope.Torned += DeleteRope;
-            _team = handler.Team;
-            _building.AddSetedRope(handler.CurrentRope);
-            handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
-        }
+            ForceAttach(handler);
 
+        IsAttaching = false;
+    }
+
+    public void ForceAttach(RopeHandler handler)
+    {
+        if (handler.CurrentRope.Building == _building)
+            return;
+
+        _currentRope = handler.CurrentRope;
+        _currentRope.Torned += DeleteRope;
+        _team = handler.Team;
+        _building.AddSetedRope(handler.CurrentRope);
+        handler.PlaceRope(_connectPoint, _refrenceObject.transform.localRotation);
         IsAttaching = false;
     }
 
