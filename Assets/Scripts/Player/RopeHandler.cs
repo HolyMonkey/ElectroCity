@@ -105,10 +105,12 @@ public class RopeHandler : MonoBehaviour
 
     private IEnumerator DelayBeforeBreaking(Rope rope)
     {
+        _hasRope = true;
         yield return new WaitForSeconds(0.2f);
 
         EnemyRopeBreaked?.Invoke();
         rope.Disconnect();
+        _hasRope = false;
     }
 
     private IEnumerator Delay(Rope rope)

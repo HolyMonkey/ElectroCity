@@ -98,7 +98,7 @@ MonoBehaviour:
   thickness: 0
   material: {fileID: 0}
   filter: -65535
-  m_SourceCollider: {fileID: 0}
+  m_SourceCollider: {fileID: 6462752024840823734}
   m_DistanceField: {fileID: 0}
 --- !u!65 &6462752024840823734
 BoxCollider:
@@ -111,5 +111,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.423791, y: 1.9711988, z: 1.2375703}
-  m_Center: {x: 0, y: 0.366815, z: -3.9999998}
+  m_Size: {x: 5.423791, y: 4.9808054, z: 1.2375703}
+  m_Center: {x: 0, y: 1.8716183, z: -3.9999998}

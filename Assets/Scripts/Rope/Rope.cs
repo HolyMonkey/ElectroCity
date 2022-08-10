@@ -49,6 +49,11 @@ public class Rope : MonoBehaviour
             _obiRope.solver.OnCollision -= DetectCollision;
     }
 
+    private void Update()
+    {
+        _obiRope.stretchingScale = (_obiRope.CalculateLength() / _obiRope.restLength)/1.2f;
+    }
+
     private void DetectCollision(ObiSolver solver, ObiCollisionEventArgs e)
     {
         var world = ObiColliderWorld.GetInstance();

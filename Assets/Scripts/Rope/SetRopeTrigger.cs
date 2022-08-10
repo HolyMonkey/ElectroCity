@@ -104,7 +104,7 @@ public class SetRopeTrigger : MonoBehaviour
 
     private void DeleteRope(Rope rope)
     {
-        rope.Torned -= DeleteRope;
+        _currentRope.Torned -= DeleteRope;
         _currentRope.Disconnect(false);
         _building.OnRopeRemoved(_currentRope);
         _currentRope = null;
