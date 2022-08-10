@@ -110,7 +110,8 @@ public class RopeHandler : MonoBehaviour
         EnemyRopeBreaked?.Invoke();
         rope.Disconnect();
         rope.ObiRope.OnDisconect();
-        if (_currentRope !=null)
+
+        if (_currentRope != null && _currentRope.Building != setRopeTrigger.Building)
             setRopeTrigger.ForceAttach(this);
     }
 
