@@ -90,7 +90,7 @@ public class RopeInteractionHandler : MonoBehaviour
         if (IsBotGonaFail())
             distance = 0;
 
-        return distance < 15f;
+        return distance < 30f;
     }
 
 

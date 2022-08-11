@@ -9,6 +9,7 @@ public class BotAnimator : MonoBehaviour
 
     private const string Run = "Run";
     private const string RopeRun = "RopeRun";
+    private const string Idle = "Idle";
 
     public void TriggerRun()
     {
@@ -16,6 +17,12 @@ public class BotAnimator : MonoBehaviour
             _animator.SetTrigger(Run);
         else
             _animator.SetTrigger(RopeRun);
+    }
+
+    public void TriggerIdle()
+    {
+        ResetRun();
+        _animator.SetTrigger(Idle);
     }
 
     public void ResetRun()
