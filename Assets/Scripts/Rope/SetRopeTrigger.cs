@@ -41,7 +41,7 @@ public class SetRopeTrigger : MonoBehaviour
         {
             player.RopeHandler.BreakeEnemyRope(_currentRope, this);
         }
-        else if(other.TryGetComponent(out Player player1) && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First)
+        else if(other.TryGetComponent(out Player player1) && player1.RopeHandler.HasRope && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First)
         {
             StartCoroutine(StartingJumpingDown(player1));
         }
