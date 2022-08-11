@@ -2,6 +2,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Player))]
 
 public class PlayerMover : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class PlayerMover : MonoBehaviour
 
     private Rigidbody _rigidBody;
     private PlayerAnimator _animator;
+    private Player _player;
     private float _threshold = 0.01f;
     private const int LeftMouseButton = 0;
 
@@ -17,6 +19,7 @@ public class PlayerMover : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody>();
         _animator = GetComponent<PlayerAnimator>();
+        _player = GetComponent<Player>();
     }
 
     private void FixedUpdate()
@@ -33,6 +36,13 @@ public class PlayerMover : MonoBehaviour
         {
             Move(direction, _speed);
             Rotate(direction);
+
+            if (_player.RopeHandler.HasRope)
+            {
+                _animator.StartRunWithRope();
+                return;
+            }
+
             _animator.StartRunning();
         }
         else

@@ -13,6 +13,8 @@ public class PlayerAnimator : MonoBehaviour
     private const string Shock = "Shock";
     private const string Falling = "Falling";
     private const string Kick = "Kick";
+    private const string JumpDown = "JumpDown";
+    private const string RunWithRope = "RunWithRope";
 
     private void Awake()
     {
@@ -47,6 +49,16 @@ public class PlayerAnimator : MonoBehaviour
     public void StartKick()
     {
         TryChangeStateTo(Kick);
+    }
+
+    public void StartJumpingDown()
+    {
+        TryChangeStateTo(JumpDown);
+    }
+
+    public void StartRunWithRope()
+    {
+        TryChangeStateTo(RunWithRope);
     }
 
     private void TryChangeStateTo(string newState)
