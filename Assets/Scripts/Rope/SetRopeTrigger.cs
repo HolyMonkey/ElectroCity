@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -23,6 +24,8 @@ public class SetRopeTrigger : MonoBehaviour
     public TeamId TeamId => _building.TeamId;
     public Building Building => _building;
 
+    public event Action Attached;
+
     private void OnTriggerEnter(Collider other)
     {
         if (CanAttach(other, out RopeHandler handler))
@@ -41,7 +44,7 @@ public class SetRopeTrigger : MonoBehaviour
         {
             player.RopeHandler.BreakeEnemyRope(_currentRope, this);
         }
-        else if(other.TryGetComponent(out Player player1) && player1.RopeHandler.HasRope && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First)
+        else if(other.TryGetComponent(out Player player1) && player1.RopeHandler.HasRope && player1.RopeHandler.CurrentRope.Building != _building)
         {
             StartCoroutine(StartingJumpingDown(player1));
         }
@@ -72,7 +75,6 @@ public class SetRopeTrigger : MonoBehaviour
     {
         if (_currentRope == null)
             return;
-
 
         _takingCoroutine = StartCoroutine(TakingRope(handler));
         _currentRope.Plug.Raise();
@@ -119,8 +121,10 @@ public class SetRopeTrigger : MonoBehaviour
 
     private IEnumerator Attaching(float delay, RopeHandler handler)
     {
-
         IsAttaching = true;
+
+        Attached?.Invoke();
+
         yield return new WaitForSeconds(delay);
 
         if (handler.CurrentRope!= null && IsFree)

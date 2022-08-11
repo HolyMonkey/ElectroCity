@@ -23,12 +23,14 @@ public class Plug : MonoBehaviour
     {
         _meshRenderer.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
         transform.localRotation = Quaternion.identity * Quaternion.Euler(0f,180f, 0f);
+        transform.localScale = Vector3.one * 1.5f;
         _meshRenderer.transform.localPosition = Vector3.zero;
     }
 
     public void SetSocketRotatation()
     {
         _meshRenderer.transform.localRotation = Quaternion.Euler(0f, 90f, 0f);
+        transform.localScale = Vector3.one;
         _meshRenderer.transform.localPosition = Vector3.up*0.2f;
         _particleSystem.Play();
     }

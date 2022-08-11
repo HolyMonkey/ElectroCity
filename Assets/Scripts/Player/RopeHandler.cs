@@ -74,10 +74,6 @@ public class RopeHandler : MonoBehaviour
 
     public void BreakeEnemyRope(Rope rope, SetRopeTrigger setRopeTrigger)
     {
-        rope.EndPoint.SetParent(_ropePoint);
-        rope.StartPoint.localPosition = Vector3.zero;
-        rope.EndPoint.localPosition = Vector3.zero;
-        rope.Plug.SetHandRotation();
         StartCoroutine(DelayBeforeBreaking(rope, setRopeTrigger));
     }
 
@@ -121,6 +117,7 @@ public class RopeHandler : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
 
         EnemyRopeBreaked?.Invoke();
+        yield return new WaitForSeconds(0.5f);
         rope.Disconnect();
         rope.ObiRope.OnDisconect();
 
