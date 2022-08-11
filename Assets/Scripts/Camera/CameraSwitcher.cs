@@ -24,4 +24,9 @@ public class CameraSwitcher : MonoBehaviour
     {
         _topViewCamera.Priority = -1;
     }
+
+    public void ChangeBack()
+    {
+        _topViewCamera.Priority = 10;
+    }
 }

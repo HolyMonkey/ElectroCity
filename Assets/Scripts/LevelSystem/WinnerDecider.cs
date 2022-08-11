@@ -64,6 +64,11 @@ public class WinnerDecider : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         ShowScreen(_winScreen);
+
+        var switcher = FindObjectOfType<CameraSwitcher>();
+
+        if(switcher != null)
+        switcher.ChangeBack();
     }
 
     private IEnumerator DelayedLose(float delay)
