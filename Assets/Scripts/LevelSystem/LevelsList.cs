@@ -49,7 +49,7 @@ public class LevelsList : ScriptableObject
         {
             do
             {
-                index = Random.Range(0, _scenes.Length);
+                index = Random.Range(4, _scenes.Length);
             } while (index == counter);
         }
 
