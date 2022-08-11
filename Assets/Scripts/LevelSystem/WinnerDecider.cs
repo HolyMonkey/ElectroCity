@@ -67,6 +67,14 @@ public class WinnerDecider : MonoBehaviour
 
         var switcher = FindObjectOfType<CameraSwitcher>();
 
+        var bots = FindObjectsOfType<Bot>();
+
+        foreach (var bot in bots)
+        {
+            bot.DisableBihaviour();
+            bot.StartIdle();
+        }
+
         if(switcher != null)
         switcher.ChangeBack();
     }

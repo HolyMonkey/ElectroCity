@@ -51,9 +51,9 @@ public class Player : MonoBehaviour
     {
         _mover.Disable();
 
-        if (_ropeHandler.HasRope)
-            _animator.StartJumpingDown();
-        else
+        //if (_ropeHandler.HasRope)
+        //    _animator.StartJumpingDown();
+        //else
             _animator.StartKick();
 
         yield return new WaitForSeconds(0.5f);
