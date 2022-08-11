@@ -50,7 +50,11 @@ public class Player : MonoBehaviour
     private IEnumerator TearingRope()
     {
         _mover.Disable();
-        _animator.StartJumpingDown();
+
+        if (_ropeHandler.HasRope)
+            _animator.StartJumpingDown();
+        else
+            _animator.StartKick();
 
         yield return new WaitForSeconds(0.5f);
 
