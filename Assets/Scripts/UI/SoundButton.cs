@@ -9,7 +9,7 @@ public class SoundButton : MonoBehaviour
     [SerializeField] private Sprite _soundOnSprite;
     [SerializeField] private Sprite _soundOffSprite;
 
-    private AudioListener _listener;
+    [SerializeField] private AudioListener _listener;
     private bool _isSoundEnabled = true;
 
     private void Start()
@@ -33,6 +33,7 @@ public class SoundButton : MonoBehaviour
         _listener.enabled = false;
         _isSoundEnabled = false;
         _image.sprite = _soundOffSprite;
+        print(_listener.enabled);
     }
 
     private void EnableSound()
@@ -40,5 +41,6 @@ public class SoundButton : MonoBehaviour
         _listener.enabled = true;
         _isSoundEnabled = true;
         _image.sprite = _soundOnSprite;
+        print(_listener.enabled);
     }
 }

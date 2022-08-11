@@ -2691,7 +2691,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.2, y: 14, z: -0.8800001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2914,7 +2914,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 0.2, y: 14, z: -0.8800001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4722,6 +4722,10 @@ PrefabInstance:
     - target: {fileID: 512577283270140359, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 512577283775328009, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 512577283775328009, guid: 43cde8420374f6b428bea4552c7857df, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7187,11 +7191,12 @@ PrefabInstance:
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myAnimator":{"_value":4,"_name":"myAnimator","_id":"6af9020f-bcbb-4e91-a9bc-c3824f9f0239","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
         UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myRopeHandler":{"_value":5,"_name":"myRopeHandler","_id":"4901e7dd-dd45-4868-942a-ca0a4889670d","$type":"NodeCanvas.Framework.Variable`1[[RopeHandler,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myNavMeshAgent":{"_value":6,"_name":"myNavMeshAgent","_id":"9120de42-0854-466e-bb8e-bd40bcea7b23","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
-        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myBotAnimator":{"_value":7,"_name":"myBotAnimator","_id":"2e292d0c-fae5-4b86-9f68-153d5a3e45de","$type":"NodeCanvas.Framework.Variable`1[[BotAnimator,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.data[1]
@@ -7642,15 +7647,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 3.9563533e-17
+      value: -0.00000001456928
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 7.127171e-17
+      value: -0.0000000031274203
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.20987761
+      value: -0.2098776
       objectReference: {fileID: 0}
     - target: {fileID: 1880495861290320885, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: _speed

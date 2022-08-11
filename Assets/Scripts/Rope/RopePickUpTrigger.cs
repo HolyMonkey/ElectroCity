@@ -80,6 +80,9 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private void ResetTaking(Team team)
     {
+        if (_building.CanGiveRope == false)
+            return;
+
         StopTaking();
 
         var colliders = Physics.OverlapSphere(transform.position, GetComponent<SphereCollider>().radius*transform.localScale.y);
@@ -156,6 +159,6 @@ public class RopePickUpTrigger : MonoBehaviour
 
     private bool CanAttach(RopeHandler handler)
     {
-        return !handler.HasRope && !_isPickingUp && handler.Team.TeamId == _building.TeamId && IsThereFreeRope;
+        return !handler.HasRope && !_isPickingUp && handler.Team.TeamId == _building.TeamId && IsThereFreeRope && _building.CanGiveRope;
     }
 }
