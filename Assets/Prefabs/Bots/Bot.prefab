@@ -385,13 +385,15 @@ MonoBehaviour:
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myAnimator":{"_value":2,"_name":"myAnimator","_id":"6af9020f-bcbb-4e91-a9bc-c3824f9f0239","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
     UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myRopeHandler":{"_value":3,"_name":"myRopeHandler","_id":"4901e7dd-dd45-4868-942a-ca0a4889670d","$type":"NodeCanvas.Framework.Variable`1[[RopeHandler,
     Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myNavMeshAgent":{"_value":4,"_name":"myNavMeshAgent","_id":"9120de42-0854-466e-bb8e-bd40bcea7b23","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
-    UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+    UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myBotAnimator":{"_value":5,"_name":"myBotAnimator","_id":"2e292d0c-fae5-4b86-9f68-153d5a3e45de","$type":"NodeCanvas.Framework.Variable`1[[BotAnimator,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
   _objectReferences:
   - {fileID: 0}
   - {fileID: 1478492254}
   - {fileID: 8475090883925851792}
   - {fileID: 380633567368318813}
   - {fileID: 5238788594804519600}
+  - {fileID: 1887862549}
   _serializedVariables:
   - _json: '{"_propertyPath":"UnityEngine.Transform.gameObject","_name":"Self","_id":"3818cd48-a61a-4c1d-9e4f-715bda934613","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.GameObject,
       UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
@@ -420,6 +422,11 @@ MonoBehaviour:
     _references:
     - {fileID: 0}
     - {fileID: 5238788594804519600}
+  - _json: '{"_value":1,"_name":"myBotAnimator","_id":"2e292d0c-fae5-4b86-9f68-153d5a3e45de","$type":"NodeCanvas.Framework.Variable`1[[BotAnimator,
+      Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}'
+    _references:
+    - {fileID: 0}
+    - {fileID: 1887862549}
 --- !u!195 &5238788594804519600
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -517,6 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _animator: {fileID: 8475090883925851792}
+  _ropeHandler: {fileID: 380633567368318813}
 --- !u!114 &1441838576781636481
 MonoBehaviour:
   m_ObjectHideFlags: 0
