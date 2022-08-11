@@ -41,10 +41,9 @@ public class SetRopeTrigger : MonoBehaviour
         {
             player.RopeHandler.BreakeEnemyRope(_currentRope, this);
         }
-
-        if (other.TryGetComponent(out Player player1) && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First && player1.RopeHandler.HasRope)
+        else if(other.TryGetComponent(out Player player1) && player1.RopeHandler.HasRope && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First)
         {
-            StartCoroutine(StartJumpingDowm(player1));
+            StartCoroutine(StartingJumpingDown(player1));
         }
     }
 
@@ -148,10 +147,10 @@ public class SetRopeTrigger : MonoBehaviour
         return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.CurrentRope.Building != _building;
     }
 
-    private IEnumerator StartJumpingDowm(Player player)
+    private IEnumerator StartingJumpingDown(Player player)
     {
         player.Mover.Disable();
-        player.Animator.StartJumpDown();
+        player.Animator.StartJumpingDown();
 
         yield return new WaitForSeconds(1f);
 

@@ -97,6 +97,9 @@ public class RopeHandler : MonoBehaviour
 
             if(gameObject.GetComponent<Player>())
             {
+                //var player = GetComponent<Player>();
+                //player.Mover.Disable();
+                //player.Animator.StartJumpingDown();
                 SoundHandler.Instance.PlaySetSound();
             }
         }

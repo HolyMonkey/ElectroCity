@@ -21,7 +21,8 @@ public class Plug : MonoBehaviour
 
     public void SetHandRotation()
     {
-        _meshRenderer.transform.localRotation = Quaternion.Euler(0f, 90f, 90f);
+        _meshRenderer.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        transform.localRotation = Quaternion.identity * Quaternion.Euler(0f,180f, 0f);
         _meshRenderer.transform.localPosition = Vector3.zero;
     }
 
