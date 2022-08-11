@@ -115,6 +115,10 @@ PrefabInstance:
       value: SetRopeTriggerMain
       objectReference: {fileID: 0}
     - target: {fileID: 5227738167643833610, guid: 39f84ddbba14c25459a7c44d1bf6bad8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5227738167643833610, guid: 39f84ddbba14c25459a7c44d1bf6bad8, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
       objectReference: {fileID: 0}

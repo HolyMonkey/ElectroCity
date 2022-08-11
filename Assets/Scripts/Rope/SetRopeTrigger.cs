@@ -41,6 +41,11 @@ public class SetRopeTrigger : MonoBehaviour
         {
             player.RopeHandler.BreakeEnemyRope(_currentRope, this);
         }
+
+        if (other.TryGetComponent(out Player player1) && _building.CapturingSystem.CurrentTeam.TeamId != TeamId.First && player1.RopeHandler.HasRope)
+        {
+            StartCoroutine(StartJumpingDowm(player1));
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -141,5 +146,15 @@ public class SetRopeTrigger : MonoBehaviour
     public bool CanAttach(Collider other, out RopeHandler handler)
     {
         return other.TryGetComponent(out handler) && handler.HasRope && IsFree && handler.CurrentRope.Building != _building;
+    }
+
+    private IEnumerator StartJumpingDowm(Player player)
+    {
+        player.Mover.Disable();
+        player.Animator.StartJumpDown();
+
+        yield return new WaitForSeconds(1f);
+
+        player.Mover.Enable();
     }
 }

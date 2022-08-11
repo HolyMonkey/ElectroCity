@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _team: {fileID: 1478492254}
-  _ropePoint: {fileID: 8475090883918418262}
+  _ropePoint: {fileID: 8475090883918418302}
   _disableTearing: 0
 --- !u!65 &1478492251
 BoxCollider:
@@ -1126,9 +1126,9 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 400016, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
   m_PrefabInstance: {fileID: 8475090883918547952}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &8475090883918418262 stripped
+--- !u!4 &8475090883918418302 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 400038, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
+  m_CorrespondingSourceObject: {fileID: 400014, guid: fa7f36c71b9e8fa4798df3a931c2fd92, type: 3}
   m_PrefabInstance: {fileID: 8475090883918547952}
   m_PrefabAsset: {fileID: 0}
 --- !u!95 &8475090883925851792 stripped
