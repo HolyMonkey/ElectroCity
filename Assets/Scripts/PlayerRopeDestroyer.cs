@@ -3,6 +3,8 @@ using UnityEngine;
 
 public class PlayerRopeDestroyer : MonoBehaviour
 {
+    [SerializeField] private UITimer _uITimer;
+
     private Coroutine _coroutine;
 
     private void OnTriggerEnter(Collider other)
@@ -10,14 +12,18 @@ public class PlayerRopeDestroyer : MonoBehaviour
         if (other.TryGetComponent(out Player player) && player.RopeHandler.HasRope)
         {
            _coroutine = StartCoroutine(Interacting(player));
+            _uITimer.StartCount(1);
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent(out Player player) && player.RopeHandler.HasRope)
+        if (other.TryGetComponent(out Player player) )
         {
-            StopCoroutine(_coroutine);
+            if(player.RopeHandler.HasRope)
+                StopCoroutine(_coroutine);
+
+            _uITimer.StopCount();
         }
     }
 

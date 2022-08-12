@@ -83,10 +83,10 @@ public class Teams : MonoBehaviour
             _teams.Remove(team);
         }
 
-        
-
         if (_counter <= 1 || team.TeamId == TeamId.First)
         {
+            _teams.OrderByDescending(team => team.Points);
+
             _winnerDecider.EndGame(_teams[0]);
             _gameOver = true;
         }
@@ -98,17 +98,17 @@ public class Teams : MonoBehaviour
             return;
 
         var teamId = _buildings[0].TeamId;
-        bool isAllEqual = true;
 
         foreach (var building in _buildings)
         {
             if (building.TeamId != teamId)
             {
-                isAllEqual = false;
 
                 return;
             }
         }
+
+        _teams.OrderByDescending(team => team.Points);
 
         _winnerDecider.EndGame(_teams[0]);
         _gameOver = true;
