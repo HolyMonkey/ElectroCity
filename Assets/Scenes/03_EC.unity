@@ -2063,7 +2063,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: -0.98, y: 14, z: 0.48999977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -2163,7 +2163,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: -0.98, y: 14, z: 0.48999977}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -5541,11 +5541,12 @@ PrefabInstance:
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myAnimator":{"_value":4,"_name":"myAnimator","_id":"6af9020f-bcbb-4e91-a9bc-c3824f9f0239","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Animator,
         UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myRopeHandler":{"_value":5,"_name":"myRopeHandler","_id":"4901e7dd-dd45-4868-942a-ca0a4889670d","$type":"NodeCanvas.Framework.Variable`1[[RopeHandler,
         Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myNavMeshAgent":{"_value":6,"_name":"myNavMeshAgent","_id":"9120de42-0854-466e-bb8e-bd40bcea7b23","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.AI.NavMeshAgent,
-        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+        UnityEngine.AIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"myBotAnimator":{"_value":7,"_name":"myBotAnimator","_id":"2e292d0c-fae5-4b86-9f68-153d5a3e45de","$type":"NodeCanvas.Framework.Variable`1[[BotAnimator,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8111074946698562803, guid: 89486fea707ccbe4ea0596f85fa78b6a, type: 3}
       propertyPath: _objectReferences.Array.data[1]
@@ -5745,6 +5746,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 416087483}
     m_Modifications:
+    - target: {fileID: 1813159399877960807, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
+      propertyPath: _listener
+      value: 
+      objectReference: {fileID: 963194226}
     - target: {fileID: 2093907425860879439, guid: 2056c322d67628a4f98619cc198d65b4, type: 3}
       propertyPath: m_Pivot.x
       value: 0
