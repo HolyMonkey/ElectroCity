@@ -8,7 +8,6 @@ public class SoundButton : MonoBehaviour
     [SerializeField] private Image _image;
     [SerializeField] private Sprite _soundOnSprite;
     [SerializeField] private Sprite _soundOffSprite;
-    [SerializeField] private AudioListener _listener;
 
     private bool _isSoundEnabled = true;
 
@@ -16,7 +15,13 @@ public class SoundButton : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt(Sound) == 0)
+        if(PlayerPrefs.GetInt(Sound) == 0)
+        {
+            EnableSound();
+            return;
+        }
+
+        if (PlayerPrefs.GetInt(Sound) == 1)
         {
             DisableSound();
         }
@@ -28,14 +33,14 @@ public class SoundButton : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerPrefs.SetInt(Sound, GetResult());
+        PlayerPrefs.SetInt(Sound, GetSoundState());
     }
 
     public void OnButtonClick()
     {
         if (_isSoundEnabled)
         {
-           DisableSound();
+            DisableSound();
             return;
         }
 
@@ -44,20 +49,20 @@ public class SoundButton : MonoBehaviour
 
     private void DisableSound()
     {
-        _listener.enabled = false;
+        AudioListener.volume = 0;
         _isSoundEnabled = false;
         _image.sprite = _soundOffSprite;
     }
 
     private void EnableSound()
     {
-        _listener.enabled = true;
+        AudioListener.volume = 1;
         _isSoundEnabled = true;
         _image.sprite = _soundOnSprite;
     }
 
-    private int GetResult()
+    private int GetSoundState()
     {
-        return _isSoundEnabled ? 1 : 0;
+        return _isSoundEnabled ? 2 : 1;
     }
 }
