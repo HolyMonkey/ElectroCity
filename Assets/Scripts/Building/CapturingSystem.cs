@@ -60,7 +60,7 @@ public class CapturingSystem
 
     private void ChangePoints(int value)
     {
-        TotalPoints += value;
+        TotalPoints += value * 3;
 
         TotalPoints = Mathf.Clamp(TotalPoints, 0, _maxPoints);
 

@@ -1221,7 +1221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686307917672352017, guid: 205c702bf3cc4804b819d15e653a88de, type: 3}
       propertyPath: _enableDelay
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3686307917672352017, guid: 205c702bf3cc4804b819d15e653a88de, type: 3}
       propertyPath: _enableBehaviour
@@ -1465,7 +1465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3686307917672352017, guid: 205c702bf3cc4804b819d15e653a88de, type: 3}
       propertyPath: _enableDelay
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3686307917672352017, guid: 205c702bf3cc4804b819d15e653a88de, type: 3}
       propertyPath: _enableBehaviour
@@ -2650,7 +2650,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7019608, g: 0.80784315, b: 0.9843137, a: 0}
+  m_BackGroundColor: {r: 0.96470594, g: 0.96470594, b: 0.96470594, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -2868,7 +2868,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 976299844}
-  m_LocalRotation: {x: 0.37081033, y: -0.000000015979715, z: 0.000000006380304, w: 0.9287087}
+  m_LocalRotation: {x: 0.37081033, y: 0.000000015979715, z: -0.000000006380304, w: 0.9287087}
   m_LocalPosition: {x: 3.34, y: 14, z: -11.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -9337,15 +9337,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.000000014569279
+      value: 8.486149e-16
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.00000000312742
+      value: 3.728175e-16
       objectReference: {fileID: 0}
     - target: {fileID: 1135955632082117794, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.2098776
+      value: -0.20987761
       objectReference: {fileID: 0}
     - target: {fileID: 1880495861290320885, guid: ef7edb6bd60e85f40a9c33f4a344fa09, type: 3}
       propertyPath: _joystick
