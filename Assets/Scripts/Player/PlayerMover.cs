@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
-    [SerializeField] private FloatingJoystick _joystick;
+    [SerializeField] private FixedJoystick _joystick;
     [SerializeField] private float _speed;
 
     private Rigidbody _rigidBody;
