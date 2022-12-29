@@ -69,7 +69,12 @@ public class Rope : MonoBehaviour
                 ParticleInActor pa = solver.particleToActor[particleIndex];
 
                 if (pa.actor.TryGetComponent(out Rope rope))
-                    rope.Disconnect();
+                {
+                    _obiRope.Tear(_obiRope.elements[particleIndex]);
+                    _obiRope.RebuildConstraintsFromElements();
+                    _obiRope.solver.OnCollision -= DetectCollision;
+                    break;
+                }
             }
         }
     }
